@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <script>
+      (function redirectGitHubPagesRoute() {
+        const basePath = "/EALDesk-Elementary";
+        const currentPath = window.location.pathname.startsWith(basePath)
+          ? window.location.pathname.slice(basePath.length)
+          : window.location.pathname;
+        const redirectTarget =
+          currentPath + window.location.search + window.location.hash;
+
+        window.location.replace(
+          `${basePath}/?p=${encodeURIComponent(redirectTarget)}`,
+        );
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
