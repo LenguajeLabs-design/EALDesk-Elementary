@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "wouter";
 import {
   Rocket, Zap, Lightbulb, CheckCircle2, Users, QrCode, MessageSquare, FileText,
-  Globe2, BookOpen, ExternalLink, Clock, BookMarked, PencilLine, ArrowRight,
+  Globe2, BookOpen, ExternalLink, Clock, BookMarked, PencilLine, ArrowRight, Mail, Linkedin,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -261,6 +261,28 @@ export default function Home() {
             </CardContent>
           </Card>
 
+          <section className="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+              <div className="max-w-2xl">
+                <div className="text-xs font-extrabold uppercase tracking-wider text-cyan-700">About Lenguaje Labs</div>
+                <h2 className="mt-2 text-2xl font-extrabold text-blue-950">Practical tools for multilingual learner support</h2>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Lenguaje Labs builds classroom-ready planning tools for elementary teachers who need fast, usable language supports for reading workshop, writing workshop, translation decisions, and WIDA-aligned scaffolding.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <a href="mailto:LenguajeLabs@proton.me" className="inline-flex h-10 items-center rounded-md border border-blue-200 bg-blue-50 px-4 text-sm font-semibold text-blue-800 hover:bg-blue-100">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Email
+                </a>
+                <a href="https://www.linkedin.com/company/lenguaje-labs" target="_blank" rel="noreferrer" className="inline-flex h-10 items-center rounded-md border border-blue-200 bg-white px-4 text-sm font-semibold text-blue-800 hover:bg-blue-50">
+                  <Linkedin className="mr-2 h-4 w-4" />
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </section>
+
         </div>
 
         {/* Quick Panel */}
@@ -285,9 +307,16 @@ export default function Home() {
         </aside>
       </div>
 
-      <footer className="mt-12 py-8 text-xs text-slate-400 border-t border-slate-200 space-y-1">
-        <p>Contact: LenguajeLabs@proton.me</p>
+      <footer className="mt-12 py-8 text-xs text-slate-500 border-t border-slate-200 space-y-2">
+        <p>
+          Contact: <a href="mailto:LenguajeLabs@proton.me" className="font-semibold text-blue-700 hover:underline">LenguajeLabs@proton.me</a>
+          <span className="px-2 text-slate-300">|</span>
+          <a href="https://www.linkedin.com/company/lenguaje-labs" target="_blank" rel="noreferrer" className="font-semibold text-blue-700 hover:underline">LinkedIn</a>
+        </p>
         <p>Built around the WIDA framework to support multilingual learners in elementary reading and writing classrooms.</p>
+        <p>
+          WIDA is a registered trademark of the Board of Regents of the University of Wisconsin System. This site is an independent classroom planning resource and is not affiliated with, endorsed by, or sponsored by WIDA.
+        </p>
         <p>Version 1.0 &nbsp;|&nbsp; Updated May 2026</p>
       </footer>
     </div>

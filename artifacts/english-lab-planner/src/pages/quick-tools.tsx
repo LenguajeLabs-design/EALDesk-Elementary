@@ -17,6 +17,7 @@ export default function QuickTools() {
   
   const [selectedTask, setSelectedTask] = useState(initialTask);
   const [selectedLevel, setSelectedLevel] = useState<number>(1);
+  const quickToolLevels = WIDA_LEVELS.filter(level => level.level <= 4);
 
   const task = availableTools.find(t => t.id === selectedTask) || availableTools[0] || QUICK_TOOLS[0];
   const levelData = WIDA_LEVELS.find(l => l.level === selectedLevel) || WIDA_LEVELS[0];
@@ -60,7 +61,7 @@ export default function QuickTools() {
           <div className="space-y-3">
             <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">2. WIDA Level</h3>
             <div className="flex flex-col gap-2">
-              {WIDA_LEVELS.map(l => (
+              {quickToolLevels.map(l => (
                 <button
                   key={l.level}
                   onClick={() => setSelectedLevel(l.level)}

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "wouter";
-import { BookMarked, LibraryBig, MessagesSquare, ArrowRight, BarChart3, Globe2, ClipboardList } from "lucide-react";
+import { BookMarked, LibraryBig, MessagesSquare, ArrowRight, BarChart3, Globe2, ClipboardList, CheckCircle2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -28,6 +28,13 @@ const readerTasks = [
   },
 ];
 
+const gradeBands = ["K-2", "3-5"];
+
+const readerUnits = {
+  "K-2": ["Story Elements", "Informational Text", "Partner Reading"],
+  "3-5": ["Character & Theme", "Main Idea & Evidence", "Book Clubs"],
+};
+
 const sharedLinks = [
   { label: "WIDA Levels", href: "/wida-levels", icon: BarChart3 },
   { label: "Translation Tools", href: "/translations", icon: Globe2 },
@@ -35,6 +42,14 @@ const sharedLinks = [
 ];
 
 export default function ReadersWorkshop() {
+  const [gradeBand, setGradeBand] = useState<keyof typeof readerUnits>("K-2");
+  const [unit, setUnit] = useState(readerUnits["K-2"][0]);
+
+  const chooseGradeBand = (nextGradeBand: keyof typeof readerUnits) => {
+    setGradeBand(nextGradeBand);
+    setUnit(readerUnits[nextGradeBand][0]);
+  };
+
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div className="max-w-3xl">
@@ -50,9 +65,47 @@ export default function ReadersWorkshop() {
       </div>
 
       <section>
+        <div className="mb-5 grid gap-4 lg:grid-cols-[220px_1fr]">
+          <div>
+            <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">1. Choose Grade Band</h2>
+            <div className="mt-3 grid grid-cols-2 lg:grid-cols-1 gap-2">
+              {gradeBands.map(band => (
+                <button
+                  key={band}
+                  onClick={() => chooseGradeBand(band as keyof typeof readerUnits)}
+                  className={`rounded-lg border px-4 py-3 text-left text-sm font-semibold transition-colors ${
+                    gradeBand === band ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-slate-200 bg-white text-slate-700 hover:border-emerald-300"
+                  }`}
+                >
+                  Grades {band}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">2. Choose Unit</h2>
+            <div className="mt-3 grid md:grid-cols-3 gap-2">
+              {readerUnits[gradeBand].map(option => (
+                <button
+                  key={option}
+                  onClick={() => setUnit(option)}
+                  className={`rounded-lg border px-4 py-3 text-left text-sm font-semibold transition-colors ${
+                    unit === option ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-slate-200 bg-white text-slate-700 hover:border-emerald-300"
+                  }`}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500">
+          <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+          3. Choose Task
+        </div>
         <div className="grid md:grid-cols-3 gap-4">
           {readerTasks.map(({ title, text, href, icon: Icon, accent }) => (
-            <Link key={href} href={href}>
+            <Link key={href} href={`${href}&grade=${encodeURIComponent(gradeBand)}&unit=${encodeURIComponent(unit)}`}>
               <Card className="rounded-xl shadow-sm border-slate-200 hover:shadow-md transition-shadow bg-white cursor-pointer h-full">
                 <CardContent className="p-5 flex flex-col gap-4 h-full">
                   <Icon className={`h-10 w-10 ${accent}`} strokeWidth={1.8} />

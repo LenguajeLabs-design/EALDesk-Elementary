@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "wouter";
 import {
-  Home, Zap, BookOpen, BarChart3, ClipboardList, Globe2, Search, Sparkles, BookMarked, PencilLine,
+  Home, Zap, BookOpen, BarChart3, ClipboardList, Globe2, Search, BookMarked, PencilLine,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -18,10 +18,10 @@ const NAV_ITEMS = [
 
 export function TopBar() {
   return (
-    <header className="h-14 bg-gradient-to-r from-cyan-700 via-sky-700 to-blue-900 text-white flex items-center px-6 gap-4 shadow-sm flex-shrink-0">
-      <div className="h-9 w-9 rounded-xl bg-white/12 border border-white/15 grid place-items-center shadow-inner">
-        <Sparkles className="h-4.5 w-4.5" />
-      </div>
+    <header className="sticky top-0 z-50 h-14 bg-gradient-to-r from-cyan-700 via-sky-700 to-blue-900 text-white flex items-center px-6 gap-4 shadow-sm flex-shrink-0">
+      <Link href="/" className="relative h-9 w-9 rounded-xl bg-white/12 border border-white/15 grid place-items-center shadow-inner" aria-label="Lenguaje Labs home">
+        <span className="text-sm font-black tracking-tight">LL</span>
+      </Link>
       <div>
         <div className="text-sm font-semibold tracking-wide uppercase text-white/70">
           Lenguaje Labs
@@ -34,10 +34,12 @@ export function TopBar() {
           <span className="text-sm">Search supports, levels, and tools</span>
         </div>
       </div>
-      <div className="ml-auto hidden md:flex items-center gap-3 text-xs font-medium text-white/80">
-        <span className="rounded-full border border-white/20 px-3 py-1">
-          Teacher Resource
-        </span>
+      <div className="ml-auto hidden lg:flex items-center gap-1 text-xs font-medium text-white/85">
+        {NAV_ITEMS.slice(1, 6).map(({ href, label }) => (
+          <Link key={href} href={href} className="rounded-full px-3 py-1.5 hover:bg-white/12 transition-colors">
+            {label.replace("'s Workshop", "")}
+          </Link>
+        ))}
       </div>
     </header>
   );
