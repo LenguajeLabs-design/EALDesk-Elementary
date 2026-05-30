@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "wouter";
 import {
-  Home, Zap, BookOpen, BarChart3, ClipboardList, Globe2, Search, Sparkles, BookMarked, PencilLine, ChevronRight,
+  Home, Zap, BookOpen, BarChart3, ClipboardList, Globe2, Search, BookMarked, PencilLine, ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GRADE_BANDS, QUICK_TOOLS, WORKSHOP_UNITS } from "@/lib/data";
@@ -27,6 +27,8 @@ const PATH_LABELS: Record<string, string> = {
   "/assessments": "Assessments",
   "/translations": "Translations & Tools",
 };
+
+const LOGO_SRC = `${import.meta.env.BASE_URL}lenguaje-labs-logo.jpg`;
 
 function getCurrentSection(location: string) {
   return (
@@ -136,8 +138,12 @@ function StickyNav() {
 export function TopBar() {
   return (
     <header className="h-14 bg-gradient-to-r from-cyan-700 via-sky-700 to-blue-900 text-white flex items-center px-6 gap-4 shadow-sm flex-shrink-0">
-      <div className="h-9 w-9 rounded-xl bg-white/12 border border-white/15 grid place-items-center shadow-inner">
-        <Sparkles className="h-4.5 w-4.5" />
+      <div className="h-9 w-9 overflow-hidden rounded-xl border border-white/15 bg-slate-950 shadow-inner">
+        <img
+          src={LOGO_SRC}
+          alt="Lenguaje Labs logo"
+          className="h-full w-full object-cover"
+        />
       </div>
       <div>
         <div className="text-sm font-semibold tracking-wide uppercase text-white/70">
@@ -163,14 +169,11 @@ export function TopBar() {
 export function SiteHeader() {
   return (
     <div className="bg-white border-b border-slate-200 px-8 py-5 flex items-center justify-between flex-shrink-0">
-      <div className="flex items-center gap-5">
-        <div className="h-14 w-14 rounded-md bg-blue-950 text-white flex items-center justify-center text-2xl font-bold shadow-sm lg:hidden">ED</div>
-        <div>
-          <h1 className="text-2xl font-bold text-blue-950">EALDesk</h1>
-          <p className="text-slate-500 text-sm mt-0.5">
-            Practical language supports for multilingual learners
-          </p>
-        </div>
+      <div>
+        <h1 className="text-2xl font-bold text-blue-950">EALDesk</h1>
+        <p className="text-slate-500 text-sm mt-0.5">
+          Practical language supports for multilingual learners
+        </p>
       </div>
       <div className="hidden md:flex items-center gap-5 text-blue-800 text-sm font-medium">
         <span>Classroom-ready guidance</span>
@@ -184,9 +187,6 @@ export function SideBar() {
   const [location] = useLocation();
   return (
     <aside className="w-56 border-r border-slate-200 bg-white/90 hidden lg:flex flex-col flex-shrink-0">
-      <div className="p-6">
-        <div className="h-14 w-14 rounded-md bg-blue-950 text-white flex items-center justify-center text-2xl font-bold shadow-sm">ED</div>
-      </div>
       <nav className="px-3 space-y-0.5 flex-1">
         {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
           const isActive = location === href;
