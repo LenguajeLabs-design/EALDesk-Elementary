@@ -35,6 +35,24 @@ export const WIDA_LEVELS = [
       "Using more precise language to explain thinking, discuss texts, and write across genres. Students still benefit from scaffolds, especially for vocabulary, elaboration, and academic language.",
     badgeColor: "bg-indigo-100 text-indigo-800 border-indigo-200",
   },
+  {
+    level: 5,
+    name: "Bridging",
+    program: "Advanced Language Support",
+    periods: "Refined academic language for independent workshop work",
+    description:
+      "Using extended academic language with increasing independence. Students benefit from precision, genre-specific models, peer feedback, and targeted support for nuance.",
+    badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
+  },
+  {
+    level: 6,
+    name: "Reaching",
+    program: "Near-Proficient Extension",
+    periods: "Independent language use with strategic enrichment",
+    description:
+      "Using English flexibly across classroom contexts. Students are ready for enrichment, leadership in discussion, and refinement of style, voice, and discipline-specific language.",
+    badgeColor: "bg-slate-100 text-slate-800 border-slate-200",
+  },
 ];
 
 export const WRITING_STRATEGIES = {
@@ -68,6 +86,20 @@ export const WRITING_STRATEGIES = {
     "Provide language frames for citing text evidence and explaining thinking",
     "Encourage students to write longer independent pieces while still offering planning supports",
     "Use peer feedback protocols that focus on clarity, organization, and elaboration",
+  ],
+  5: [
+    "Refine paragraph and essay organization with genre-specific mentor examples",
+    "Prompt students to vary sentence structure, transitions, and evidence integration",
+    "Use peer review protocols that target clarity, precision, and audience",
+    "Support revision for tone, voice, and academic vocabulary choices",
+    "Invite students to explain why a craft move strengthens meaning",
+  ],
+  6: [
+    "Extend writing through independent goal-setting and self-assessment",
+    "Teach students to adapt style and register for audience, purpose, and genre",
+    "Use advanced revision conferences focused on nuance, cohesion, and impact",
+    "Encourage students to mentor peers with language, evidence, and organization",
+    "Offer enrichment tasks that connect workshop writing to authentic publication",
   ],
 };
 
@@ -103,6 +135,20 @@ export const SPEAKING_STRATEGIES = {
     "Support stronger academic vocabulary in conferences and group discussions",
     "Expect longer, clearer explanations while still scaffolding when needed",
   ],
+  5: [
+    "Facilitate discussion that asks students to compare interpretations and synthesize ideas",
+    "Prompt students to use precise academic language when agreeing, challenging, or extending",
+    "Ask students to cite text evidence fluently during partner and small-group talk",
+    "Support presentation language for sharing reading responses and writing decisions",
+    "Use peer-led conferences with clear roles and accountable talk expectations",
+  ],
+  6: [
+    "Invite students to lead discussions, summarize group thinking, and ask follow-up questions",
+    "Encourage flexible use of academic, conversational, and genre-specific language",
+    "Use debate, seminar, or critique routines to deepen interpretation and craft analysis",
+    "Prompt students to clarify nuance, qualify claims, and connect ideas across texts",
+    "Position students as language models while still monitoring equity of participation",
+  ],
 };
 
 export const VOCABULARY_SUPPORT = {
@@ -133,6 +179,20 @@ export const VOCABULARY_SUPPORT = {
     "Encourage students to revise writing for stronger word choice and clarity",
     "Use discussion and writing tasks that recycle target academic vocabulary",
   ],
+  5: [
+    "Teach shades of meaning, morphology, and word choice tied to author's craft",
+    "Ask students to select precise vocabulary for claims, evidence, and elaboration",
+    "Use mentor texts to compare how authors use domain and genre language",
+    "Support independent vocabulary notebooks with examples, nonexamples, and revisions",
+    "Encourage students to transfer new vocabulary into discussion and published writing",
+  ],
+  6: [
+    "Extend vocabulary through idioms, figurative language, register, and disciplinary terms",
+    "Ask students to justify word choices based on audience, purpose, and tone",
+    "Use independent reading and inquiry to build personal academic vocabulary goals",
+    "Encourage students to teach vocabulary strategies to peers during workshop routines",
+    "Refine vocabulary use through revision, presentation, and reflection",
+  ],
 };
 
 export const QUICK_TOOLS = [
@@ -146,6 +206,8 @@ export const QUICK_TOOLS = [
       2: ['"First ___, then ___."', '"The character ___."', '"This book is about ___."'],
       3: ['"At the beginning ___, then ___, and at the end ___."', '"The most important part was ___ because ___."'],
       4: ['"The text shows ___, then develops ___, and finally ___."', '"Overall, the text is mostly about ___ because ___."'],
+      5: ['"The author develops ___ by ___, which shows ___."', '"A concise summary would emphasize ___ because ___."'],
+      6: ['"The central idea is nuanced because ___."', '"I would synthesize the key events as ___, while noting ___."'],
     },
   },
   {
@@ -158,6 +220,8 @@ export const QUICK_TOOLS = [
       2: ['"My favorite part is ___."', '"I think ___ because ___."', '"This reminds me of ___."'],
       3: ['"I think the character ___ because ___."', '"I noticed ___, so I think ___."'],
       4: ['"I infer ___ because the author says ___."', '"My interpretation is ___, and the text supports this when ___."'],
+      5: ['"My interpretation shifts when I consider ___."', '"The evidence suggests ___, although ___."'],
+      6: ['"A more nuanced reading is ___ because ___."', '"This connects to ___ and complicates my thinking by ___."'],
     },
   },
   {
@@ -170,6 +234,8 @@ export const QUICK_TOOLS = [
       2: ['"I want to add ___."', '"I agree."', '"Can you show me ___?"'],
       3: ['"I agree with you because ___."', '"Can you tell me more about ___?"'],
       4: ['"I would like to build on your idea by saying ___."', '"Another example from the text is ___."'],
+      5: ['"I want to extend that by connecting it to ___."', '"Could we also consider ___ as evidence?"'],
+      6: ['"Let me synthesize our ideas: ___."', '"A counterpoint we should examine is ___."'],
     },
   },
   {
@@ -182,6 +248,8 @@ export const QUICK_TOOLS = [
       2: ['"I think ___ because ___."', '"First ___, then ___."', '"I learned ___."'],
       3: ['"My opinion is ___ because ___."', '"One important detail is ___."', '"At the end ___."'],
       4: ['"I believe ___ because ___."', '"This detail matters because ___."', '"The author teaches the reader ___ by ___."'],
+      5: ['"My claim is ___, and the strongest evidence is ___."', '"I revised ___ to make the idea more precise."'],
+      6: ['"I chose this structure because ___."', '"My language choices create ___ for the reader."'],
     },
   },
 ];
@@ -265,6 +333,8 @@ export const TRANSLATION_GUIDELINES = {
     2: "Use translation to unlock directions, key vocabulary, and discussion prompts. Support students in moving from home language planning into short English responses.",
     3: "Use translation strategically for abstract vocabulary and complex texts. Encourage students to attempt English first, then clarify when needed.",
     4: "Limit translation to targeted support for complex academic language. Students should rely mostly on English workshop routines and scaffolds.",
+    5: "Use translation rarely and strategically for nuance, idioms, or unfamiliar domain-specific language. Emphasize independent English use and revision.",
+    6: "Use translation as an enrichment and clarification tool, not a scaffold for routine participation. Focus on precise academic English and cross-linguistic awareness.",
   },
 };
 
@@ -351,6 +421,48 @@ export const ASSESSMENTS = {
       "Focus on interpretation, craft, organization, and evidence",
       "Assess students on workshop goals rather than grammar perfection alone",
       "Use scaffolded rubrics that separate language development from literacy understanding",
+    ],
+  },
+  5: {
+    general: [
+      "Use grade-level assessments with targeted support for nuance and dense prompts",
+      "Provide rubrics that clarify expectations for evidence, elaboration, and organization",
+      "Allow planning tools when the task has heavy language demands",
+      "Conference around precision, synthesis, and genre-specific language",
+      "Encourage students to self-assess language goals before submitting work",
+    ],
+    response: [
+      "Expect organized multi-sentence or paragraph responses",
+      "Prompt students to integrate evidence and explanation with increasing independence",
+      "Allow oral rehearsal for complex claims or presentations",
+      "Use revision opportunities to refine clarity and academic vocabulary",
+    ],
+    content: [
+      "Maintain grade-level complexity while clarifying ambiguous wording",
+      "Assess interpretation, synthesis, craft, and evidence use",
+      "Separate minor language errors from the literacy standard being measured",
+      "Use rubrics that reward precision, elaboration, and transfer",
+    ],
+  },
+  6: {
+    general: [
+      "Use grade-level assessments with enrichment options when appropriate",
+      "Expect independent use of rubrics, planning, and revision tools",
+      "Conference around sophistication, voice, audience, and purpose",
+      "Invite students to reflect on language choices and strategy transfer",
+      "Provide extension tasks that require synthesis across texts or genres",
+    ],
+    response: [
+      "Expect extended responses with clear organization and precise evidence",
+      "Encourage students to qualify claims and address complexity",
+      "Use presentation, seminar, or portfolio formats when they fit the standard",
+      "Ask students to revise for nuance, cohesion, and audience impact",
+    ],
+    content: [
+      "Maintain full grade-level expectations",
+      "Assess advanced interpretation, synthesis, craft analysis, and independent transfer",
+      "Distinguish language polishing from conceptual understanding",
+      "Use enrichment criteria for style, voice, and purposeful language choices",
     ],
   },
 };

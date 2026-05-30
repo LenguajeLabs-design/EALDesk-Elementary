@@ -37,6 +37,8 @@ const ACCENT_COLORS: Record<number, string> = {
   2: "border-l-4 border-amber-500",
   3: "border-l-4 border-teal-500",
   4: "border-l-4 border-indigo-500",
+  5: "border-l-4 border-blue-500",
+  6: "border-l-4 border-slate-500",
 };
 
 export default function WidaLevels() {
@@ -52,7 +54,7 @@ export default function WidaLevels() {
       </div>
 
       {/* Level Selector */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3">
         {WIDA_LEVELS.map(l => (
           <button
             key={l.level}
@@ -64,7 +66,7 @@ export default function WidaLevels() {
             }`}
           >
             <div className="font-bold text-lg text-foreground">WIDA {l.level}</div>
-            <div className={`text-xs font-medium mt-1 ${l.badgeColor.includes("amber") ? "text-amber-700" : l.badgeColor.includes("teal") ? "text-teal-700" : "text-indigo-700"}`}>
+            <div className={`text-xs font-medium mt-1 ${l.badgeColor.includes("amber") ? "text-amber-700" : l.badgeColor.includes("teal") ? "text-teal-700" : l.badgeColor.includes("blue") ? "text-blue-700" : l.badgeColor.includes("slate") ? "text-slate-700" : "text-indigo-700"}`}>
               {l.name}
             </div>
             <div className="text-xs text-muted-foreground mt-1">{l.program}</div>

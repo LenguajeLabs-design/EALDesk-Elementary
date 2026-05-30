@@ -57,6 +57,22 @@ const levels = [
     items: ["Use evidence-based responses", "Encourage craft language", "Promote academic discussion", "Support independent revision"],
     href: "/wida-levels",
   },
+  {
+    level: "WIDA 5 – Bridging",
+    subtitle: "Refining academic language",
+    bg: "bg-sky-50",
+    border: "border-sky-100",
+    items: ["Prompt synthesis", "Refine evidence and elaboration", "Support precise vocabulary", "Use peer-led conferences"],
+    href: "/wida-levels",
+  },
+  {
+    level: "WIDA 6 – Reaching",
+    subtitle: "Extending independent language",
+    bg: "bg-slate-50",
+    border: "border-slate-200",
+    items: ["Extend discussion leadership", "Refine voice and register", "Encourage independent transfer", "Offer enrichment tasks"],
+    href: "/wida-levels",
+  },
 ];
 
 const quickPanels = [
@@ -198,7 +214,7 @@ export default function Home() {
             <div className="flex items-center gap-2 text-blue-950 font-bold mb-4 text-sm">
               <Users className="h-4 w-4" /> SUPPORT BY WIDA LEVEL <span className="font-normal">(At a glance)</span>
             </div>
-            <div className="grid md:grid-cols-2 xl:grid-cols-4 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
               {levels.map((l, i) => (
                 <div key={l.level} className={`${l.bg} ${l.border} ${i < levels.length - 1 ? "border-r" : ""} p-5`}>
                   <h3 className="font-extrabold text-blue-950 text-xs leading-tight">{l.level}</h3>
