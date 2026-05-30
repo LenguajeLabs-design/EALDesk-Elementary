@@ -195,6 +195,38 @@ export const VOCABULARY_SUPPORT = {
   ],
 };
 
+export const GRADE_BANDS = [
+  { id: "K-2", label: "K-2" },
+  { id: "3-5", label: "3-5" },
+];
+
+export const WORKSHOP_UNITS = {
+  reader: {
+    "K-2": [
+      { id: "Story Elements", title: "Story Elements" },
+      { id: "Informational Text", title: "Informational Text" },
+      { id: "Partner Reading", title: "Partner Reading" },
+    ],
+    "3-5": [
+      { id: "Character & Theme", title: "Character & Theme" },
+      { id: "Main Idea & Evidence", title: "Main Idea & Evidence" },
+      { id: "Book Clubs", title: "Book Clubs" },
+    ],
+  },
+  writer: {
+    "K-2": [
+      { id: "Narrative Pictures", title: "Narrative Pictures" },
+      { id: "Opinion Writing", title: "Opinion Writing" },
+      { id: "Information Books", title: "Information Books" },
+    ],
+    "3-5": [
+      { id: "Personal Narrative", title: "Personal Narrative" },
+      { id: "Opinion & Evidence", title: "Opinion & Evidence" },
+      { id: "Informational Reports", title: "Informational Reports" },
+    ],
+  },
+};
+
 export const QUICK_TOOLS = [
   {
     id: "retelling",

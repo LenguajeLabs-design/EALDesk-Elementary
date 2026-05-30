@@ -57,22 +57,6 @@ const levels = [
     items: ["Use evidence-based responses", "Encourage craft language", "Promote academic discussion", "Support independent revision"],
     href: "/wida-levels",
   },
-  {
-    level: "WIDA 5 – Bridging",
-    subtitle: "Refining academic language",
-    bg: "bg-sky-50",
-    border: "border-sky-100",
-    items: ["Prompt synthesis", "Refine evidence and elaboration", "Support precise vocabulary", "Use peer-led conferences"],
-    href: "/wida-levels",
-  },
-  {
-    level: "WIDA 6 – Reaching",
-    subtitle: "Extending independent language",
-    bg: "bg-slate-50",
-    border: "border-slate-200",
-    items: ["Extend discussion leadership", "Refine voice and register", "Encourage independent transfer", "Offer enrichment tasks"],
-    href: "/wida-levels",
-  },
 ];
 
 const quickPanels = [
@@ -214,7 +198,7 @@ export default function Home() {
             <div className="flex items-center gap-2 text-blue-950 font-bold mb-4 text-sm">
               <Users className="h-4 w-4" /> SUPPORT BY WIDA LEVEL <span className="font-normal">(At a glance)</span>
             </div>
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
               {levels.map((l, i) => (
                 <div key={l.level} className={`${l.bg} ${l.border} ${i < levels.length - 1 ? "border-r" : ""} p-5`}>
                   <h3 className="font-extrabold text-blue-950 text-xs leading-tight">{l.level}</h3>
@@ -261,28 +245,6 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <section className="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-              <div className="max-w-2xl">
-                <div className="text-xs font-extrabold uppercase tracking-wider text-cyan-700">About Lenguaje Labs</div>
-                <h2 className="mt-2 text-2xl font-extrabold text-blue-950">Practical tools for multilingual learner support</h2>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  Lenguaje Labs builds classroom-ready planning tools for elementary teachers who need fast, usable language supports for reading workshop, writing workshop, translation decisions, and WIDA-aligned scaffolding.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <a href="mailto:LenguajeLabs@proton.me" className="inline-flex h-10 items-center rounded-md border border-blue-200 bg-blue-50 px-4 text-sm font-semibold text-blue-800 hover:bg-blue-100">
-                  <Mail className="mr-2 h-4 w-4" />
-                  Email
-                </a>
-                <a href="https://www.linkedin.com/company/lenguaje-labs" target="_blank" rel="noreferrer" className="inline-flex h-10 items-center rounded-md border border-blue-200 bg-white px-4 text-sm font-semibold text-blue-800 hover:bg-blue-50">
-                  <Linkedin className="mr-2 h-4 w-4" />
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-          </section>
-
         </div>
 
         {/* Quick Panel */}
@@ -307,15 +269,94 @@ export default function Home() {
         </aside>
       </div>
 
-      <footer className="mt-12 py-8 text-xs text-slate-500 border-t border-slate-200 space-y-2">
+      <section className="mt-12">
+        <Card className="rounded-2xl border-slate-200 bg-white shadow-sm overflow-hidden">
+          <CardContent className="p-0">
+            <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
+              <div className="p-8 md:p-10 border-b lg:border-b-0 lg:border-r border-slate-200">
+                <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200 px-3 py-1 text-blue-800 text-xs font-bold">
+                  About Lenguaje Labs
+                </div>
+                <div className="mt-6 flex flex-col md:flex-row gap-6 md:items-center">
+                  <div className="w-28 h-28 rounded-3xl overflow-hidden bg-slate-950 shadow-lg shrink-0 border border-slate-800">
+                    <img
+                      src={`${import.meta.env.BASE_URL}lenguaje-labs-logo.jpg`}
+                      alt="Lenguaje Labs logo"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-blue-950">
+                      Building thoughtful language tools for real classrooms
+                    </h2>
+                    <p className="text-slate-600 leading-relaxed mt-4 max-w-2xl">
+                      Lenguaje Labs was created at the intersection of language teaching and emerging technology.
+                      We build tools that make learning more accessible and more practical for educators, students,
+                      and families across different contexts and communities.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="p-8 md:p-10 bg-slate-50/70">
+                <h3 className="text-lg font-bold text-blue-950">Connect</h3>
+                <div className="mt-5 space-y-3">
+                  <a
+                    href="mailto:lenguajelabs@proton.me"
+                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 hover:border-blue-200 hover:bg-blue-50/50 transition-colors"
+                  >
+                    <Mail className="h-4 w-4 text-blue-700" />
+                    <span className="text-sm font-medium">lenguajelabs@proton.me</span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/federico-orozco-687b5431"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 hover:border-blue-200 hover:bg-blue-50/50 transition-colors"
+                  >
+                    <Linkedin className="h-4 w-4 text-blue-700" />
+                    <span className="text-sm font-medium">LinkedIn profile</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <footer className="mt-12 py-8 text-xs text-slate-400 border-t border-slate-200 space-y-1">
         <p>
-          Contact: <a href="mailto:LenguajeLabs@proton.me" className="font-semibold text-blue-700 hover:underline">LenguajeLabs@proton.me</a>
-          <span className="px-2 text-slate-300">|</span>
-          <a href="https://www.linkedin.com/company/lenguaje-labs" target="_blank" rel="noreferrer" className="font-semibold text-blue-700 hover:underline">LinkedIn</a>
+          Contact:{" "}
+          <a className="text-blue-700 hover:underline" href="mailto:lenguajelabs@proton.me">
+            lenguajelabs@proton.me
+          </a>
         </p>
-        <p>Built around the WIDA framework to support multilingual learners in elementary reading and writing classrooms.</p>
         <p>
-          WIDA is a registered trademark of the Board of Regents of the University of Wisconsin System. This site is an independent classroom planning resource and is not affiliated with, endorsed by, or sponsored by WIDA.
+          LinkedIn:{" "}
+          <a
+            className="text-blue-700 hover:underline"
+            href="https://www.linkedin.com/in/federico-orozco-687b5431"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Federico Orozco
+          </a>
+        </p>
+        <p>
+          This educator-created tool references and adapts concepts from the WIDA English Language Development Standards Framework.
+        </p>
+        <p>
+          WIDA English Language Development Standards Framework, Copyright 2020 Board of Regents of the University of Wisconsin System.{" "}
+          <a
+            className="text-blue-700 hover:underline"
+            href="https://wida.wisc.edu"
+            target="_blank"
+            rel="noreferrer"
+          >
+            wida.wisc.edu
+          </a>
+        </p>
+        <p>
+          This tool is not affiliated with, reviewed by, sponsored by, or endorsed by WIDA.
         </p>
         <p>Version 1.0 &nbsp;|&nbsp; Updated May 2026</p>
       </footer>
