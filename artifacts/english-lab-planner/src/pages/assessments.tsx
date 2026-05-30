@@ -15,6 +15,8 @@ const HEADER_COLORS: Record<number, string> = {
   2: "bg-amber-50 border-amber-200",
   3: "bg-teal-50 border-teal-200",
   4: "bg-indigo-50 border-indigo-200",
+  5: "bg-blue-50 border-blue-200",
+  6: "bg-slate-50 border-slate-200",
 };
 
 export default function Assessments() {
