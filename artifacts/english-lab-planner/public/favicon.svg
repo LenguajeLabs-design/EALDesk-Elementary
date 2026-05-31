@@ -1,3 +1,17 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+<rect width="180" height="180" rx="36" fill="#020617"/>
+<path d="M57 35C72 35 83 46 83 62V103C83 117 92 126 106 126H131C139 126 145 132 145 140C145 148 139 154 131 154H104C74 154 55 135 55 105V62C55 52 49 46 40 46H35V35H57Z" fill="url(#mark)"/>
+<path d="M63 130C87 143 112 143 139 130" stroke="url(#wave)" stroke-width="13" stroke-linecap="round"/>
+<path d="M125 40L131 57L148 63L131 69L125 86L119 69L102 63L119 57L125 40Z" fill="#A5F3FC"/>
+<defs>
+  <linearGradient id="mark" x1="47" y1="39" x2="132" y2="153" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#A5F3FC"/>
+    <stop offset="0.48" stop-color="#38BDF8"/>
+    <stop offset="1" stop-color="#A78BFA"/>
+  </linearGradient>
+  <linearGradient id="wave" x1="63" y1="130" x2="139" y2="130" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#0EA5E9"/>
+    <stop offset="1" stop-color="#C4B5FD"/>
+  </linearGradient>
+</defs>
 </svg>
