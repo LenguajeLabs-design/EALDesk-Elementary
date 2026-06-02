@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "wouter";
 import {
-  Home, Zap, BookOpen, BarChart3, ClipboardList, Globe2, Search, BookMarked, PencilLine, ChevronRight,
+  Home, Zap, BookOpen, BarChart3, ClipboardList, Globe2, Search, BookMarked, PencilLine, ChevronRight, ExternalLink,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GRADE_BANDS, QUICK_TOOLS, WORKSHOP_UNITS } from "@/lib/data";
@@ -222,6 +222,17 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <main className="flex-1 overflow-y-auto px-5 md:px-10 xl:px-14 py-2 pb-16">
           <div className="max-w-7xl mx-auto">
             {children}
+            <footer className="mt-12 border-t border-slate-200 py-8 text-center text-sm text-slate-500">
+              <a
+                href="https://lenguajelabs-design.github.io/lenguaje-labs-site/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 font-medium text-blue-900 transition-colors hover:border-blue-200 hover:bg-blue-50"
+              >
+                Visit the main Lenguaje Labs site
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </footer>
           </div>
         </main>
       </div>
