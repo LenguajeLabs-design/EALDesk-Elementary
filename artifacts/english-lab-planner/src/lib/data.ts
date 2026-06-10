@@ -201,6 +201,7 @@ export const GRADE_BANDS = [
 ];
 
 export type GradeBandId = (typeof GRADE_BANDS)[number]["id"];
+export type GradeId = "K" | "1" | "2" | "3" | "4" | "5";
 export type WorkshopId = "reader" | "writer";
 export type WorkshopUnit = {
   id: string;
@@ -208,146 +209,184 @@ export type WorkshopUnit = {
 };
 
 export type YearlyOverviewUnit = WorkshopUnit & {
+  grade: GradeId;
   window: string;
   focus: string;
   standards: string[];
   standardsPlaceholder: string;
 };
 
-export const WORKSHOP_UNITS: Record<WorkshopId, Record<GradeBandId, WorkshopUnit[]>> = {
+export const GRADES_BY_BAND: Record<GradeBandId, GradeId[]> = {
+  "K-2": ["K", "1", "2"],
+  "3-5": ["3", "4", "5"],
+};
+
+export const WORKSHOP_UNITS: Record<WorkshopId, Record<GradeId, WorkshopUnit[]>> = {
   reader: {
-    "K-2": [
-      { id: "Story Elements", title: "Story Elements" },
-      { id: "Informational Text", title: "Informational Text" },
-      { id: "Partner Reading", title: "Partner Reading" },
+    K: [
+      { id: "We Are Readers", title: "We Are Readers" },
+      { id: "Sharing Reading", title: "Sharing Reading" },
+      { id: "Super Powers: Reading with Phonics and Sight Word Power", title: "Super Powers: Reading with Phonics and Sight Word Power" },
+      { id: "Boosting Reading Power", title: "Boosting Reading Power" },
+      { id: "Becoming Avid Readers", title: "Becoming Avid Readers" },
     ],
-    "3-5": [
-      { id: "Character & Theme", title: "Character & Theme" },
-      { id: "Main Idea & Evidence", title: "Main Idea & Evidence" },
-      { id: "Book Clubs", title: "Book Clubs" },
+    "1": [
+      { id: "Building Good Reading Habits", title: "Building Good Reading Habits" },
+      { id: "Word Detectives", title: "Word Detectives" },
+      { id: "Learning about the World", title: "Learning about the World" },
+      { id: "Readers Have Big Jobs to Do", title: "Readers Have Big Jobs to Do" },
+      { id: "Becoming Avid Readers", title: "Becoming Avid Readers" },
+    ],
+    "2": [
+      { id: "Becoming a Big Kid Reader", title: "Becoming a Big Kid Reader" },
+      { id: "Becoming Experts", title: "Becoming Experts" },
+      { id: "Tackling Longer Words and Longer Books", title: "Tackling Longer Words and Longer Books" },
+      { id: "Stepping into the World of the Story", title: "Stepping into the World of the Story" },
+      { id: "Growing Knowledge Together", title: "Growing Knowledge Together" },
+    ],
+    "3": [
+      { id: "Reading Series Fiction", title: "Reading Series Fiction" },
+      { id: "Reading Nonfiction Text Sets: Plants and Their Adaptations", title: "Reading Nonfiction Text Sets: Plants and Their Adaptations" },
+      { id: "The Elements of Story", title: "The Elements of Story" },
+      { id: "Animal Research Groups", title: "Animal Research Groups" },
+      { id: "Mystery Reading", title: "Mystery Reading" },
+    ],
+    "4": [
+      { id: "Close Reading of Fiction: Character and Theme", title: "Close Reading of Fiction: Character and Theme" },
+      { id: "Digging into Nonfiction: Rocks and Volcanoes", title: "Digging into Nonfiction: Rocks and Volcanoes" },
+      { id: "Drama-Ready Reading: Bringing Characters to Life", title: "Drama-Ready Reading: Bringing Characters to Life" },
+      { id: "Life Stories: Reading Biographies to Inspire and Instruct", title: "Life Stories: Reading Biographies to Inspire and Instruct" },
+      { id: "Historical Fiction", title: "Historical Fiction" },
+    ],
+    "5": [
+      { id: "Reading Interpretively with Partners and Clubs", title: "Reading Interpretively with Partners and Clubs" },
+      { id: "Researching the Universe", title: "Researching the Universe" },
+      { id: "Reading About Debatable Topics", title: "Reading About Debatable Topics" },
+      { id: "Fantasy Book Clubs", title: "Fantasy Book Clubs" },
+      { id: "Media Literacy Skills", title: "Media Literacy Skills" },
     ],
   },
   writer: {
-    "K-2": [
-      { id: "Narrative Pictures", title: "Narrative Pictures" },
-      { id: "Opinion Writing", title: "Opinion Writing" },
-      { id: "Information Books", title: "Information Books" },
+    K: [
+      { id: "Launching the Writing Workshop", title: "Launching the Writing Workshop" },
+      { id: "Show and Tell Writing", title: "Show and Tell Writing" },
+      { id: "Writing for Readers: Writing Readable True Stories", title: "Writing for Readers: Writing Readable True Stories" },
+      { id: "Persuasive Writing of All Kinds: Using Words to Make a Change", title: "Persuasive Writing of All Kinds: Using Words to Make a Change" },
     ],
-    "3-5": [
-      { id: "Personal Narrative", title: "Personal Narrative" },
-      { id: "Opinion & Evidence", title: "Opinion & Evidence" },
-      { id: "Informational Reports", title: "Informational Reports" },
+    "1": [
+      { id: "Small Moments", title: "Small Moments" },
+      { id: "Topic Books", title: "Topic Books" },
+      { id: "Writing Reviews", title: "Writing Reviews" },
+      { id: "From Scenes to Series: Writing Fiction", title: "From Scenes to Series: Writing Fiction" },
+    ],
+    "2": [
+      { id: "Making Small Moments Big", title: "Making Small Moments Big" },
+      { id: "Chapter Books: Writing Nonfiction from the Heart", title: "Chapter Books: Writing Nonfiction from the Heart" },
+      { id: "Finding Awesome Everywhere: Celebrating through Opinion Writing", title: "Finding Awesome Everywhere: Celebrating through Opinion Writing" },
+      { id: "Writing Research-Based Nonfiction", title: "Writing Research-Based Nonfiction" },
+    ],
+    "3": [
+      { id: "The Art of Information Writing", title: "The Art of Information Writing" },
+      { id: "Changing the World", title: "Changing the World" },
+      { id: "Structuring Episodes: Writing Series Fiction", title: "Structuring Episodes: Writing Series Fiction" },
+      { id: "An Introduction to Literary Essays", title: "An Introduction to Literary Essays" },
+    ],
+    "4": [
+      { id: "Spinning True Stories into Gold", title: "Spinning True Stories into Gold" },
+      { id: "Boxes and Bullets: Writing Essays and Arguments", title: "Boxes and Bullets: Writing Essays and Arguments" },
+      { id: "Literary Essay: Writing About Fiction", title: "Literary Essay: Writing About Fiction" },
+      { id: "Discipline-Based Writing", title: "Discipline-Based Writing" },
+    ],
+    "5": [
+      { id: "Turning Life into Literature", title: "Turning Life into Literature" },
+      { id: "Literary Essay: Opening Texts and Seeing More", title: "Literary Essay: Opening Texts and Seeing More" },
+      { id: "Research-Based Argument", title: "Research-Based Argument" },
+      { id: "Journalism: Researching and Writing Articles", title: "Journalism: Researching and Writing Articles" },
     ],
   },
 };
 
-export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeBandId, YearlyOverviewUnit[]>> = {
+export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverviewUnit[]>> = {
   reader: {
-    "K-2": [
-      {
-        id: "Story Elements",
-        title: "Story Elements",
-        window: "Launch",
-        focus: "Build routines for retelling, character talk, and identifying key story parts.",
-        standards: [],
-        standardsPlaceholder: "Add foundational literature and speaking-listening standards for this unit.",
-      },
-      {
-        id: "Informational Text",
-        title: "Informational Text",
-        window: "Middle of Year",
-        focus: "Support students with key details, vocabulary, and topic-based comprehension work.",
-        standards: [],
-        standardsPlaceholder: "Add informational reading and language standards for this unit.",
-      },
-      {
-        id: "Partner Reading",
-        title: "Partner Reading",
-        window: "End of Year",
-        focus: "Strengthen collaborative talk, fluency routines, and independent comprehension habits.",
-        standards: [],
-        standardsPlaceholder: "Add collaboration, fluency, and response standards for this unit.",
-      },
+    K: [
+      { grade: "K", id: "We Are Readers", title: "We Are Readers", window: "Start of Year", focus: "Launch reading workshop routines and early reading identity work.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "K", id: "Sharing Reading", title: "Sharing Reading", window: "Early Year", focus: "Build shared reading habits, oral language, and text participation routines.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "K", id: "Super Powers: Reading with Phonics and Sight Word Power", title: "Super Powers: Reading with Phonics and Sight Word Power", window: "Middle of Year", focus: "Strengthen decoding, sight word use, and strategic early reading behaviors.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "K", id: "Boosting Reading Power", title: "Boosting Reading Power", window: "Later Year", focus: "Grow stamina, monitoring, and flexible problem-solving while reading.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "K", id: "Becoming Avid Readers", title: "Becoming Avid Readers", window: "End of Year", focus: "Support independence, volume, and joyful reading habits at the close of the year.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
     ],
-    "3-5": [
-      {
-        id: "Character & Theme",
-        title: "Character & Theme",
-        window: "Launch",
-        focus: "Anchor literature discussion in character change, motivation, and emerging themes.",
-        standards: [],
-        standardsPlaceholder: "Add literature analysis and discussion standards for this unit.",
-      },
-      {
-        id: "Main Idea & Evidence",
-        title: "Main Idea & Evidence",
-        window: "Middle of Year",
-        focus: "Build note-taking, citing evidence, and summarizing across informational texts.",
-        standards: [],
-        standardsPlaceholder: "Add informational reading and evidence standards for this unit.",
-      },
-      {
-        id: "Book Clubs",
-        title: "Book Clubs",
-        window: "End of Year",
-        focus: "Prepare students for sustained discussion, interpretation, and text-based responses.",
-        standards: [],
-        standardsPlaceholder: "Add collaborative conversation and response standards for this unit.",
-      },
+    "1": [
+      { grade: "1", id: "Building Good Reading Habits", title: "Building Good Reading Habits", window: "Start of Year", focus: "Establish independence, stamina, and foundational workshop habits.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "1", id: "Word Detectives", title: "Word Detectives", window: "Early Year", focus: "Build word-solving strategies and confidence when tackling unfamiliar words.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "1", id: "Learning about the World", title: "Learning about the World", window: "Middle of Year", focus: "Use informational reading to grow knowledge and topic vocabulary.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "1", id: "Readers Have Big Jobs to Do", title: "Readers Have Big Jobs to Do", window: "Later Year", focus: "Deepen comprehension talk and strategic thinking in independent reading.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "1", id: "Becoming Avid Readers", title: "Becoming Avid Readers", window: "End of Year", focus: "Close the year by strengthening reading identity, volume, and independence.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+    ],
+    "2": [
+      { grade: "2", id: "Becoming a Big Kid Reader", title: "Becoming a Big Kid Reader", window: "Start of Year", focus: "Launch second-grade reading workshop with independence and stamina.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "2", id: "Becoming Experts", title: "Becoming Experts", window: "Early Year", focus: "Grow informational reading routines and topic expertise.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "2", id: "Tackling Longer Words and Longer Books", title: "Tackling Longer Words and Longer Books", window: "Middle of Year", focus: "Increase fluency and problem-solving for more complex texts.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "2", id: "Stepping into the World of the Story", title: "Stepping into the World of the Story", window: "Later Year", focus: "Support deeper story comprehension, empathy, and interpretation.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "2", id: "Growing Knowledge Together", title: "Growing Knowledge Together", window: "End of Year", focus: "Use shared inquiry and text sets to build knowledge collaboratively.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+    ],
+    "3": [
+      { grade: "3", id: "Reading Series Fiction", title: "Reading Series Fiction", window: "Start of Year", focus: "Launch third-grade reading workshop through character, series, and habits of fiction reading.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "3", id: "Reading Nonfiction Text Sets: Plants and Their Adaptations", title: "Reading Nonfiction Text Sets: Plants and Their Adaptations", window: "Early Year", focus: "Build knowledge from text sets while practicing informational reading strategies.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "3", id: "The Elements of Story", title: "The Elements of Story", window: "Middle of Year", focus: "Study plot, character, and story structure with stronger analytical talk.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "3", id: "Animal Research Groups", title: "Animal Research Groups", window: "Later Year", focus: "Use research groups and nonfiction texts to build understanding and discussion.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "3", id: "Mystery Reading", title: "Mystery Reading", window: "End of Year", focus: "Apply inference and evidence work through genre study in mystery texts.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+    ],
+    "4": [
+      { grade: "4", id: "Close Reading of Fiction: Character and Theme", title: "Close Reading of Fiction: Character and Theme", window: "Start of Year", focus: "Launch close reading work centered on character change and theme.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "4", id: "Digging into Nonfiction: Rocks and Volcanoes", title: "Digging into Nonfiction: Rocks and Volcanoes", window: "Early Year", focus: "Use content-rich nonfiction to strengthen knowledge building and evidence work.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "4", id: "Drama-Ready Reading: Bringing Characters to Life", title: "Drama-Ready Reading: Bringing Characters to Life", window: "Middle of Year", focus: "Deepen character interpretation through expressive, performance-oriented reading.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "4", id: "Life Stories: Reading Biographies to Inspire and Instruct", title: "Life Stories: Reading Biographies to Inspire and Instruct", window: "Later Year", focus: "Study biography as a genre for knowledge, inspiration, and interpretation.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "4", id: "Historical Fiction", title: "Historical Fiction", window: "End of Year", focus: "Support genre study through context, interpretation, and historical understanding.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+    ],
+    "5": [
+      { grade: "5", id: "Reading Interpretively with Partners and Clubs", title: "Reading Interpretively with Partners and Clubs", window: "Start of Year", focus: "Launch interpretive reading and collaborative discussion in clubs and partnerships.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "5", id: "Researching the Universe", title: "Researching the Universe", window: "Early Year", focus: "Read across sources to build knowledge and synthesize information.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "5", id: "Reading About Debatable Topics", title: "Reading About Debatable Topics", window: "Middle of Year", focus: "Study argument, perspective, and evidence across complex texts.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "5", id: "Fantasy Book Clubs", title: "Fantasy Book Clubs", window: "Later Year", focus: "Support interpretation, symbolism, and discussion through fantasy genre work.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "5", id: "Media Literacy Skills", title: "Media Literacy Skills", window: "End of Year", focus: "Extend critical reading to multimedia and contemporary information sources.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
     ],
   },
   writer: {
-    "K-2": [
-      {
-        id: "Narrative Pictures",
-        title: "Narrative Pictures",
-        window: "Launch",
-        focus: "Introduce storytelling, oral rehearsal, and drawing-to-writing habits.",
-        standards: [],
-        standardsPlaceholder: "Add narrative writing and language standards for this unit.",
-      },
-      {
-        id: "Opinion Writing",
-        title: "Opinion Writing",
-        window: "Middle of Year",
-        focus: "Practice stating preferences, giving reasons, and using shared sentence frames.",
-        standards: [],
-        standardsPlaceholder: "Add opinion writing and speaking-listening standards for this unit.",
-      },
-      {
-        id: "Information Books",
-        title: "Information Books",
-        window: "End of Year",
-        focus: "Support labeling, teaching books, and topic-based vocabulary in informational writing.",
-        standards: [],
-        standardsPlaceholder: "Add informational writing and research standards for this unit.",
-      },
+    K: [
+      { grade: "K", id: "Launching the Writing Workshop", title: "Launching the Writing Workshop", window: "Start of Year", focus: "Introduce workshop routines, drawing, oral rehearsal, and early composing habits.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "K", id: "Show and Tell Writing", title: "Show and Tell Writing", window: "Early Year", focus: "Support young writers in sharing ideas through pictures, labels, and simple text.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "K", id: "Writing for Readers: Writing Readable True Stories", title: "Writing for Readers: Writing Readable True Stories", window: "Middle of Year", focus: "Build readable narrative writing for authentic audiences.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "K", id: "Persuasive Writing of All Kinds: Using Words to Make a Change", title: "Persuasive Writing of All Kinds: Using Words to Make a Change", window: "End of Year", focus: "Help students use opinions and reasons to influence readers and listeners.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
     ],
-    "3-5": [
-      {
-        id: "Personal Narrative",
-        title: "Personal Narrative",
-        window: "Launch",
-        focus: "Develop planning, sequencing, and elaboration for independent narrative writing.",
-        standards: [],
-        standardsPlaceholder: "Add narrative writing and craft standards for this unit.",
-      },
-      {
-        id: "Opinion & Evidence",
-        title: "Opinion & Evidence",
-        window: "Middle of Year",
-        focus: "Help students organize claims, reasons, and evidence with stronger academic language.",
-        standards: [],
-        standardsPlaceholder: "Add opinion writing and evidence standards for this unit.",
-      },
-      {
-        id: "Informational Reports",
-        title: "Informational Reports",
-        window: "End of Year",
-        focus: "Guide students in researching, organizing, and publishing topic-based writing.",
-        standards: [],
-        standardsPlaceholder: "Add informational writing, research, and language standards for this unit.",
-      },
+    "1": [
+      { grade: "1", id: "Small Moments", title: "Small Moments", window: "Start of Year", focus: "Launch first-grade narrative writing through focused, true stories.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "1", id: "Topic Books", title: "Topic Books", window: "Early Year", focus: "Develop informational writing through topic-based teaching books.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "1", id: "Writing Reviews", title: "Writing Reviews", window: "Middle of Year", focus: "Support opinion writing with preferences, judgments, and reasons.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "1", id: "From Scenes to Series: Writing Fiction", title: "From Scenes to Series: Writing Fiction", window: "End of Year", focus: "Grow fiction writing through scenes, series patterns, and character work.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+    ],
+    "2": [
+      { grade: "2", id: "Making Small Moments Big", title: "Making Small Moments Big", window: "Start of Year", focus: "Deepen narrative writing through elaboration and storytelling craft.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "2", id: "Chapter Books: Writing Nonfiction from the Heart", title: "Chapter Books: Writing Nonfiction from the Heart", window: "Early Year", focus: "Develop structured nonfiction writing with student expertise and voice.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "2", id: "Finding Awesome Everywhere: Celebrating through Opinion Writing", title: "Finding Awesome Everywhere: Celebrating through Opinion Writing", window: "Middle of Year", focus: "Use opinion writing to celebrate, persuade, and support judgments with reasons.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "2", id: "Writing Research-Based Nonfiction", title: "Writing Research-Based Nonfiction", window: "End of Year", focus: "Guide students in researching topics and publishing informational pieces.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+    ],
+    "3": [
+      { grade: "3", id: "The Art of Information Writing", title: "The Art of Information Writing", window: "Start of Year", focus: "Launch information writing through structure, elaboration, and teaching craft.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "3", id: "Changing the World", title: "Changing the World", window: "Early Year", focus: "Support opinion and persuasive writing that aims to make change.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "3", id: "Structuring Episodes: Writing Series Fiction", title: "Structuring Episodes: Writing Series Fiction", window: "Middle of Year", focus: "Teach students to plan and draft fiction with episodes, structure, and character development.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "3", id: "An Introduction to Literary Essays", title: "An Introduction to Literary Essays", window: "End of Year", focus: "Introduce literary essay writing with claims, evidence, and interpretation.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+    ],
+    "4": [
+      { grade: "4", id: "Spinning True Stories into Gold", title: "Spinning True Stories into Gold", window: "Start of Year", focus: "Refine narrative writing with structure, detail, and voice.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "4", id: "Boxes and Bullets: Writing Essays and Arguments", title: "Boxes and Bullets: Writing Essays and Arguments", window: "Early Year", focus: "Develop essay and argument writing with clear structure and support.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "4", id: "Literary Essay: Writing About Fiction", title: "Literary Essay: Writing About Fiction", window: "Middle of Year", focus: "Teach literary analysis through essay writing about fiction texts.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "4", id: "Discipline-Based Writing", title: "Discipline-Based Writing", window: "End of Year", focus: "Apply writing skills across subject areas and content-rich tasks.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+    ],
+    "5": [
+      { grade: "5", id: "Turning Life into Literature", title: "Turning Life into Literature", window: "Start of Year", focus: "Launch narrative writing with literary craft and reflective storytelling.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "5", id: "Literary Essay: Opening Texts and Seeing More", title: "Literary Essay: Opening Texts and Seeing More", window: "Early Year", focus: "Develop interpretive literary essay writing with richer analysis.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "5", id: "Research-Based Argument", title: "Research-Based Argument", window: "Middle of Year", focus: "Support argument writing grounded in research, sources, and evidence.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "5", id: "Journalism: Researching and Writing Articles", title: "Journalism: Researching and Writing Articles", window: "End of Year", focus: "Guide students in researching, drafting, and publishing journalistic articles.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
     ],
   },
 };

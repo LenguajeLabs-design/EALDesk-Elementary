@@ -4,7 +4,7 @@ import { PencilLine, MessagesSquare, FileText, ArrowRight, BarChart3, Globe2, Cl
 import WorkshopYearlyOverview from "@/components/workshop-yearly-overview";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { GRADE_BANDS, WORKSHOP_UNITS, type GradeBandId } from "@/lib/data";
+import { GRADE_BANDS, GRADES_BY_BAND, WORKSHOP_UNITS, type GradeBandId, type GradeId } from "@/lib/data";
 
 const writerTasks = [
   {
@@ -38,11 +38,19 @@ const sharedLinks = [
 
 export default function WritersWorkshop() {
   const [gradeBand, setGradeBand] = useState<GradeBandId>("K-2");
-  const [unit, setUnit] = useState(WORKSHOP_UNITS.writer["K-2"][0].id);
+  const [grade, setGrade] = useState<GradeId>("K");
+  const [unit, setUnit] = useState(WORKSHOP_UNITS.writer.K[0].id);
 
   const chooseGradeBand = (nextGradeBand: GradeBandId) => {
     setGradeBand(nextGradeBand);
-    setUnit(WORKSHOP_UNITS.writer[nextGradeBand][0].id);
+    const nextGrade = GRADES_BY_BAND[nextGradeBand][0];
+    setGrade(nextGrade);
+    setUnit(WORKSHOP_UNITS.writer[nextGrade][0].id);
+  };
+
+  const chooseGrade = (nextGrade: GradeId) => {
+    setGrade(nextGrade);
+    setUnit(WORKSHOP_UNITS.writer[nextGrade][0].id);
   };
 
   return (
@@ -61,6 +69,7 @@ export default function WritersWorkshop() {
 
       <WorkshopYearlyOverview
         workshop="writer"
+        grade={grade}
         gradeBand={gradeBand}
         selectedUnit={unit}
         onSelectUnit={setUnit}
@@ -85,9 +94,25 @@ export default function WritersWorkshop() {
             </div>
           </div>
           <div>
-            <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">2. Choose Unit</h2>
+            <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">2. Choose Grade</h2>
+            <div className="mt-3 grid grid-cols-3 gap-2">
+              {GRADES_BY_BAND[gradeBand].map((gradeOption) => (
+                <button
+                  key={gradeOption}
+                  onClick={() => chooseGrade(gradeOption)}
+                  className={`rounded-lg border px-4 py-3 text-left text-sm font-semibold transition-colors ${
+                    grade === gradeOption ? "border-sky-500 bg-sky-50 text-sky-900" : "border-slate-200 bg-white text-slate-700 hover:border-sky-300"
+                  }`}
+                >
+                  Grade {gradeOption}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">3. Choose Unit</h2>
             <div className="mt-3 grid md:grid-cols-3 gap-2">
-              {WORKSHOP_UNITS.writer[gradeBand].map(({ id, title }) => (
+              {WORKSHOP_UNITS.writer[grade].map(({ id, title }) => (
                 <button
                   key={id}
                   onClick={() => setUnit(id)}
@@ -103,7 +128,7 @@ export default function WritersWorkshop() {
         </div>
         <div className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500">
           <CheckCircle2 className="h-4 w-4 text-sky-600" />
-          3. Choose Task
+          4. Choose Task
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           {writerTasks.map(({ title, text, href, icon: Icon, accent }) => (
