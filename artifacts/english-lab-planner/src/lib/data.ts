@@ -200,7 +200,21 @@ export const GRADE_BANDS = [
   { id: "3-5", label: "3-5" },
 ];
 
-export const WORKSHOP_UNITS = {
+export type GradeBandId = (typeof GRADE_BANDS)[number]["id"];
+export type WorkshopId = "reader" | "writer";
+export type WorkshopUnit = {
+  id: string;
+  title: string;
+};
+
+export type YearlyOverviewUnit = WorkshopUnit & {
+  window: string;
+  focus: string;
+  standards: string[];
+  standardsPlaceholder: string;
+};
+
+export const WORKSHOP_UNITS: Record<WorkshopId, Record<GradeBandId, WorkshopUnit[]>> = {
   reader: {
     "K-2": [
       { id: "Story Elements", title: "Story Elements" },
@@ -223,6 +237,117 @@ export const WORKSHOP_UNITS = {
       { id: "Personal Narrative", title: "Personal Narrative" },
       { id: "Opinion & Evidence", title: "Opinion & Evidence" },
       { id: "Informational Reports", title: "Informational Reports" },
+    ],
+  },
+};
+
+export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeBandId, YearlyOverviewUnit[]>> = {
+  reader: {
+    "K-2": [
+      {
+        id: "Story Elements",
+        title: "Story Elements",
+        window: "Launch",
+        focus: "Build routines for retelling, character talk, and identifying key story parts.",
+        standards: [],
+        standardsPlaceholder: "Add foundational literature and speaking-listening standards for this unit.",
+      },
+      {
+        id: "Informational Text",
+        title: "Informational Text",
+        window: "Middle of Year",
+        focus: "Support students with key details, vocabulary, and topic-based comprehension work.",
+        standards: [],
+        standardsPlaceholder: "Add informational reading and language standards for this unit.",
+      },
+      {
+        id: "Partner Reading",
+        title: "Partner Reading",
+        window: "End of Year",
+        focus: "Strengthen collaborative talk, fluency routines, and independent comprehension habits.",
+        standards: [],
+        standardsPlaceholder: "Add collaboration, fluency, and response standards for this unit.",
+      },
+    ],
+    "3-5": [
+      {
+        id: "Character & Theme",
+        title: "Character & Theme",
+        window: "Launch",
+        focus: "Anchor literature discussion in character change, motivation, and emerging themes.",
+        standards: [],
+        standardsPlaceholder: "Add literature analysis and discussion standards for this unit.",
+      },
+      {
+        id: "Main Idea & Evidence",
+        title: "Main Idea & Evidence",
+        window: "Middle of Year",
+        focus: "Build note-taking, citing evidence, and summarizing across informational texts.",
+        standards: [],
+        standardsPlaceholder: "Add informational reading and evidence standards for this unit.",
+      },
+      {
+        id: "Book Clubs",
+        title: "Book Clubs",
+        window: "End of Year",
+        focus: "Prepare students for sustained discussion, interpretation, and text-based responses.",
+        standards: [],
+        standardsPlaceholder: "Add collaborative conversation and response standards for this unit.",
+      },
+    ],
+  },
+  writer: {
+    "K-2": [
+      {
+        id: "Narrative Pictures",
+        title: "Narrative Pictures",
+        window: "Launch",
+        focus: "Introduce storytelling, oral rehearsal, and drawing-to-writing habits.",
+        standards: [],
+        standardsPlaceholder: "Add narrative writing and language standards for this unit.",
+      },
+      {
+        id: "Opinion Writing",
+        title: "Opinion Writing",
+        window: "Middle of Year",
+        focus: "Practice stating preferences, giving reasons, and using shared sentence frames.",
+        standards: [],
+        standardsPlaceholder: "Add opinion writing and speaking-listening standards for this unit.",
+      },
+      {
+        id: "Information Books",
+        title: "Information Books",
+        window: "End of Year",
+        focus: "Support labeling, teaching books, and topic-based vocabulary in informational writing.",
+        standards: [],
+        standardsPlaceholder: "Add informational writing and research standards for this unit.",
+      },
+    ],
+    "3-5": [
+      {
+        id: "Personal Narrative",
+        title: "Personal Narrative",
+        window: "Launch",
+        focus: "Develop planning, sequencing, and elaboration for independent narrative writing.",
+        standards: [],
+        standardsPlaceholder: "Add narrative writing and craft standards for this unit.",
+      },
+      {
+        id: "Opinion & Evidence",
+        title: "Opinion & Evidence",
+        window: "Middle of Year",
+        focus: "Help students organize claims, reasons, and evidence with stronger academic language.",
+        standards: [],
+        standardsPlaceholder: "Add opinion writing and evidence standards for this unit.",
+      },
+      {
+        id: "Informational Reports",
+        title: "Informational Reports",
+        window: "End of Year",
+        focus: "Guide students in researching, organizing, and publishing topic-based writing.",
+        standards: [],
+        standardsPlaceholder: "Add informational writing, research, and language standards for this unit.",
+      },
     ],
   },
 };

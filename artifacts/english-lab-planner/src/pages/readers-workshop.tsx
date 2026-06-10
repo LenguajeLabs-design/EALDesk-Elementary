@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "wouter";
 import { BookMarked, LibraryBig, MessagesSquare, ArrowRight, BarChart3, Globe2, ClipboardList, CheckCircle2 } from "lucide-react";
+import WorkshopYearlyOverview from "@/components/workshop-yearly-overview";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { GRADE_BANDS, WORKSHOP_UNITS, type GradeBandId } from "@/lib/data";
 
 const readerTasks = [
   {
@@ -28,13 +30,6 @@ const readerTasks = [
   },
 ];
 
-const gradeBands = ["K-2", "3-5"];
-
-const readerUnits = {
-  "K-2": ["Story Elements", "Informational Text", "Partner Reading"],
-  "3-5": ["Character & Theme", "Main Idea & Evidence", "Book Clubs"],
-};
-
 const sharedLinks = [
   { label: "WIDA Levels", href: "/wida-levels", icon: BarChart3 },
   { label: "Translation Tools", href: "/translations", icon: Globe2 },
@@ -42,12 +37,12 @@ const sharedLinks = [
 ];
 
 export default function ReadersWorkshop() {
-  const [gradeBand, setGradeBand] = useState<keyof typeof readerUnits>("K-2");
-  const [unit, setUnit] = useState(readerUnits["K-2"][0]);
+  const [gradeBand, setGradeBand] = useState<GradeBandId>("K-2");
+  const [unit, setUnit] = useState(WORKSHOP_UNITS.reader["K-2"][0].id);
 
-  const chooseGradeBand = (nextGradeBand: keyof typeof readerUnits) => {
+  const chooseGradeBand = (nextGradeBand: GradeBandId) => {
     setGradeBand(nextGradeBand);
-    setUnit(readerUnits[nextGradeBand][0]);
+    setUnit(WORKSHOP_UNITS.reader[nextGradeBand][0].id);
   };
 
   return (
@@ -64,20 +59,27 @@ export default function ReadersWorkshop() {
         </p>
       </div>
 
+      <WorkshopYearlyOverview
+        workshop="reader"
+        gradeBand={gradeBand}
+        selectedUnit={unit}
+        onSelectUnit={setUnit}
+      />
+
       <section>
         <div className="mb-5 grid gap-4 lg:grid-cols-[220px_1fr]">
           <div>
             <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">1. Choose Grade Band</h2>
             <div className="mt-3 grid grid-cols-2 lg:grid-cols-1 gap-2">
-              {gradeBands.map(band => (
+              {GRADE_BANDS.map(({ id, label }) => (
                 <button
-                  key={band}
-                  onClick={() => chooseGradeBand(band as keyof typeof readerUnits)}
+                  key={id}
+                  onClick={() => chooseGradeBand(id)}
                   className={`rounded-lg border px-4 py-3 text-left text-sm font-semibold transition-colors ${
-                    gradeBand === band ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-slate-200 bg-white text-slate-700 hover:border-emerald-300"
+                    gradeBand === id ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-slate-200 bg-white text-slate-700 hover:border-emerald-300"
                   }`}
                 >
-                  Grades {band}
+                  Grades {label}
                 </button>
               ))}
             </div>
@@ -85,15 +87,15 @@ export default function ReadersWorkshop() {
           <div>
             <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">2. Choose Unit</h2>
             <div className="mt-3 grid md:grid-cols-3 gap-2">
-              {readerUnits[gradeBand].map(option => (
+              {WORKSHOP_UNITS.reader[gradeBand].map(({ id, title }) => (
                 <button
-                  key={option}
-                  onClick={() => setUnit(option)}
+                  key={id}
+                  onClick={() => setUnit(id)}
                   className={`rounded-lg border px-4 py-3 text-left text-sm font-semibold transition-colors ${
-                    unit === option ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-slate-200 bg-white text-slate-700 hover:border-emerald-300"
+                    unit === id ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-slate-200 bg-white text-slate-700 hover:border-emerald-300"
                   }`}
                 >
-                  {option}
+                  {title}
                 </button>
               ))}
             </div>
