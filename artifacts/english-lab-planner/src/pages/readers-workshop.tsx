@@ -76,7 +76,7 @@ export default function ReadersWorkshop() {
       />
 
       <section>
-        <div className="mb-5 grid gap-4 lg:grid-cols-[220px_1fr]">
+        <div className="mb-5 grid gap-4 xl:grid-cols-[220px_220px_minmax(0,1fr)]">
           <div>
             <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">1. Choose Grade Band</h2>
             <div className="mt-3 grid grid-cols-2 lg:grid-cols-1 gap-2">
@@ -84,7 +84,7 @@ export default function ReadersWorkshop() {
                 <button
                   key={id}
                   onClick={() => chooseGradeBand(id)}
-                  className={`rounded-lg border px-4 py-3 text-left text-sm font-semibold transition-colors ${
+                  className={`min-h-14 rounded-lg border px-4 py-3 text-left text-sm font-semibold transition-colors ${
                     gradeBand === id ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-slate-200 bg-white text-slate-700 hover:border-emerald-300"
                   }`}
                 >
@@ -100,7 +100,7 @@ export default function ReadersWorkshop() {
                 <button
                   key={gradeOption}
                   onClick={() => chooseGrade(gradeOption)}
-                  className={`rounded-lg border px-4 py-3 text-left text-sm font-semibold transition-colors ${
+                  className={`min-h-14 rounded-lg border px-4 py-3 text-left text-sm font-semibold transition-colors ${
                     grade === gradeOption ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-slate-200 bg-white text-slate-700 hover:border-emerald-300"
                   }`}
                 >
@@ -111,12 +111,12 @@ export default function ReadersWorkshop() {
           </div>
           <div>
             <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">3. Choose Unit</h2>
-            <div className="mt-3 grid md:grid-cols-3 gap-2">
+            <div className="mt-3 grid gap-3 sm:grid-cols-2 2xl:grid-cols-3">
               {WORKSHOP_UNITS.reader[grade].map(({ id, title }) => (
                 <button
                   key={id}
                   onClick={() => setUnit(id)}
-                  className={`rounded-lg border px-4 py-3 text-left text-sm font-semibold transition-colors ${
+                  className={`flex min-h-28 items-start rounded-xl border px-4 py-4 text-left text-base font-semibold leading-snug transition-colors whitespace-normal break-words ${
                     unit === id ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-slate-200 bg-white text-slate-700 hover:border-emerald-300"
                   }`}
                 >
