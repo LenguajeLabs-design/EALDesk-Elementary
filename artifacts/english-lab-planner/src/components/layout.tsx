@@ -65,6 +65,7 @@ function StickyNav() {
   const currentSection = getCurrentSection(location);
   const quickToolContext =
     location.startsWith("/quick-tools") ? getQuickToolContext() : null;
+  const showDesktopContext = location.startsWith("/quick-tools");
 
   const breadcrumbItems = [PATH_LABELS["/"]];
 
@@ -90,8 +91,8 @@ function StickyNav() {
 
   return (
     <div className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
-      <div className="max-w-7xl mx-auto px-5 md:px-10 xl:px-14 py-3 space-y-3">
-        <div className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
+      <div className="max-w-7xl mx-auto px-5 md:px-10 xl:px-14 py-3">
+        <div className={`flex flex-wrap items-center gap-2 text-sm text-slate-500 ${showDesktopContext ? "" : "lg:hidden"}`}>
           {breadcrumbItems.map((item, index) => (
             <React.Fragment key={`${item}-${index}`}>
               {index > 0 && <ChevronRight className="h-4 w-4 text-slate-300" />}
@@ -108,7 +109,7 @@ function StickyNav() {
             </React.Fragment>
           ))}
         </div>
-        <div className="flex gap-2 overflow-x-auto pb-1">
+        <div className={`mt-3 flex gap-2 overflow-x-auto pb-1 lg:hidden`}>
           {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
             const isActive =
               href === "/"

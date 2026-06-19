@@ -24,7 +24,7 @@ const writerTasks = [
   {
     title: "Full Strategy Reference",
     text: "Browse writing, vocabulary, translation, and assessment scaffolds across WIDA levels.",
-    href: "/strategies",
+    href: "/strategies?workshop=writer&task=writing",
     icon: FileText,
     accent: "text-emerald-600",
   },
@@ -56,25 +56,14 @@ export default function WritersWorkshop() {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
-      <div className="max-w-3xl">
-        <div className="inline-flex items-center gap-2 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-sky-800 text-xs font-bold">
-          <PencilLine className="h-3.5 w-3.5" /> Writer's Workshop Path
-        </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-950 mt-4">
+      <div className="max-w-3xl space-y-3">
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-950">
           Plan language supports for writer's workshop
         </h1>
-        <p className="text-slate-600 mt-3 leading-relaxed">
-          Start with the writing task students are doing, then use the shared WIDA tools underneath to adjust support for different language levels.
+        <p className="text-slate-600 leading-relaxed">
+          Choose the grade, unit, and task first. The year map and extra references are lower on the page when you need them.
         </p>
       </div>
-
-      <WorkshopYearlyOverview
-        workshop="writer"
-        grade={grade}
-        gradeBand={gradeBand}
-        selectedUnit={unit}
-        onSelectUnit={setUnit}
-      />
 
       <section>
         <div className="mb-5 grid gap-4 xl:grid-cols-[220px_220px_minmax(0,1fr)]">
@@ -147,6 +136,22 @@ export default function WritersWorkshop() {
             </Link>
           ))}
         </div>
+      </section>
+
+      <section className="space-y-4">
+        <div className="max-w-3xl">
+          <h2 className="text-xl font-bold text-blue-950">Year-at-a-glance writing units</h2>
+          <p className="text-sm text-slate-600 mt-1">
+            Use this map only when you want the bigger year view. Your planning choices stay above for quicker access.
+          </p>
+        </div>
+        <WorkshopYearlyOverview
+          workshop="writer"
+          grade={grade}
+          gradeBand={gradeBand}
+          selectedUnit={unit}
+          onSelectUnit={setUnit}
+        />
       </section>
 
       <section className="rounded-xl border border-blue-100 bg-blue-50/70 p-6">

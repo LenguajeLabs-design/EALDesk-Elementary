@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { WIDA_LEVELS, WRITING_STRATEGIES, SPEAKING_STRATEGIES, VOCABULARY_SUPPORT, TRANSLATION_GUIDELINES, ASSESSMENTS } from "@/lib/data";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Edit3, MessageSquare, BookA, Languages, CheckSquare } from "lucide-react";
+import { Edit3, MessageSquare, BookA, Languages, CheckSquare, Sparkles } from "lucide-react";
 
 const LEVEL_COLORS: Record<number, string> = {
   1: "bg-amber-50 border-amber-200",
@@ -37,7 +37,57 @@ function LevelColumn({ level }: { level: typeof WIDA_LEVELS[0] }) {
   );
 }
 
+const UNIT_STRATEGY_CONTEXT = {
+  "Making Small Moments Big": {
+    label: "Grade 2 Unit 1: Making Small Moments Big",
+    focus: "Narrative small moments",
+    notes: [
+      "Start with oral rehearsal of one true event before drafting.",
+      "Prioritize sequence language, feeling words, and one important detail.",
+      "Use writing and speaking supports together so students can say the story before they write it.",
+    ],
+  },
+  "The Art of Information Writing": {
+    label: "Grade 3 Unit 1: The Art of Information Writing",
+    focus: "Information writing",
+    notes: [
+      "Help students group facts under simple categories or headings.",
+      "Prioritize topic vocabulary, explaining language, and oral rehearsal of facts.",
+      "Use writing supports to move students from naming facts to teaching readers clearly.",
+    ],
+  },
+  "Spinning True Stories into Gold": {
+    label: "Grade 4 Unit 1: Spinning True Stories into Gold",
+    focus: "Personal narrative",
+    notes: [
+      "Focus on one true story and stretch the heart of the moment.",
+      "Prioritize detail, pacing, dialogue, and reflective meaning.",
+      "Use speaking supports to rehearse the scene before students revise or elaborate.",
+    ],
+  },
+  "Turning Life into Literature": {
+    label: "Grade 5 Unit 1: Turning Life into Literature",
+    focus: "Personal narrative with reflection",
+    notes: [
+      "Help students connect outer action to inner thinking.",
+      "Prioritize meaningful detail, reflection, and stronger narrative structure.",
+      "Use writing and speaking supports to build significance, not just sequence.",
+    ],
+  },
+} as const;
+
 export default function Strategies() {
+  const searchParams = new URLSearchParams(window.location.search);
+  const selectedUnit = searchParams.get("unit") || "";
+  const selectedTask = searchParams.get("task") || "";
+  const unitContext = UNIT_STRATEGY_CONTEXT[selectedUnit as keyof typeof UNIT_STRATEGY_CONTEXT];
+  const defaultTab =
+    selectedTask === "partner-talk"
+      ? "speaking"
+      : selectedTask === "writing"
+        ? "writing"
+        : "writing";
+
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div>
@@ -45,7 +95,32 @@ export default function Strategies() {
         <p className="text-muted-foreground mt-2">Browse reading, writing, talk, translation, and assessment supports across all WIDA levels.</p>
       </div>
 
-      <Tabs defaultValue="writing" className="w-full">
+      {unitContext && (
+        <section className="rounded-xl border border-blue-200 bg-blue-50/80 p-5">
+          <div className="flex items-start gap-3">
+            <div className="rounded-md border border-blue-200 bg-white p-2">
+              <Sparkles className="h-5 w-5 text-blue-700" />
+            </div>
+            <div className="space-y-3">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-blue-700">Unit Context</p>
+                <h2 className="text-lg font-bold text-blue-950 mt-1">{unitContext.label}</h2>
+                <p className="text-sm text-slate-600 mt-1">Recommended first focus: {unitContext.focus}</p>
+              </div>
+              <ul className="space-y-2">
+                {unitContext.notes.map((note) => (
+                  <li key={note} className="flex gap-3 text-sm text-slate-700 leading-relaxed">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-700" />
+                    <span>{note}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <Tabs defaultValue={defaultTab} className="w-full">
         <TabsList className="flex flex-wrap gap-1 h-auto bg-secondary/50 p-1 rounded-xl">
           <TabsTrigger value="writing" className="flex items-center gap-2 rounded-lg">
             <Edit3 size={15} /> Writing
