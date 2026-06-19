@@ -28,6 +28,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/readers-workshop" component={ReadersWorkshop} />
         <Route path="/writers-workshop" component={WritersWorkshop} />
+        <Route path="/writing-workshop-grade4" component={WritingWorkshopToolkit} />
         <Route path="/writing-workshop-toolkit" component={WritingWorkshopToolkit} />
         <Route path="/writing-workshop-grade2-unit1" component={WritingWorkshopGrade2Unit1} />
         <Route path="/writing-workshop-grade3-unit1" component={WritingWorkshopGrade3Unit1} />

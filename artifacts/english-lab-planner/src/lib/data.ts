@@ -293,9 +293,10 @@ export const WORKSHOP_UNITS: Record<WorkshopId, Record<GradeId, WorkshopUnit[]>>
     ],
     "4": [
       { id: "Spinning True Stories into Gold", title: "Spinning True Stories into Gold" },
-      { id: "Boxes and Bullets: Writing Essays and Arguments", title: "Boxes and Bullets: Writing Essays and Arguments" },
+      { id: "Discipline-Based Writing BENDS 1 & 2", title: "Discipline-Based Writing BENDS 1 & 2" },
       { id: "Literary Essay: Writing About Fiction", title: "Literary Essay: Writing About Fiction" },
-      { id: "Discipline-Based Writing", title: "Discipline-Based Writing" },
+      { id: "Boxes and Bullets: Writing Essays and Arguments", title: "Boxes and Bullets: Writing Essays and Arguments" },
+      { id: "Discipline-Based Writing BENDS 3 & 4", title: "Discipline-Based Writing BENDS 3 & 4" },
     ],
     "5": [
       { id: "Turning Life into Literature", title: "Turning Life into Literature" },
@@ -379,9 +380,10 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
     ],
     "4": [
       { grade: "4", id: "Spinning True Stories into Gold", title: "Spinning True Stories into Gold", window: "Start of Year", focus: "Refine narrative writing with structure, detail, and voice.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "4", id: "Boxes and Bullets: Writing Essays and Arguments", title: "Boxes and Bullets: Writing Essays and Arguments", window: "Early Year", focus: "Develop essay and argument writing with clear structure and support.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "4", id: "Discipline-Based Writing BENDS 1 & 2", title: "Discipline-Based Writing BENDS 1 & 2", window: "Early Year", focus: "Support content-based writing through science and social studies explanation, organization, and source-based language.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
       { grade: "4", id: "Literary Essay: Writing About Fiction", title: "Literary Essay: Writing About Fiction", window: "Middle of Year", focus: "Teach literary analysis through essay writing about fiction texts.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "4", id: "Discipline-Based Writing", title: "Discipline-Based Writing", window: "End of Year", focus: "Apply writing skills across subject areas and content-rich tasks.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "4", id: "Boxes and Bullets: Writing Essays and Arguments", title: "Boxes and Bullets: Writing Essays and Arguments", window: "Later Year", focus: "Develop essay and argument writing with clear structure and support.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      { grade: "4", id: "Discipline-Based Writing BENDS 3 & 4", title: "Discipline-Based Writing BENDS 3 & 4", window: "End of Year", focus: "Extend discipline-based writing through more independent explanation, synthesis, and subject-area writing tasks.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
     ],
     "5": [
       { grade: "5", id: "Turning Life into Literature", title: "Turning Life into Literature", window: "Start of Year", focus: "Launch narrative writing with literary craft and reflective storytelling.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },

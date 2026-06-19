@@ -65,6 +65,42 @@ const UNIT_STRATEGY_CONTEXT = {
       "Use speaking supports to rehearse the scene before students revise or elaborate.",
     ],
   },
+  "Discipline-Based Writing BENDS 1 & 2": {
+    label: "Grade 4 Unit 2: Discipline-Based Writing BENDS 1 & 2",
+    focus: "Content-based explanatory writing",
+    notes: [
+      "Help students write from science or social studies learning using clear topic language and organized facts.",
+      "Prioritize explanation language, topic vocabulary, and grouping details under one main idea.",
+      "Use speaking rehearsal before writing so students can say the explanation first.",
+    ],
+  },
+  "Literary Essay: Writing About Fiction": {
+    label: "Grade 4 Unit 3: Literary Essay: Writing About Fiction",
+    focus: "Literary essay",
+    notes: [
+      "Help students move from noticing a text detail to making a claim about character, theme, or meaning.",
+      "Prioritize claim language, evidence, and explanation over long retellings.",
+      "Use oral rehearsal before drafting so students can test their interpretation first.",
+    ],
+  },
+  "Boxes and Bullets: Writing Essays and Arguments": {
+    label: "Grade 4 Unit 4: Boxes and Bullets",
+    focus: "Essay and argument structure",
+    notes: [
+      "Help students organize claims and reasons clearly before asking for elaboration.",
+      "Prioritize boxes-and-bullets structure, reason language, and simple evidence.",
+      "Use oral rehearsal and planning organizers together so students can hear the logic before they write it.",
+    ],
+  },
+  "Discipline-Based Writing BENDS 3 & 4": {
+    label: "Grade 4 Unit 5: Discipline-Based Writing BENDS 3 & 4",
+    focus: "Independent subject-area explanation",
+    notes: [
+      "Help students explain ideas across content areas with more independence and synthesis.",
+      "Prioritize explanation language, grouping of facts, and academic content vocabulary.",
+      "Use oral rehearsal to sort important ideas before drafting longer content writing.",
+    ],
+  },
   "Turning Life into Literature": {
     label: "Grade 5 Unit 1: Turning Life into Literature",
     focus: "Personal narrative with reflection",

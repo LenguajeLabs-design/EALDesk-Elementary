@@ -655,8 +655,8 @@ export default function WritingWorkshopGrade5Unit1() {
           <Link href="/writing-workshop-grade3-unit1">
             <Button variant="outline" className="bg-white">Grade 3 Unit 1</Button>
           </Link>
-          <Link href="/writing-workshop-toolkit">
-            <Button variant="outline" className="bg-white">Grade 4 Unit 1</Button>
+          <Link href="/writing-workshop-grade4">
+            <Button variant="outline" className="bg-white">Grade 4 Units</Button>
           </Link>
           <Button className="bg-blue-700 hover:bg-blue-800">Grade 5 Units</Button>
         </div>

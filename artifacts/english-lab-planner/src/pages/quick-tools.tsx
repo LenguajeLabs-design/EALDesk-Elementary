@@ -174,6 +174,230 @@ const UNIT_WRITING_SCAFFOLDS = {
       ],
     },
   },
+  "Discipline-Based Writing BENDS 1 & 2": {
+    label: "Grade 4 Unit 2: Discipline-Based Writing BENDS 1 & 2",
+    focus: "Students explain ideas from content learning through organized subject-based writing that uses facts, details, and clear explanatory language.",
+    frames: {
+      1: ['"This is ___."', '"It has ___."', '"A fact is ___."'],
+      2: ['"This topic is ___."', '"One important detail is ___."', '"It shows ___."'],
+      3: ['"One important idea is ___."', '"For example, ___."', '"This helps explain ___."'],
+      4: ['"A key concept is ___."', '"This detail shows ___."', '"This matters because ___."'],
+    },
+    writing: {
+      1: [
+        "Accept labeled diagrams, oral explanation, and jointly written content paragraphs",
+        "Use shared writing to turn notes or pictures into simple informational sentences",
+        "Provide topic-plus-fact frames with visuals and word banks",
+      ],
+      2: [
+        "Support short explanatory paragraphs with one topic and a few clear facts",
+        "Use repeated subject vocabulary across talk and writing",
+        "Keep the writing focused on naming, describing, and teaching one idea at a time",
+      ],
+      3: [
+        "Model how to organize topic sentence, facts, and explanation",
+        "Prompt students to explain what a fact teaches the reader",
+        "Use organizers that separate main idea from supporting details",
+      ],
+      4: [
+        "Push for stronger explanation and clearer content-based organization",
+        "Model how writers define, describe, and explain ideas in subject writing",
+        "Use peer feedback on clarity, accuracy, and organization",
+      ],
+    },
+    speaking: {
+      1: ["This is ___.", "It has ___.", "A fact is ___."],
+      2: ["This topic is ___.", "One important detail is ___.", "It shows ___."],
+      3: ["One important idea is ___.", "For example, ___.", "This helps explain ___."],
+      4: ["A key concept is ___.", "This detail shows ___.", "This matters because ___."],
+    },
+    vocabulary: {
+      1: [
+        "Teach topic words with visuals, diagrams, and concrete examples",
+        "Use word banks for parts, features, and content facts",
+      ],
+      2: [
+        "Repeat subject vocabulary across oral rehearsal and writing",
+        "Use headings and simple labels consistently",
+      ],
+      3: [
+        "Teach words such as explain, detail, example, and concept explicitly",
+        "Encourage students to reuse content vocabulary accurately",
+      ],
+      4: [
+        "Teach more precise academic content words and explanation language",
+        "Use mentor subject-area texts to highlight explanatory phrasing",
+      ],
+    },
+  },
+  "Literary Essay: Writing About Fiction": {
+    label: "Grade 4 Unit 3: Literary Essay: Writing About Fiction",
+    focus: "Students develop literary essays by making claims about fiction, using text evidence, and explaining their interpretation clearly.",
+    frames: {
+      1: ['"I think ___."', '"This part shows ___."', '"The character is ___."'],
+      2: ['"I think ___ because ___."', '"In this part, ___."', '"This shows ___."'],
+      3: ['"My idea is ___ because ___."', '"One example is ___."', '"This makes me think ___."'],
+      4: ['"The author shows ___ when ___."', '"This suggests ___."', '"My interpretation is ___."'],
+    },
+    writing: {
+      1: [
+        "Accept oral interpretation, labeled notes, and jointly written claim-and-evidence responses",
+        "Use shared reading talk before independent literary writing",
+        "Provide simple claim frames tied to one text detail",
+      ],
+      2: [
+        "Support short claim-and-evidence writing with repeated frames",
+        "Use one text example at a time instead of a full essay structure",
+        "Keep the analytical focus narrow and concrete",
+      ],
+      3: [
+        "Model how to turn a strong idea into a claim with evidence",
+        "Prompt students to explain what the evidence shows",
+        "Use boxed paragraph planners for claim, evidence, and explanation",
+      ],
+      4: [
+        "Push for stronger interpretation, not just summary",
+        "Model how writers connect evidence to a bigger idea about character or theme",
+        "Use peer feedback on clarity of claim and strength of explanation",
+      ],
+    },
+    speaking: {
+      1: ["I think ___.", "This part shows ___.", "The character is ___."],
+      2: ["I think ___ because ___.", "In this part, ___.", "This shows ___."],
+      3: ["My idea is ___ because ___.", "One example is ___.", "This makes me think ___."],
+      4: ["The author shows ___ when ___.", "This suggests ___.", "My interpretation is ___."],
+    },
+    vocabulary: {
+      1: [
+        "Teach character words, feeling words, and idea words with examples",
+        "Use a small bank of discussion words like think, show, and because",
+      ],
+      2: [
+        "Repeat literary-analysis words across reading and writing",
+        "Use visuals for evidence, character, and lesson",
+      ],
+      3: [
+        "Teach claim, evidence, example, and interpretation explicitly",
+        "Encourage students to reuse the same academic phrases in talk and writing",
+      ],
+      4: [
+        "Teach more precise words for analysis such as reveals, suggests, and significance",
+        "Use mentor essays to highlight literary language",
+      ],
+    },
+  },
+  "Boxes and Bullets: Writing Essays and Arguments": {
+    label: "Grade 4 Unit 4: Boxes and Bullets",
+    focus: "Students organize essays and arguments with clear claims, reasons, and supporting details so their ideas are structured for a reader.",
+    frames: {
+      1: ['"I think ___."', '"One reason is ___."', '"Another reason is ___."'],
+      2: ['"My opinion is ___ because ___."', '"One reason is ___."', '"This shows ___."'],
+      3: ['"My claim is ___ because ___."', '"One example is ___."', '"This proves ___."'],
+      4: ['"My argument is ___ because ___."', '"One important reason is ___."', '"This supports my claim because ___."'],
+    },
+    writing: {
+      1: [
+        "Accept oral opinion talk, boxes-and-bullets planning, and jointly written claim-and-reason pages",
+        "Use shared writing to build one opinion with two simple reasons",
+        "Provide opinion frames with choices and visual planning support",
+      ],
+      2: [
+        "Support short opinion paragraphs with one claim and clear reasons",
+        "Use repeated oral rehearsal before drafting sentences",
+        "Keep the writing task focused on structure and clarity",
+      ],
+      3: [
+        "Model how to organize a claim with supporting reasons and examples",
+        "Prompt students to explain how each reason supports the claim",
+        "Use graphic organizers that match the boxes-and-bullets structure",
+      ],
+      4: [
+        "Push for stronger evidence, clearer elaboration, and more formal structure",
+        "Model how essay writers connect reasons to examples and explanation",
+        "Use peer feedback on organization, reasoning, and clarity",
+      ],
+    },
+    speaking: {
+      1: ["I think ___.", "One reason is ___.", "Another reason is ___."],
+      2: ["My opinion is ___ because ___.", "One reason is ___.", "This shows ___."],
+      3: ["My claim is ___ because ___.", "One example is ___.", "This proves ___."],
+      4: ["My argument is ___ because ___.", "One important reason is ___.", "This supports my claim because ___."],
+    },
+    vocabulary: {
+      1: [
+        "Teach opinion, reason, and example with visuals and gestures",
+        "Use small word banks for agreeing, choosing, and explaining",
+      ],
+      2: [
+        "Repeat opinion and reason words during oral rehearsal and writing",
+        "Use anchor charts with simple linking words like because and also",
+      ],
+      3: [
+        "Teach claim, evidence, support, and example explicitly",
+        "Encourage students to reuse academic essay language",
+      ],
+      4: [
+        "Teach stronger academic verbs and argument language",
+        "Use mentor essays to highlight essay structure and phrasing",
+      ],
+    },
+  },
+  "Discipline-Based Writing BENDS 3 & 4": {
+    label: "Grade 4 Unit 5: Discipline-Based Writing BENDS 3 & 4",
+    focus: "Students extend subject-based writing by synthesizing ideas, explaining information clearly, and writing more independently across content areas.",
+    frames: {
+      1: ['"This is about ___."', '"I learned ___."', '"A fact is ___."'],
+      2: ['"This topic is ___."', '"One important fact is ___."', '"This helps explain ___."'],
+      3: ['"One important idea is ___."', '"Another detail is ___."', '"This teaches ___."'],
+      4: ['"A key idea is ___."', '"This evidence shows ___."', '"This matters because ___."'],
+    },
+    writing: {
+      1: [
+        "Accept labeled notes, oral explanation, and jointly written content responses",
+        "Use shared writing to turn research or content learning into simple explanatory text",
+        "Provide topic-plus-fact frames supported by visuals and word banks",
+      ],
+      2: [
+        "Support short explanatory writing with one topic and a few relevant facts",
+        "Use repeated subject vocabulary and source-based oral rehearsal",
+        "Keep the writing focused on clarity and meaning",
+      ],
+      3: [
+        "Model how to synthesize facts into a clearer teaching paragraph",
+        "Prompt students to explain what the facts show, not just list them",
+        "Use organizers that help students group details under a main idea",
+      ],
+      4: [
+        "Push for stronger explanation, synthesis, and independence",
+        "Model how writers connect details across content to teach a bigger idea",
+        "Use peer feedback on organization, explanation, and academic tone",
+      ],
+    },
+    speaking: {
+      1: ["This is about ___.", "I learned ___.", "A fact is ___."],
+      2: ["This topic is ___.", "One important fact is ___.", "This helps explain ___."],
+      3: ["One important idea is ___.", "Another detail is ___.", "This teaches ___."],
+      4: ["A key idea is ___.", "This evidence shows ___.", "This matters because ___."],
+    },
+    vocabulary: {
+      1: [
+        "Teach topic words, source words, and key content vocabulary with visuals",
+        "Use subject-based word banks and diagrams during planning",
+      ],
+      2: [
+        "Repeat academic content words across speaking and writing",
+        "Use headings and repeated explanation language consistently",
+      ],
+      3: [
+        "Teach words such as summarize, explain, detail, and evidence explicitly",
+        "Encourage accurate reuse of subject vocabulary in sentences",
+      ],
+      4: [
+        "Teach stronger academic explanation and synthesis language",
+        "Use mentor content texts to highlight subject-area phrasing",
+      ],
+    },
+  },
   "Turning Life into Literature": {
     label: "Grade 5 Unit 1: Turning Life into Literature",
     focus: "Students craft a meaningful true story by stretching one moment, showing inner thinking, and building a reflective ending.",
@@ -550,6 +774,134 @@ const UNIT_PARTNER_TALK_SCAFFOLDS = {
         "Use rehearsal to strengthen pacing and significance",
         "Prompt students to explain why this moment belongs in the story",
         "Encourage partner feedback on clarity, detail, and emotional impact",
+      ],
+    },
+  },
+  "Discipline-Based Writing BENDS 1 & 2": {
+    label: "Grade 4 Unit 2: Discipline-Based Writing BENDS 1 & 2",
+    focus: "Students orally rehearse content explanations so they can organize information clearly before writing in science or social studies.",
+    frames: {
+      1: ['"This is ___."', '"It has ___."', '"A fact is ___."'],
+      2: ['"This topic is ___."', '"One important detail is ___."', '"It shows ___."'],
+      3: ['"One important idea is ___."', '"For example, ___."', '"This helps explain ___."'],
+      4: ['"A key concept is ___."', '"This detail shows ___."', '"This matters because ___."'],
+    },
+    speaking: {
+      1: [
+        "Let students point to diagrams and name parts or facts before writing",
+        "Use repeated oral explanation frames before independent drafting",
+        "Accept short spoken rehearsal supported by visuals",
+      ],
+      2: [
+        "Prompt students to say one topic and one fact at a time",
+        "Use partner talk to rehearse simple teaching language",
+        "Support oral rehearsal with headings and note prompts",
+      ],
+      3: [
+        "Have students rehearse topic sentence, fact, and explanation aloud",
+        "Prompt students to explain what the fact teaches the reader",
+        "Use partner talk to group details under the right idea",
+      ],
+      4: [
+        "Use oral rehearsal to improve explanation and organization",
+        "Prompt students to define and explain ideas more clearly",
+        "Encourage partner feedback on clarity and content accuracy",
+      ],
+    },
+  },
+  "Literary Essay: Writing About Fiction": {
+    label: "Grade 4 Unit 3: Literary Essay: Writing About Fiction",
+    focus: "Students orally rehearse claims and evidence so they can move from noticing to interpreting in literary essay writing.",
+    frames: {
+      1: ['"I think ___."', '"This part shows ___."', '"The character is ___."'],
+      2: ['"I think ___ because ___."', '"In this part, ___."', '"This shows ___."'],
+      3: ['"My idea is ___ because ___."', '"One example is ___."', '"This makes me think ___."'],
+      4: ['"The author shows ___ when ___."', '"This suggests ___."', '"My interpretation is ___."'],
+    },
+    speaking: {
+      1: [
+        "Let students point to text moments and name simple ideas before writing",
+        "Use oral claim rehearsal with short repeated frames",
+        "Accept short spoken interpretation before drafting",
+      ],
+      2: [
+        "Prompt students to say an idea and one reason from the text",
+        "Use partner rehearsal to connect one example to one claim",
+        "Support talk with repeated literary discussion stems",
+      ],
+      3: [
+        "Have students rehearse claim, example, and explanation aloud",
+        "Prompt students to explain what the evidence means",
+        "Use partner talk to strengthen interpretation before drafting",
+      ],
+      4: [
+        "Use oral rehearsal to sharpen interpretation and analysis",
+        "Prompt students to move beyond retelling into significance",
+        "Encourage partner feedback on clarity of idea and evidence",
+      ],
+    },
+  },
+  "Boxes and Bullets: Writing Essays and Arguments": {
+    label: "Grade 4 Unit 4: Boxes and Bullets",
+    focus: "Students orally rehearse claims and reasons so they can organize essays and arguments before drafting.",
+    frames: {
+      1: ['"I think ___."', '"One reason is ___."', '"Another reason is ___."'],
+      2: ['"My opinion is ___ because ___."', '"One reason is ___."', '"This shows ___."'],
+      3: ['"My claim is ___ because ___."', '"One example is ___."', '"This proves ___."'],
+      4: ['"My argument is ___ because ___."', '"One important reason is ___."', '"This supports my claim because ___."'],
+    },
+    speaking: {
+      1: [
+        "Let students say an opinion and two simple reasons before writing",
+        "Use oral rehearsal that matches the boxes-and-bullets planner",
+        "Accept short spoken argument supported by visuals or notes",
+      ],
+      2: [
+        "Prompt students to rehearse one claim and one clear reason",
+        "Use partner talk to practice because language orally",
+        "Support oral planning with simple reason cards or organizers",
+      ],
+      3: [
+        "Have students rehearse claim, reason, and example aloud",
+        "Prompt students to explain how the example supports the claim",
+        "Use partner talk to strengthen logical organization before drafting",
+      ],
+      4: [
+        "Use oral rehearsal to improve organization and reasoning",
+        "Prompt students to sound more formal and essay-like in discussion",
+        "Encourage partner feedback on clarity and support",
+      ],
+    },
+  },
+  "Discipline-Based Writing BENDS 3 & 4": {
+    label: "Grade 4 Unit 5: Discipline-Based Writing BENDS 3 & 4",
+    focus: "Students orally rehearse content-based explanations so they can synthesize ideas more independently in subject writing.",
+    frames: {
+      1: ['"This is about ___."', '"I learned ___."', '"A fact is ___."'],
+      2: ['"This topic is ___."', '"One important fact is ___."', '"This helps explain ___."'],
+      3: ['"One important idea is ___."', '"Another detail is ___."', '"This teaches ___."'],
+      4: ['"A key idea is ___."', '"This evidence shows ___."', '"This matters because ___."'],
+    },
+    speaking: {
+      1: [
+        "Let students name the topic and one fact before writing",
+        "Use shared oral reporting with repeated explanation frames",
+        "Accept short factual talk supported by notes or visuals",
+      ],
+      2: [
+        "Prompt students to say one important fact and what it helps explain",
+        "Use partner talk to rehearse simple report structure orally",
+        "Support oral rehearsal with note cards and topic banks",
+      ],
+      3: [
+        "Have students rehearse main idea, facts, and explanation aloud",
+        "Prompt students to explain how facts connect to the bigger idea",
+        "Use oral rehearsal to sort facts into a clearer sequence",
+      ],
+      4: [
+        "Use oral rehearsal to improve clarity and academic tone",
+        "Prompt students to explain why a detail belongs in the explanation",
+        "Encourage partner feedback on organization and idea development",
       ],
     },
   },
