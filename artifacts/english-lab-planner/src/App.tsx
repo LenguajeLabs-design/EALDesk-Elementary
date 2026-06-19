@@ -31,6 +31,7 @@ function Router() {
         <Route path="/writing-workshop-toolkit" component={WritingWorkshopToolkit} />
         <Route path="/writing-workshop-grade2-unit1" component={WritingWorkshopGrade2Unit1} />
         <Route path="/writing-workshop-grade3-unit1" component={WritingWorkshopGrade3Unit1} />
+        <Route path="/writing-workshop-grade5" component={WritingWorkshopGrade5Unit1} />
         <Route path="/writing-workshop-grade5-unit1" component={WritingWorkshopGrade5Unit1} />
         <Route path="/quick-tools" component={QuickTools} />
         <Route path="/strategies" component={Strategies} />

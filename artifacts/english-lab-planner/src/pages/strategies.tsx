@@ -74,6 +74,42 @@ const UNIT_STRATEGY_CONTEXT = {
       "Use writing and speaking supports to build significance, not just sequence.",
     ],
   },
+  "Literary Essay: Opening Texts and Seeing More": {
+    label: "Grade 5 Unit 2: Literary Essay",
+    focus: "Interpretive literary essay",
+    notes: [
+      "Help students move from noticing text details to making a claim about character, theme, or author’s message.",
+      "Prioritize claim language, evidence, and explanation over long unsupported summaries.",
+      "Use speaking rehearsal before drafting so students can say the interpretation first.",
+    ],
+  },
+  "Research-Based Argument": {
+    label: "Grade 5 Unit 3: Research-Based Argument",
+    focus: "Source-based argument writing",
+    notes: [
+      "Help students separate personal opinion from researched claim-and-evidence writing.",
+      "Prioritize source language, evidence integration, and clear reasoning.",
+      "Use oral rehearsal to test whether the argument sounds logical before drafting.",
+    ],
+  },
+  "Graphic Novels": {
+    label: "Grade 5 Unit 4: Graphic Novels",
+    focus: "Graphic storytelling",
+    notes: [
+      "Help students balance what is shown visually with what is said in captions and dialogue.",
+      "Prioritize sequence, scene clarity, concise dialogue, and visual meaning.",
+      "Use oral rehearsal and sketch planning together so students can map panels before writing.",
+    ],
+  },
+  "Journalism: Researching and Writing Articles": {
+    label: "Grade 5 Unit 5: Journalism",
+    focus: "Journalistic reporting",
+    notes: [
+      "Help students organize facts clearly for readers rather than just collecting information.",
+      "Prioritize source use, factual precision, and report structure.",
+      "Use oral rehearsal to sort key facts and decide what belongs in the article.",
+    ],
+  },
 } as const;
 
 export default function Strategies() {

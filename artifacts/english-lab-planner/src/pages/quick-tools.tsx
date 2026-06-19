@@ -230,6 +230,230 @@ const UNIT_WRITING_SCAFFOLDS = {
       ],
     },
   },
+  "Literary Essay: Opening Texts and Seeing More": {
+    label: "Grade 5 Unit 2: Literary Essay",
+    focus: "Students develop interpretive literary essays by making claims about a text, supporting ideas with evidence, and explaining their thinking clearly.",
+    frames: {
+      1: ['"I think ___."', '"This part shows ___."', '"The character is ___."'],
+      2: ['"I think ___ because ___."', '"In this part, ___."', '"This shows ___."'],
+      3: ['"My idea is ___ because ___."', '"One example is ___."', '"This makes me think ___."'],
+      4: ['"The author shows ___ when ___."', '"This suggests ___ because ___."', '"My interpretation is ___."'],
+    },
+    writing: {
+      1: [
+        "Accept oral interpretation, labeled notes, and jointly written claim-and-evidence responses",
+        "Use shared reading talk before independent literary writing",
+        "Provide simple claim frames tied to one text detail",
+      ],
+      2: [
+        "Support short claim-and-evidence writing with repeated frames",
+        "Use one text example at a time instead of full-paragraph independence",
+        "Keep the analytical focus narrow and concrete",
+      ],
+      3: [
+        "Model how to turn a strong idea into a claim with evidence",
+        "Prompt students to explain what the evidence shows",
+        "Use boxed paragraph planners for claim, evidence, and explanation",
+      ],
+      4: [
+        "Push for stronger interpretation, not just summary",
+        "Model how writers connect evidence to a bigger idea about character or theme",
+        "Use peer feedback on clarity of claim and quality of explanation",
+      ],
+    },
+    speaking: {
+      1: ["I think ___.", "This part shows ___.", "The character is ___."],
+      2: ["I think ___ because ___.", "In this part, ___.", "This shows ___."],
+      3: ["My idea is ___ because ___.", "One example is ___.", "This makes me think ___."],
+      4: ["The author shows ___ when ___.", "This suggests ___.", "My interpretation is ___."],
+    },
+    vocabulary: {
+      1: [
+        "Teach feeling words, character words, and simple idea words with examples",
+        "Use a small bank of discussion words like think, show, and because",
+      ],
+      2: [
+        "Repeat text-analysis words across reading and writing",
+        "Use visuals for evidence, character, lesson, and change",
+      ],
+      3: [
+        "Teach claim, evidence, example, and interpretation explicitly",
+        "Encourage students to reuse the same academic phrases in talk and writing",
+      ],
+      4: [
+        "Teach more precise words for analysis such as reveals, suggests, and significance",
+        "Use mentor essays to highlight literary language",
+      ],
+    },
+  },
+  "Research-Based Argument": {
+    label: "Grade 5 Unit 3: Research-Based Argument",
+    focus: "Students build arguments from research by forming a claim, selecting evidence from sources, and explaining their reasoning clearly.",
+    frames: {
+      1: ['"I think ___."', '"One reason is ___."', '"The source says ___."'],
+      2: ['"My claim is ___ because ___."', '"One reason is ___."', '"I learned ___ from ___."'],
+      3: ['"I believe ___ because ___."', '"One piece of evidence is ___."', '"This proves ___."'],
+      4: ['"My argument is ___ because ___."', '"According to ___, ___."', '"This evidence strengthens my claim because ___."'],
+    },
+    writing: {
+      1: [
+        "Accept oral argument talk, labeled notes, and jointly written claim statements",
+        "Use shared source reading before independent argument writing",
+        "Provide simple claim-plus-reason frames with choices",
+      ],
+      2: [
+        "Support one clear claim with one reason and one source detail",
+        "Use repeated source language orally before writing",
+        "Keep the writing task narrow so students can focus on logic",
+      ],
+      3: [
+        "Model how to move from notes into claim, evidence, and explanation",
+        "Prompt students to explain how the evidence supports the argument",
+        "Use organizers that separate opinion from researched proof",
+      ],
+      4: [
+        "Push for stronger evidence integration and clearer academic tone",
+        "Model source-based elaboration instead of unsupported opinions",
+        "Use peer feedback on clarity, evidence, and reasoning",
+      ],
+    },
+    speaking: {
+      1: ["I think ___.", "One reason is ___.", "The source says ___."],
+      2: ["My claim is ___ because ___.", "I learned ___ from ___.", "This helps prove ___."],
+      3: ["I believe ___ because ___.", "One piece of evidence is ___.", "This proves ___."],
+      4: ["My argument is ___.", "According to ___, ___.", "This evidence strengthens my claim because ___."],
+    },
+    vocabulary: {
+      1: [
+        "Teach claim, reason, and source with concrete examples",
+        "Use simple source labels and repeated academic word banks",
+      ],
+      2: [
+        "Practice evidence words like because, reason, and learned",
+        "Reuse research vocabulary during oral rehearsal",
+      ],
+      3: [
+        "Teach argument vocabulary such as claim, evidence, proves, and supports",
+        "Encourage accurate reuse of source-based phrasing",
+      ],
+      4: [
+        "Teach stronger academic verbs such as argues, states, and demonstrates",
+        "Use mentor arguments to show formal source language",
+      ],
+    },
+  },
+  "Graphic Novels": {
+    label: "Grade 5 Unit 4: Graphic Novels",
+    focus: "Students tell stories through panels, dialogue, captions, and visual sequencing, balancing concise text with clear visual meaning.",
+    frames: {
+      1: ['"First, ___."', '"He says, \'___\'."', '"Then ___."'],
+      2: ['"In this panel, ___."', '"The character says, \'___\'."', '"Next, ___."'],
+      3: ['"This panel shows ___."', '"The dialogue reveals ___."', '"The next scene is ___."'],
+      4: ['"The panel sequence shows ___."', '"The image and dialogue together reveal ___."', '"This scene matters because ___."'],
+    },
+    writing: {
+      1: [
+        "Accept sketches, labels, short dialogue bubbles, and oral retell before drafting panels",
+        "Use shared planning for panel order and simple dialogue",
+        "Provide beginning-middle-end comic frames with picture prompts",
+      ],
+      2: [
+        "Support short captions and dialogue tied to one clear sequence",
+        "Use repeated panel frames and simple transition language",
+        "Keep the scene focused so students do not overload each panel",
+      ],
+      3: [
+        "Model how writers decide what goes in the image and what goes in words",
+        "Prompt students to use dialogue and captions for clarity",
+        "Support revision by checking panel order and scene meaning",
+      ],
+      4: [
+        "Push for stronger scene construction, concise dialogue, and purposeful pacing",
+        "Model how visuals and text work together to build meaning",
+        "Use peer feedback on clarity, sequence, and visual storytelling",
+      ],
+    },
+    speaking: {
+      1: ["First, ___.", "He says, '___'.", "Then ___."],
+      2: ["In this panel, ___.", "The character says, '___'.", "Next, ___."],
+      3: ["This panel shows ___.", "The dialogue reveals ___.", "The next scene is ___."],
+      4: ["The panel sequence shows ___.", "The image and dialogue together reveal ___.", "This scene matters because ___."],
+    },
+    vocabulary: {
+      1: [
+        "Teach panel, speech bubble, caption, and scene with visuals",
+        "Use action and dialogue word banks during planning",
+      ],
+      2: [
+        "Repeat comic-text vocabulary during speaking and drafting",
+        "Use transition words for moving across panels",
+      ],
+      3: [
+        "Teach sequence, reveal, caption, and dialogue explicitly",
+        "Encourage students to describe how images add meaning",
+      ],
+      4: [
+        "Teach concise storytelling language and graphic novel craft words",
+        "Use mentor texts to notice panel pacing and visual emphasis",
+      ],
+    },
+  },
+  "Journalism: Researching and Writing Articles": {
+    label: "Grade 5 Unit 5: Journalism",
+    focus: "Students research, interview, and write clear articles that report information accurately for readers.",
+    frames: {
+      1: ['"This article is about ___."', '"I learned ___."', '"A fact is ___."'],
+      2: ['"This report is about ___."', '"One important fact is ___."', '"According to ___, ___."'],
+      3: ['"This article explains ___."', '"One source says ___."', '"This helps readers understand ___."'],
+      4: ['"This report shows ___."', '"According to ___, ___."', '"This detail is important because ___."'],
+    },
+    writing: {
+      1: [
+        "Accept labeled notes, oral reporting, and jointly written news-style summaries",
+        "Use shared research reading before independent article writing",
+        "Provide article frames with headline, topic, and one fact",
+      ],
+      2: [
+        "Support short report writing with one topic and a few clear facts",
+        "Use repeated source language and sentence starters",
+        "Keep the focus on clarity and factual accuracy",
+      ],
+      3: [
+        "Model how to organize information into a report structure",
+        "Prompt students to connect facts to the article focus",
+        "Use note-to-draft organizers with source reminders",
+      ],
+      4: [
+        "Push for clearer reporting tone and stronger source integration",
+        "Model how journalists present facts clearly for readers",
+        "Use peer feedback on organization, clarity, and accuracy",
+      ],
+    },
+    speaking: {
+      1: ["This article is about ___.", "I learned ___.", "A fact is ___."],
+      2: ["This report is about ___.", "One important fact is ___.", "According to ___, ___."],
+      3: ["This article explains ___.", "One source says ___.", "This helps readers understand ___."],
+      4: ["This report shows ___.", "According to ___, ___.", "This detail is important because ___."],
+    },
+    vocabulary: {
+      1: [
+        "Teach article, fact, source, and report with visuals and examples",
+        "Use topic-specific word banks during research and drafting",
+      ],
+      2: [
+        "Repeat journalism words across speaking and writing",
+        "Use source labels and factual language consistently",
+      ],
+      3: [
+        "Teach report, source, detail, and explain explicitly",
+        "Encourage students to reuse accurate topic vocabulary",
+      ],
+      4: [
+        "Teach clearer reporting verbs such as report, explain, and state",
+        "Use mentor articles to highlight journalistic tone and structure",
+      ],
+    },
+  },
 } as const;
 
 const UNIT_PARTNER_TALK_SCAFFOLDS = {
@@ -358,6 +582,134 @@ const UNIT_PARTNER_TALK_SCAFFOLDS = {
         "Use oral rehearsal to connect outer action with inner reflection",
         "Prompt students to explain why the story matters to the writer",
         "Encourage partner feedback on significance, detail, and clarity",
+      ],
+    },
+  },
+  "Literary Essay: Opening Texts and Seeing More": {
+    label: "Grade 5 Unit 2: Literary Essay",
+    focus: "Students orally rehearse claims and evidence so they can move from noticing to interpreting in literary essay writing.",
+    frames: {
+      1: ['"I think ___."', '"This part shows ___."', '"The character is ___."'],
+      2: ['"I think ___ because ___."', '"In this part, ___."', '"This shows ___."'],
+      3: ['"My idea is ___ because ___."', '"One example is ___."', '"This makes me think ___."'],
+      4: ['"The author shows ___ when ___."', '"This suggests ___."', '"My interpretation is ___."'],
+    },
+    speaking: {
+      1: [
+        "Let students point to text moments and name simple ideas before writing",
+        "Use oral claim rehearsal with short repeated frames",
+        "Accept short spoken interpretation before drafting",
+      ],
+      2: [
+        "Prompt students to say an idea and one reason from the text",
+        "Use partner rehearsal to connect one example to one claim",
+        "Support talk with repeated literary discussion stems",
+      ],
+      3: [
+        "Have students rehearse claim, example, and explanation aloud",
+        "Prompt students to explain what the evidence means",
+        "Use partner talk to strengthen interpretation before drafting",
+      ],
+      4: [
+        "Use oral rehearsal to sharpen interpretation and analysis",
+        "Prompt students to move beyond retelling into significance",
+        "Encourage partner feedback on clarity of idea and evidence",
+      ],
+    },
+  },
+  "Research-Based Argument": {
+    label: "Grade 5 Unit 3: Research-Based Argument",
+    focus: "Students orally rehearse claims, reasons, and evidence from research so their arguments sound logical before writing.",
+    frames: {
+      1: ['"I think ___."', '"One reason is ___."', '"The source says ___."'],
+      2: ['"My claim is ___ because ___."', '"One reason is ___."', '"I learned ___ from ___."'],
+      3: ['"I believe ___ because ___."', '"One piece of evidence is ___."', '"This proves ___."'],
+      4: ['"My argument is ___."', '"According to ___, ___."', '"This evidence strengthens my claim because ___."'],
+    },
+    speaking: {
+      1: [
+        "Let students say their opinion and point to a matching source detail",
+        "Use repeated oral argument frames before writing",
+        "Accept short reason-and-evidence rehearsal with support",
+      ],
+      2: [
+        "Prompt one clear claim and one researched reason",
+        "Use partner talk to practice using source language orally",
+        "Support oral rehearsal with source cards and note prompts",
+      ],
+      3: [
+        "Have students rehearse claim, evidence, and explanation aloud",
+        "Prompt students to explain how the evidence proves the idea",
+        "Use partner talk to separate opinion from researched support",
+      ],
+      4: [
+        "Use oral rehearsal to improve logic and source integration",
+        "Prompt students to strengthen formal argument language",
+        "Encourage partner feedback on evidence and reasoning",
+      ],
+    },
+  },
+  "Graphic Novels": {
+    label: "Grade 5 Unit 4: Graphic Novels",
+    focus: "Students rehearse scenes orally so they can decide what belongs in dialogue, captions, and images.",
+    frames: {
+      1: ['"First, ___."', '"He says, \'___\'."', '"Then ___."'],
+      2: ['"In this panel, ___."', '"The character says, \'___\'."', '"Next, ___."'],
+      3: ['"This panel shows ___."', '"The dialogue reveals ___."', '"The next scene is ___."'],
+      4: ['"The panel sequence shows ___."', '"The image and dialogue together reveal ___."', '"This scene matters because ___."'],
+    },
+    speaking: {
+      1: [
+        "Use oral storytelling with sketches before drafting panels",
+        "Model how to say a scene in order before deciding the visuals",
+        "Accept short repeated talk with pointing and gesture support",
+      ],
+      2: [
+        "Prompt students to say what happens in each panel",
+        "Use oral rehearsal for short dialogue and captions",
+        "Support talk with panel sequence organizers",
+      ],
+      3: [
+        "Have students explain what the image shows and what the text adds",
+        "Prompt students to rehearse dialogue before writing it into bubbles",
+        "Use partner talk to clarify scene order and meaning",
+      ],
+      4: [
+        "Use oral rehearsal to strengthen pacing, emphasis, and visual meaning",
+        "Prompt students to explain why a panel matters in the story",
+        "Encourage partner feedback on image-text balance",
+      ],
+    },
+  },
+  "Journalism: Researching and Writing Articles": {
+    label: "Grade 5 Unit 5: Journalism",
+    focus: "Students rehearse the report orally so they can organize facts clearly before drafting an article.",
+    frames: {
+      1: ['"This article is about ___."', '"I learned ___."', '"A fact is ___."'],
+      2: ['"This report is about ___."', '"One important fact is ___."', '"According to ___, ___."'],
+      3: ['"This article explains ___."', '"One source says ___."', '"This helps readers understand ___."'],
+      4: ['"This report shows ___."', '"According to ___, ___."', '"This detail is important because ___."'],
+    },
+    speaking: {
+      1: [
+        "Let students name the article topic and one fact before writing",
+        "Use shared oral reporting with repeated frames",
+        "Accept short factual talk supported by notes or visuals",
+      ],
+      2: [
+        "Prompt students to say one important fact and its source",
+        "Use partner talk to rehearse report structure orally",
+        "Support oral rehearsal with note cards and topic banks",
+      ],
+      3: [
+        "Have students rehearse headline, topic, facts, and source details",
+        "Prompt students to explain how facts help readers understand the topic",
+        "Use oral rehearsal to sort facts into a clearer sequence",
+      ],
+      4: [
+        "Use oral rehearsal to improve clarity and reporting tone",
+        "Prompt students to explain why a fact belongs in the article",
+        "Encourage partner feedback on source use and article organization",
       ],
     },
   },
