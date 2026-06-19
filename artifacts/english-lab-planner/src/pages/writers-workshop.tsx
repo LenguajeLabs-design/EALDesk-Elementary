@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "wouter";
-import { PencilLine, MessagesSquare, FileText, ArrowRight, BarChart3, Globe2, ClipboardList, CheckCircle2 } from "lucide-react";
+import { PencilLine, MessagesSquare, FileText, ArrowRight, BarChart3, Globe2, ClipboardList, CheckCircle2, FolderKanban } from "lucide-react";
 import WorkshopYearlyOverview from "@/components/workshop-yearly-overview";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -31,6 +31,7 @@ const writerTasks = [
 ];
 
 const sharedLinks = [
+  { label: "Writing Toolkit", href: "/writing-workshop-toolkit", icon: FolderKanban },
   { label: "WIDA Levels", href: "/wida-levels", icon: BarChart3 },
   { label: "Translation Tools", href: "/translations", icon: Globe2 },
   { label: "Assessment Supports", href: "/assessments", icon: ClipboardList },
@@ -162,6 +163,30 @@ export default function WritersWorkshop() {
               </Button>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="rounded-xl border border-slate-200 bg-white p-6">
+        <div className="flex items-start gap-4">
+          <div className="rounded-xl bg-sky-50 border border-sky-200 p-3">
+            <FolderKanban className="h-6 w-6 text-sky-700" />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-lg font-bold text-blue-950">Need planning documents and writing tools?</h2>
+            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+              Open the Writing Workshop Toolkit for the most useful support files to add next:
+              suggested sequences, curricular maps, checklists, rubrics, annotated student samples,
+              and conference tools for Grades 4-5.
+            </p>
+            <div className="mt-4">
+              <Link href="/writing-workshop-toolkit">
+                <Button variant="outline" className="bg-white">
+                  <FolderKanban className="h-4 w-4 mr-2" />
+                  Open Writing Toolkit
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>

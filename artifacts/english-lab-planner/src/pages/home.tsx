@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "wouter";
 import {
   Rocket, Zap, Lightbulb, CheckCircle2, Users, QrCode, MessageSquare, FileText,
-  Globe2, BookOpen, ExternalLink, Clock, BookMarked, PencilLine, ArrowRight, Mail, Linkedin,
+  Globe2, BookOpen, ExternalLink, Clock, BookMarked, PencilLine, ArrowRight, Mail, Linkedin, FolderKanban,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -66,6 +66,14 @@ const quickPanels = [
     text: "Find workshop vocabulary, discussion language, and literacy supports.",
     button: "Go to Vocabulary Bank",
     href: "/strategies",
+    external: false,
+  },
+  {
+    icon: FolderKanban,
+    title: "WRITING WORKSHOP\nTOOLKIT",
+    text: "Open curricular maps, suggested sequence ideas, checklists, rubrics, and conference tools for Grades 4-5.",
+    button: "Open Toolkit",
+    href: "/writing-workshop-toolkit",
     external: false,
   },
   {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "wouter";
 import {
-  Home, Zap, BookOpen, BarChart3, ClipboardList, Globe2, Search, BookMarked, PencilLine, ChevronRight, ExternalLink,
+  Home, Zap, BookOpen, BarChart3, ClipboardList, Globe2, Search, BookMarked, PencilLine, ChevronRight, ExternalLink, FolderKanban,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GRADE_BANDS, QUICK_TOOLS, WORKSHOP_UNITS } from "@/lib/data";
@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { href: "/", label: "Home", icon: Home },
   { href: "/readers-workshop", label: "Reader's Workshop", icon: BookMarked },
   { href: "/writers-workshop", label: "Writer's Workshop", icon: PencilLine },
+  { href: "/writing-workshop-toolkit", label: "Writing Toolkit", icon: FolderKanban },
   { href: "/quick-tools", label: "Quick Tools", icon: Zap },
   { href: "/strategies", label: "Strategies by Skill", icon: BookOpen },
   { href: "/wida-levels", label: "WIDA Levels", icon: BarChart3 },
@@ -21,6 +22,7 @@ const PATH_LABELS: Record<string, string> = {
   "/": "Home",
   "/readers-workshop": "Reader's Workshop",
   "/writers-workshop": "Writer's Workshop",
+  "/writing-workshop-toolkit": "Writing Toolkit",
   "/quick-tools": "Quick Tools",
   "/strategies": "Strategies by Skill",
   "/wida-levels": "WIDA Levels",
