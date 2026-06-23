@@ -95,6 +95,22 @@ export default function WorkshopYearlyOverview({
                   )}
                 </div>
 
+                {unit.scaffoldNotes?.length ? (
+                  <div className="rounded-xl border border-sky-100 bg-sky-50/70 p-4">
+                    <div className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+                      Scaffold Notes
+                    </div>
+                    <ul className="space-y-2 text-sm leading-relaxed text-slate-600">
+                      {unit.scaffoldNotes.map((note) => (
+                        <li key={note} className="flex gap-2">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" />
+                          <span>{note}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
                 <Button
                   type="button"
                   variant={isSelected ? "default" : "outline"}

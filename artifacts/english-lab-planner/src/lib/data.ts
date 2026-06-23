@@ -210,6 +210,7 @@ export type WorkshopUnit = {
 
 export type YearlyOverviewUnit = WorkshopUnit & {
   grade: GradeId;
+  scaffoldNotes?: string[];
   window: string;
   focus: string;
   standards: string[];
@@ -367,16 +368,120 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
       { grade: "1", id: "From Scenes to Series: Writing Fiction", title: "From Scenes to Series: Writing Fiction", window: "End of Year", focus: "Grow fiction writing through scenes, series patterns, and character work.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
     ],
     "2": [
-      { grade: "2", id: "Making Small Moments Big", title: "Making Small Moments Big", window: "Start of Year", focus: "Deepen narrative writing through elaboration and storytelling craft.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "2", id: "Chapter Books: Writing Nonfiction from the Heart", title: "Chapter Books: Writing Nonfiction from the Heart", window: "Early Year", focus: "Develop structured nonfiction writing with student expertise and voice.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "2", id: "Finding Awesome Everywhere: Celebrating through Opinion Writing", title: "Finding Awesome Everywhere: Celebrating through Opinion Writing", window: "Middle of Year", focus: "Use opinion writing to celebrate, persuade, and support judgments with reasons.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "2", id: "Writing Research-Based Nonfiction", title: "Writing Research-Based Nonfiction", window: "End of Year", focus: "Guide students in researching topics and publishing informational pieces.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      {
+        grade: "2",
+        id: "Making Small Moments Big",
+        title: "Making Small Moments Big",
+        window: "Start of Year",
+        focus: "Deepen narrative writing through elaboration and storytelling craft.",
+        standards: ["W.2.3", "W.2.5"],
+        standardsPlaceholder: "",
+        scaffoldNotes: [
+          "Rehearse orally with touch-and-tell story maps and a small-moment checkup before drafting.",
+          "Use turn-the-page transition words and ending choices to help students stretch one event across pages.",
+          "Conference around mood, feeling words, and character actions so students add what is happening outside and inside the story.",
+        ],
+      },
+      {
+        grade: "2",
+        id: "Chapter Books: Writing Nonfiction from the Heart",
+        title: "Chapter Books: Writing Nonfiction from the Heart",
+        window: "Early Year",
+        focus: "Develop structured nonfiction writing with student expertise and voice.",
+        standards: ["W.2.2", "W.2.5"],
+        standardsPlaceholder: "",
+        scaffoldNotes: [
+          "Offer chapter planners that help students organize one chapter at a time with subtopics and key facts.",
+          "Build topic vocabulary with shared inquiry, animal vocabulary cards, and picture-supported word banks.",
+          "Model how nonfiction writers teach with headings, graphics, and specific description across each page or section.",
+        ],
+      },
+      {
+        grade: "2",
+        id: "Finding Awesome Everywhere: Celebrating through Opinion Writing",
+        title: "Finding Awesome Everywhere: Celebrating through Opinion Writing",
+        window: "Middle of Year",
+        focus: "Use opinion writing to celebrate, persuade, and support judgments with reasons.",
+        standards: ["W.2.1", "W.2.5"],
+        standardsPlaceholder: "",
+        scaffoldNotes: [
+          "Use claim-and-reason frames such as I think ___ because ___ and support students in collecting reasons before drafting.",
+          "Teach helpful linking words and review language so students can connect opinions, reasons, and examples more clearly.",
+          "Anchor revision around convincing the reader, showing off the book or topic, and adding one stronger example.",
+        ],
+      },
+      {
+        grade: "2",
+        id: "Writing Research-Based Nonfiction",
+        title: "Writing Research-Based Nonfiction",
+        window: "End of Year",
+        focus: "Guide students in researching topics and publishing informational pieces.",
+        standards: ["W.2.2", "W.2.7", "W.2.8"],
+        standardsPlaceholder: "",
+        scaffoldNotes: [
+          "Support note-taking with labeled sketches, quick diagrams, and shared research charts before students draft full pages.",
+          "Teach students to sort research into simple sections and use comparisons to help readers understand new information.",
+          "Model how writers expand short facts into teaching sentences with graphics, domain words, and partner rehearsal.",
+        ],
+      },
     ],
     "3": [
-      { grade: "3", id: "The Art of Information Writing", title: "The Art of Information Writing", window: "Start of Year", focus: "Launch information writing through structure, elaboration, and teaching craft.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "3", id: "Changing the World", title: "Changing the World", window: "Early Year", focus: "Support opinion and persuasive writing that aims to make change.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "3", id: "Structuring Episodes: Writing Series Fiction", title: "Structuring Episodes: Writing Series Fiction", window: "Middle of Year", focus: "Teach students to plan and draft fiction with episodes, structure, and character development.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "3", id: "An Introduction to Literary Essays", title: "An Introduction to Literary Essays", window: "End of Year", focus: "Introduce literary essay writing with claims, evidence, and interpretation.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      {
+        grade: "3",
+        id: "The Art of Information Writing",
+        title: "The Art of Information Writing",
+        window: "Start of Year",
+        focus: "Launch information writing through structure, elaboration, and teaching craft.",
+        standards: ["W.3.2", "W.3.4"],
+        standardsPlaceholder: "",
+        scaffoldNotes: [
+          "Provide planning pages that help students group subtopics, main ideas, and supporting facts before drafting.",
+          "Preteach domain vocabulary and show students how information writers use text features, structure words, and clear conclusions.",
+          "Model elaboration moves such as adding clarifying details, examples, quick research, and definitions that teach the reader more.",
+        ],
+      },
+      {
+        grade: "3",
+        id: "Changing the World",
+        title: "Changing the World",
+        window: "Early Year",
+        focus: "Support opinion and persuasive writing that aims to make change.",
+        standards: ["W.3.1", "W.3.4"],
+        standardsPlaceholder: "",
+        scaffoldNotes: [
+          "Use claim, reason, and example organizers before drafting arguments, speeches, or letters for change.",
+          "Support spoken rehearsal with bold claim starters, audience language, and partner talk before independent writing.",
+          "Teach students to strengthen arguments by linking evidence, addressing the audience directly, and planning clearer paragraphs.",
+        ],
+      },
+      {
+        grade: "3",
+        id: "Structuring Episodes: Writing Series Fiction",
+        title: "Structuring Episodes: Writing Series Fiction",
+        window: "Middle of Year",
+        focus: "Teach students to plan and draft fiction with episodes, structure, and character development.",
+        standards: ["W.3.3", "W.3.4"],
+        standardsPlaceholder: "",
+        scaffoldNotes: [
+          "Plan episodes with clear beginning, problem, action, and ending arcs so students stay inside one story at a time.",
+          "Use mentor texts to highlight dialogue, precise details, story voice, and what makes a series character recognizable across episodes.",
+          "Conference around paragraphing, feedback from partners, and revision choices that help students become their own readers.",
+        ],
+      },
+      {
+        grade: "3",
+        id: "An Introduction to Literary Essays",
+        title: "An Introduction to Literary Essays",
+        window: "End of Year",
+        focus: "Introduce literary essay writing with claims, evidence, and interpretation.",
+        standards: ["W.3.1", "W.3.9"],
+        standardsPlaceholder: "",
+        scaffoldNotes: [
+          "Use claim-evidence-explanation frames to help students move from oral rehearsal into literary essay drafting.",
+          "Provide sticky-note or evidence-card routines during read-alouds and book clubs so students can collect moments that fit a claim.",
+          "Model introductions, paragraph jobs, quote moves, and conclusions that help students build a fuller essay structure.",
+        ],
+      },
     ],
     "4": [
       { grade: "4", id: "Spinning True Stories into Gold", title: "Spinning True Stories into Gold", window: "Start of Year", focus: "Refine narrative writing with structure, detail, and voice.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
