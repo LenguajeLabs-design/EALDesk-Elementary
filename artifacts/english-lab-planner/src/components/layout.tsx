@@ -4,7 +4,7 @@ import {
   Home, Zap, BookOpen, BarChart3, ClipboardList, Globe2, Search, BookMarked, PencilLine, ChevronRight, ExternalLink, FolderKanban,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { GRADE_BANDS, QUICK_TOOLS, WORKSHOP_UNITS } from "@/lib/data";
+import { GRADE_BANDS, QUICK_TOOLS, WORKSHOP_UNITS, type GradeId, type WorkshopId } from "@/lib/data";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home", icon: Home },
@@ -41,23 +41,20 @@ function getCurrentSection(location: string) {
 
 function getQuickToolContext() {
   const params = new URLSearchParams(window.location.search);
-  const workshop = params.get("workshop");
+  const workshop = params.get("workshop") as WorkshopId | null;
   const gradeBand = params.get("gradeBand") ?? params.get("grade");
+  const grade = params.get("grade") as GradeId | null;
   const unitId = params.get("unit");
   const taskId = params.get("task");
 
   const gradeBandLabel = GRADE_BANDS.find((band) => band.id === gradeBand)?.label;
   const unitLabel =
-    workshop && gradeBand && unitId
-      ? WORKSHOP_UNITS[
-          workshop as keyof typeof WORKSHOP_UNITS
-        ]?.[gradeBand as keyof (typeof WORKSHOP_UNITS)[keyof typeof WORKSHOP_UNITS]]?.find(
-          (unit) => unit.id === unitId,
-        )?.title
+    workshop && grade && unitId
+      ? WORKSHOP_UNITS[workshop]?.[grade]?.find((unit) => unit.id === unitId)?.title
       : undefined;
   const taskLabel = QUICK_TOOLS.find((tool) => tool.id === taskId)?.name;
 
-  return { workshop, gradeBandLabel, unitLabel, taskLabel };
+  return { workshop, gradeBandLabel, grade, unitLabel, taskLabel };
 }
 
 function StickyNav() {
@@ -78,7 +75,11 @@ function StickyNav() {
   }
 
   if (quickToolContext?.gradeBandLabel) {
-    breadcrumbItems.push(`Grade ${quickToolContext.gradeBandLabel}`);
+    breadcrumbItems.push(`Grades ${quickToolContext.gradeBandLabel}`);
+  }
+
+  if (quickToolContext?.grade) {
+    breadcrumbItems.push(`Grade ${quickToolContext.grade}`);
   }
 
   if (quickToolContext?.unitLabel) {

@@ -132,7 +132,10 @@ export default function ReadersWorkshop() {
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           {readerTasks.map(({ title, text, href, icon: Icon, accent }) => (
-            <Link key={href} href={`${href}&grade=${encodeURIComponent(gradeBand)}&unit=${encodeURIComponent(unit)}`}>
+            <Link
+              key={href}
+              href={`${href}&gradeBand=${encodeURIComponent(gradeBand)}&grade=${encodeURIComponent(grade)}&unit=${encodeURIComponent(unit)}`}
+            >
               <Card className="rounded-xl shadow-sm border-slate-200 hover:shadow-md transition-shadow bg-white cursor-pointer h-full">
                 <CardContent className="p-5 flex flex-col gap-4 h-full">
                   <Icon className={`h-10 w-10 ${accent}`} strokeWidth={1.8} />

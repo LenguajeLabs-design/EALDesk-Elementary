@@ -211,6 +211,11 @@ export type WorkshopUnit = {
 export type YearlyOverviewUnit = WorkshopUnit & {
   grade: GradeId;
   scaffoldNotes?: string[];
+  languageDemands?: string[];
+  planningNotes?: string[];
+  unitSentenceFrames?: Partial<Record<1 | 2 | 3 | 4, string[]>>;
+  unitWritingSupports?: Partial<Record<1 | 2 | 3 | 4, string[]>>;
+  widaDifferentiation?: Partial<Record<1 | 2 | 3 | 4, string[]>>;
   window: string;
   focus: string;
   standards: string[];
@@ -294,16 +299,14 @@ export const WORKSHOP_UNITS: Record<WorkshopId, Record<GradeId, WorkshopUnit[]>>
     ],
     "4": [
       { id: "Spinning True Stories into Gold", title: "Spinning True Stories into Gold" },
-      { id: "Discipline-Based Writing BENDS 1 & 2", title: "Discipline-Based Writing BENDS 1 & 2" },
-      { id: "Literary Essay: Writing About Fiction", title: "Literary Essay: Writing About Fiction" },
       { id: "Boxes and Bullets: Writing Essays and Arguments", title: "Boxes and Bullets: Writing Essays and Arguments" },
-      { id: "Discipline-Based Writing BENDS 3 & 4", title: "Discipline-Based Writing BENDS 3 & 4" },
+      { id: "Literary Essay: Writing About Fiction", title: "Literary Essay: Writing About Fiction" },
+      { id: "Discipline-Based Writing", title: "Discipline-Based Writing" },
     ],
     "5": [
       { id: "Turning Life into Literature", title: "Turning Life into Literature" },
       { id: "Literary Essay: Opening Texts and Seeing More", title: "Literary Essay: Opening Texts and Seeing More" },
       { id: "Research-Based Argument", title: "Research-Based Argument" },
-      { id: "Graphic Novels", title: "Graphic Novels" },
       { id: "Journalism: Researching and Writing Articles", title: "Journalism: Researching and Writing Articles" },
     ],
   },
@@ -381,6 +384,58 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use turn-the-page transition words and ending choices to help students stretch one event across pages.",
           "Conference around mood, feeling words, and character actions so students add what is happening outside and inside the story.",
         ],
+        languageDemands: [
+          "Retell one event in sequence with clear temporal language.",
+          "Expand oral storytelling into detailed sentences on the page.",
+          "Name feelings, actions, and dialogue in ways the reader can picture.",
+        ],
+        planningNotes: [
+          "Front-load oral rehearsal and shared storytelling before expecting independent drafting.",
+          "Keep mentor examples visible that show how a tiny event can be stretched across several pages.",
+          "Conference for one craft move at a time so multilingual writers are not revising everything at once.",
+        ],
+        unitSentenceFrames: {
+          1: ['"First I ___."', '"Then I ___."', '"I felt ___."'],
+          2: ['"First ___, then ___."', '"I was ___ when ___."', '"At the end ___."'],
+          3: ['"In this small moment, ___."', '"I could see ___ and feel ___."', '"This part mattered because ___."'],
+          4: ['"I stretched this moment by showing ___."', '"The reader can picture ___ because ___."', '"At the end, I wanted the reader to feel ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use picture rehearsal, oral retell, and shared writing before independent pages.",
+            "Support one action or feeling sentence per page rather than full paragraphs.",
+          ],
+          2: [
+            "Provide page-by-page story planners with transition prompts.",
+            "Model how to add one feeling, action, or sound detail to each part of the story.",
+          ],
+          3: [
+            "Teach students to reread each page and add dialogue or inner thinking.",
+            "Use revision checkups for sequence, detail, and reader clarity.",
+          ],
+          4: [
+            "Conference around pacing, mood, and endings that connect back to the moment.",
+            "Push for precise verbs and sensory details that strengthen the narrative voice.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Invite students to draw, label, and orally retell the small moment with gestures and home-language support.",
+            "Use one-line frames such as First I ___ and Then I ___ with teacher scribing when needed.",
+          ],
+          2: [
+            "Provide beginning-middle-end oral rehearsal with picture prompts and turn-the-page words.",
+            "Support short patterned sentences that name actions and feelings in sequence.",
+          ],
+          3: [
+            "Use sentence starters for adding detail, dialogue, and inner thinking across the story.",
+            "Prompt students to reread each page and add one elaboration move before moving on.",
+          ],
+          4: [
+            "Push students to refine pacing, mood, and word choice while keeping the story tightly focused.",
+            "Conference around stronger transitions, precise verbs, and reader-friendly endings.",
+          ],
+        },
       },
       {
         grade: "2",
@@ -395,6 +450,58 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Build topic vocabulary with shared inquiry, animal vocabulary cards, and picture-supported word banks.",
           "Model how nonfiction writers teach with headings, graphics, and specific description across each page or section.",
         ],
+        languageDemands: [
+          "Sort information into subtopics and explain facts across simple chapters.",
+          "Use teaching language, labels, and headings to guide a reader.",
+          "Apply content vocabulary accurately in spoken rehearsal and writing.",
+        ],
+        planningNotes: [
+          "Choose high-interest topics students can already talk about before expecting extensive written output.",
+          "Teach the structure of a chapter book explicitly with one visible planner that all students reuse.",
+          "Keep vocabulary supports close to the drafting space so students can say and write domain words repeatedly.",
+        ],
+        unitSentenceFrames: {
+          1: ['"This is about ___."', '"It has ___."', '"It can ___."'],
+          2: ['"This chapter teaches about ___."', '"One fact is ___."', '"Another thing is ___."'],
+          3: ['"In this section, readers learn ___."', '"For example, ___."', '"This helps readers understand ___."'],
+          4: ['"This chapter explains ___ by showing ___."', '"A key detail is ___ because ___."', '"I used this heading because ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use labeled diagrams and shared pages before expecting full chapter text.",
+            "Keep topic picture cards and domain words available during drafting.",
+          ],
+          2: [
+            "Support one chapter at a time with section frames and oral rehearsal.",
+            "Model how facts can become full teaching sentences instead of labels alone.",
+          ],
+          3: [
+            "Teach students to draft with headings, facts, and one explanation or example.",
+            "Use partner rehearsal so students say the chapter before writing it.",
+          ],
+          4: [
+            "Push for clearer subtopics, stronger detail, and text features that teach the reader.",
+            "Conference around how the chapter flows from sentence to sentence, not just fact to fact.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use picture-supported topic cards, oral naming, and shared writing for facts students want to teach.",
+            "Accept labeled diagrams and sentence fragments that show what belongs in each chapter.",
+          ],
+          2: [
+            "Provide chapter frames such as This chapter teaches about ___ and One fact is ___.",
+            "Use illustrated word banks for headings, body parts, features, or other content vocabulary.",
+          ],
+          3: [
+            "Support section drafting with simple planners for topic, facts, and closing sentence.",
+            "Teach students to combine facts with description so pages sound more like teaching text than lists.",
+          ],
+          4: [
+            "Push students to elaborate with examples, comparisons, and clearer text features.",
+            "Conference around coherence across chapters so the book feels organized and purposeful.",
+          ],
+        },
       },
       {
         grade: "2",
@@ -409,6 +516,58 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Teach helpful linking words and review language so students can connect opinions, reasons, and examples more clearly.",
           "Anchor revision around convincing the reader, showing off the book or topic, and adding one stronger example.",
         ],
+        languageDemands: [
+          "State a clear opinion and support it with reasons.",
+          "Use linking words to connect claim, reasons, and examples.",
+          "Speak and write in a way that sounds convincing to an audience.",
+        ],
+        planningNotes: [
+          "Give students time to sort and rehearse reasons orally before they draft full pieces.",
+          "Model the difference between naming a reason and explaining why it matters to the reader.",
+          "Keep revision goals narrow: strengthen the claim, add an example, or use clearer linking language.",
+        ],
+        unitSentenceFrames: {
+          1: ['"I like ___."', '"It is the best because ___."', '"You should pick ___."'],
+          2: ['"I think ___ is awesome because ___."', '"Another reason is ___."', '"You would like it because ___."'],
+          3: ['"My opinion is ___ because ___."', '"For example, ___."', '"This shows why ___."'],
+          4: ['"I believe ___ deserves to be celebrated because ___."', '"A strong example is ___."', '"Readers should agree because ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use choice boards and picture prompts so students can form an opinion quickly.",
+            "Accept oral rehearsal and shared dictation as part of the drafting process.",
+          ],
+          2: [
+            "Provide reason sorters and linking words before paragraph drafting.",
+            "Model how to tell more about a reason instead of repeating the claim.",
+          ],
+          3: [
+            "Teach opinion paragraphs with claim, reason, and example boxes.",
+            "Prompt students to revise by adding one clearer explanation after each example.",
+          ],
+          4: [
+            "Push for persuasive tone, stronger paragraph flow, and more audience awareness.",
+            "Conference around whether each reason truly strengthens the claim.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Offer either-or choices and picture supports so students can express an opinion before writing.",
+            "Use highly patterned frames such as I like ___ because ___ with teacher-supported dictation.",
+          ],
+          2: [
+            "Provide reason cards and linking words such as because, also, and best.",
+            "Support short opinion pieces with one claim and one or two simple reasons.",
+          ],
+          3: [
+            "Use organizers that separate opinion, reasons, and examples before drafting paragraphs.",
+            "Prompt students to revise by adding one stronger explanation after each reason.",
+          ],
+          4: [
+            "Push students to address the audience directly and choose more persuasive examples.",
+            "Conference around clearer paragraph structure and more precise language for judgment.",
+          ],
+        },
       },
       {
         grade: "2",
@@ -423,6 +582,58 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Teach students to sort research into simple sections and use comparisons to help readers understand new information.",
           "Model how writers expand short facts into teaching sentences with graphics, domain words, and partner rehearsal.",
         ],
+        languageDemands: [
+          "Ask and answer research questions using simple notes and shared sources.",
+          "Turn notes into informational sentences grouped by topic.",
+          "Use comparisons, examples, and domain words to teach new ideas clearly.",
+        ],
+        planningNotes: [
+          "Treat research as a shared language event first, then move gradually toward independent note-taking.",
+          "Model how to turn a sketch or keyword note into a full teaching sentence.",
+          "Revisit section headings and note sorting often so students do not lose the structure of the piece.",
+        ],
+        unitSentenceFrames: {
+          1: ['"It has ___."', '"It lives ___."', '"It can ___."'],
+          2: ['"I learned that ___."', '"Another fact is ___."', '"It is like ___."'],
+          3: ['"This section teaches ___."', '"One important fact is ___."', '"This helps readers understand ___."'],
+          4: ['"My research shows ___."', '"For instance, ___."', '"I included this comparison to explain ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use shared research charts and labeled sketches before independent drafting.",
+            "Accept copied key words and oral explanations as part of note-taking.",
+          ],
+          2: [
+            "Teach simple note frames and short teaching sentences from one fact at a time.",
+            "Use visuals and chunked sources so students can stay focused on meaning.",
+          ],
+          3: [
+            "Support section drafting with grouped notes and partner rehearsal.",
+            "Model how to add a comparison, example, or graphic to teach more clearly.",
+          ],
+          4: [
+            "Push for clearer section transitions, stronger domain vocabulary, and independent expansion of notes.",
+            "Conference around which information still needs explanation for the reader.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use shared research charts, visuals, and teacher modeling so students can contribute facts orally or with labels.",
+            "Accept drawn notes and copied key words as preparation for shared sentences.",
+          ],
+          2: [
+            "Provide note frames such as It has ___ and It can ___ before longer drafting begins.",
+            "Use pictures, diagrams, and chunked texts to keep research language manageable.",
+          ],
+          3: [
+            "Support students in grouping notes into sections and rehearsing teaching sentences with a partner.",
+            "Model how to add a comparison or example that helps the reader understand a fact.",
+          ],
+          4: [
+            "Push for stronger domain vocabulary, clearer section transitions, and more independent note expansion.",
+            "Conference around clarity: what the reader learns, what still needs explanation, and where visuals help.",
+          ],
+        },
       },
     ],
     "3": [
@@ -439,6 +650,58 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Preteach domain vocabulary and show students how information writers use text features, structure words, and clear conclusions.",
           "Model elaboration moves such as adding clarifying details, examples, quick research, and definitions that teach the reader more.",
         ],
+        languageDemands: [
+          "Group information into subtopics and maintain a clear text structure.",
+          "Use domain-specific vocabulary and explanation language to teach the reader.",
+          "Elaborate with examples, definitions, and conclusions instead of listing facts.",
+        ],
+        planningNotes: [
+          "Teach planning as a language task, not just a writing task, by rehearsing sections aloud before drafting.",
+          "Model several ways information writers elaborate so students do not rely on bare fact lists.",
+          "Keep text structure words, mentor pages, and subtopic planners visible during every bend of the unit.",
+        ],
+        unitSentenceFrames: {
+          1: ['"This is about ___."', '"It has ___."', '"It can ___."'],
+          2: ['"My topic is ___."', '"One part is ___."', '"Another fact is ___."'],
+          3: ['"This section teaches ___."', '"For example, ___."', '"Readers learn ___ from this."'],
+          4: ['"A key idea about ___ is ___."', '"This detail matters because ___."', '"I used this example to show ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use shared webs, labeled diagrams, and oral naming to build the topic before writing.",
+            "Support one fact at a time with teacher-guided shared composition.",
+          ],
+          2: [
+            "Provide subtopic boxes and short section frames to organize information.",
+            "Teach students to say the section aloud before drafting full sentences.",
+          ],
+          3: [
+            "Model paragraph building with topic sentence, facts, and explanation.",
+            "Prompt revision by adding one example, definition, or comparison to each section.",
+          ],
+          4: [
+            "Push for stronger conclusions, clearer transitions, and more precise teaching language.",
+            "Conference around how well the piece teaches rather than just how much it lists.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use shared topic webs, labeled diagrams, and oral naming to build understanding before independent writing.",
+            "Support one fact at a time with sentence frames and teacher-guided shared composition.",
+          ],
+          2: [
+            "Provide subtopic boxes with simple frames such as One kind is ___ and Another fact is ___.",
+            "Use illustrated vocabulary cards so students can talk through content before drafting.",
+          ],
+          3: [
+            "Support paragraph building with topic sentence, facts, and explanation planners.",
+            "Prompt students to revise by adding one definition, example, or comparison to each section.",
+          ],
+          4: [
+            "Push students toward clearer conclusions, more precise domain language, and purposeful text features.",
+            "Conference around teaching craft: what helps the reader most and what still sounds like notes.",
+          ],
+        },
       },
       {
         grade: "3",
@@ -453,6 +716,58 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Support spoken rehearsal with bold claim starters, audience language, and partner talk before independent writing.",
           "Teach students to strengthen arguments by linking evidence, addressing the audience directly, and planning clearer paragraphs.",
         ],
+        languageDemands: [
+          "State a position clearly and organize reasons to persuade an audience.",
+          "Use evidence, examples, and audience language to strengthen an argument.",
+          "Shift between oral persuasion, letter writing, and paragraph-level argument structures.",
+        ],
+        planningNotes: [
+          "Spend time building background knowledge so students have something meaningful to argue about.",
+          "Model how persuasive writing sounds different when speaking to classmates, teachers, or a broader audience.",
+          "Use oral debate and partner rehearsal as rehearsal for stronger written claims and explanations.",
+        ],
+        unitSentenceFrames: {
+          1: ['"We should ___."', '"It is better because ___."', '"I want ___."'],
+          2: ['"I think we should ___ because ___."', '"Another reason is ___."', '"This would help ___."'],
+          3: ['"My claim is ___."', '"One reason is ___ and an example is ___."', '"This matters because ___."'],
+          4: ['"I strongly believe ___ because ___."', '"A convincing example is ___."', '"My audience should care because ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use pictures, oral choices, and shared claims before independent persuasive writing.",
+            "Accept speech bubbles, labels, and dictated reasons as meaningful early argument work.",
+          ],
+          2: [
+            "Provide claim-and-reason frames plus audience language students can reuse.",
+            "Model how one reason can be explained with a tiny story or example.",
+          ],
+          3: [
+            "Support paragraph planning with claim, reason, evidence, and call-to-action boxes.",
+            "Prompt students to link facts or examples back to the claim explicitly.",
+          ],
+          4: [
+            "Push for sharper audience targeting, more convincing evidence, and stronger endings.",
+            "Conference around tone and whether the argument truly sounds persuasive.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use visual choices and oral sentence patterns so students can state a preference and one simple reason.",
+            "Allow students to rehearse claims with gestures, pointing, and teacher-supported oral language.",
+          ],
+          2: [
+            "Provide claim frames, reason banks, and audience phrases such as We should ___ because ___.",
+            "Support short persuasive pieces with one clear claim and one or two explained reasons.",
+          ],
+          3: [
+            "Use organizers that separate claim, reason, evidence, and audience move before paragraph drafting.",
+            "Prompt students to expand each reason with one example or fact from discussion or research.",
+          ],
+          4: [
+            "Push for sharper audience awareness, stronger paragraphing, and more purposeful evidence linking.",
+            "Conference around tone, precision, and which examples make the strongest case.",
+          ],
+        },
       },
       {
         grade: "3",
@@ -467,6 +782,58 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use mentor texts to highlight dialogue, precise details, story voice, and what makes a series character recognizable across episodes.",
           "Conference around paragraphing, feedback from partners, and revision choices that help students become their own readers.",
         ],
+        languageDemands: [
+          "Sustain a story across episodes with recognizable characters and clear sequence.",
+          "Use dialogue, actions, and inner thinking to develop character and plot.",
+          "Revise for coherence, paragraphing, and voice across several scenes.",
+        ],
+        planningNotes: [
+          "Keep one episode structure visible so students do not jump between too many story ideas at once.",
+          "Teach students to talk through a scene before drafting it, especially when adding dialogue or inner thinking.",
+          "Use mentor-study to show what repeats across a series and what changes in each episode.",
+        ],
+        unitSentenceFrames: {
+          1: ['"My character ___."', '"Then ___ happened."', '"He said ___."'],
+          2: ['"At first ___."', '"Then the problem was ___."', '"At the end ___."'],
+          3: ['"In this episode, ___."', '"My character said ___ because ___."', '"This part shows ___."'],
+          4: ['"I wanted this episode to begin with ___."', '"The dialogue shows ___ about the character."', '"This ending connects to the series because ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use oral storytelling, picture sequences, and shared scene writing before full drafting.",
+            "Support one clear episode rather than multiple loosely connected events.",
+          ],
+          2: [
+            "Provide beginning-problem-ending planners and dialogue starters.",
+            "Teach students to show actions and feelings with short connected sentences.",
+          ],
+          3: [
+            "Prompt students to rehearse scenes aloud before adding dialogue and inner thinking.",
+            "Use revision checkups for sequence, character consistency, and paragraph breaks.",
+          ],
+          4: [
+            "Push for stronger voice, sharper scene construction, and recurring series features.",
+            "Conference around what makes the episode feel both complete and part of a larger series.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use picture sequences, oral storytelling, and teacher-shared writing so students can tell one scene clearly.",
+            "Accept labels, speech bubbles, and short patterned story sentences as part of the drafting process.",
+          ],
+          2: [
+            "Provide episode planners with beginning-problem-ending boxes and simple dialogue starters.",
+            "Support short connected sentences that show what the character does, says, and feels.",
+          ],
+          3: [
+            "Prompt students to rehearse dialogue and inner thinking before adding them to independent drafts.",
+            "Use revision checkups for sequence, paragraph breaks, and character consistency across scenes.",
+          ],
+          4: [
+            "Push students toward stronger voice, more precise description, and clearer scene construction.",
+            "Conference around how each episode both stands alone and contributes to a recognizable series world.",
+          ],
+        },
       },
       {
         grade: "3",
@@ -481,21 +848,591 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Provide sticky-note or evidence-card routines during read-alouds and book clubs so students can collect moments that fit a claim.",
           "Model introductions, paragraph jobs, quote moves, and conclusions that help students build a fuller essay structure.",
         ],
+        languageDemands: [
+          "Make a literary claim and support it with relevant evidence from text.",
+          "Explain how details from the text connect back to the claim.",
+          "Use essay language for introductions, body paragraphs, and conclusions.",
+        ],
+        planningNotes: [
+          "Treat evidence collection as a separate routine before expecting full essay drafting.",
+          "Model how explanation sounds different from summary so students do more than retell the text.",
+          "Use shared paragraph construction to show how claims, evidence, and explanation work together on the page.",
+        ],
+        unitSentenceFrames: {
+          1: ['"I think ___ is ___."', '"In the story, ___."', '"This shows ___."'],
+          2: ['"I think ___ because ___."', '"One part says ___."', '"This shows that ___."'],
+          3: ['"My claim is ___."', '"For example, in the text ___."', '"This matters because ___."'],
+          4: ['"I believe ___ because the text shows ___."', '"This evidence suggests ___."', '"Overall, this helps prove ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use oral claims, shared evidence charts, and teacher-supported shared paragraphs.",
+            "Allow students to point to scenes or illustrations before turning them into evidence language.",
+          ],
+          2: [
+            "Provide claim and evidence frames plus sticky-note routines for collecting proof.",
+            "Model the move from retelling a part of the book to saying what it proves.",
+          ],
+          3: [
+            "Support simple essay paragraphs with claim, evidence, and explanation boxes.",
+            "Prompt students to explain each piece of evidence in their own words.",
+          ],
+          4: [
+            "Push for stronger introductions, quote integration, and paragraph cohesion.",
+            "Conference around whether each example truly supports the interpretation.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use read-aloud discussion, picture supports, and oral claim frames so students can name a character trait or lesson.",
+            "Allow students to point to or retell key moments before turning them into shared written evidence.",
+          ],
+          2: [
+            "Provide claim and evidence frames such as I think ___ because in the story ___.",
+            "Use sticky notes with icons or short words so evidence collection stays manageable.",
+          ],
+          3: [
+            "Support simple essay paragraphs with claim, evidence, and explanation boxes before full drafting.",
+            "Prompt students to explain why the evidence matters rather than stopping after the quote or event.",
+          ],
+          4: [
+            "Push students toward stronger introductions, quote integration, and clearer interpretive language.",
+            "Conference around paragraph cohesion and whether each piece of evidence truly supports the claim.",
+          ],
+        },
       },
     ],
     "4": [
-      { grade: "4", id: "Spinning True Stories into Gold", title: "Spinning True Stories into Gold", window: "Start of Year", focus: "Refine narrative writing with structure, detail, and voice.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "4", id: "Discipline-Based Writing BENDS 1 & 2", title: "Discipline-Based Writing BENDS 1 & 2", window: "Early Year", focus: "Support content-based writing through science and social studies explanation, organization, and source-based language.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "4", id: "Literary Essay: Writing About Fiction", title: "Literary Essay: Writing About Fiction", window: "Middle of Year", focus: "Teach literary analysis through essay writing about fiction texts.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "4", id: "Boxes and Bullets: Writing Essays and Arguments", title: "Boxes and Bullets: Writing Essays and Arguments", window: "Later Year", focus: "Develop essay and argument writing with clear structure and support.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "4", id: "Discipline-Based Writing BENDS 3 & 4", title: "Discipline-Based Writing BENDS 3 & 4", window: "End of Year", focus: "Extend discipline-based writing through more independent explanation, synthesis, and subject-area writing tasks.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      {
+        grade: "4",
+        id: "Spinning True Stories into Gold",
+        title: "Spinning True Stories into Gold",
+        window: "Start of Year",
+        focus: "Refine narrative writing with structure, detail, and voice.",
+        standards: [],
+        standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart.",
+        scaffoldNotes: [
+          "Use timeline rehearsal and scene planning so students stretch meaningful true stories across several moments.",
+          "Model revision lenses for leads, dialogue, and reflective endings rather than asking students to revise everything at once.",
+          "Conference around how details, pacing, and inner thinking turn personal narrative into literature.",
+        ],
+        languageDemands: [
+          "Sustain a focused personal narrative with clear scenes and purposeful pacing.",
+          "Use dialogue, sensory detail, and reflection to deepen meaning for the reader.",
+          "Revise with more precise language, transitions, and paragraphing.",
+        ],
+        planningNotes: [
+          "Teach students to separate story generation from scene revision so drafting does not stall.",
+          "Keep mentor examples visible for leads, dialogue, and endings that sound literary without becoming formulaic.",
+          "Use conferring to name one ambitious revision goal per writer and revisit it across several days.",
+        ],
+        unitSentenceFrames: {
+          1: ['"One time ___."', '"Then I ___."', '"I felt ___."'],
+          2: ['"At first ___."', '"Next ___."', '"I remember feeling ___ when ___."'],
+          3: ['"One important moment was ___."', '"I showed this by writing ___."', '"At the end, I realized ___."'],
+          4: ['"I want the reader to notice ___."', '"This moment changed when ___."', '"My ending shows ___ because ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use oral storytelling, sketching, and shared scene writing before longer drafting.",
+            "Support one clear scene at a time with visual timeline prompts.",
+          ],
+          2: [
+            "Provide scene planners with setting, action, feeling, and ending prompts.",
+            "Model how to stretch a moment with dialogue and sensory details.",
+          ],
+          3: [
+            "Use revision checkups for leads, transitions, and paragraph breaks across scenes.",
+            "Prompt students to add reflection that explains why the moment mattered.",
+          ],
+          4: [
+            "Push for literary pacing, stronger voice, and more purposeful scene selection.",
+            "Conference around how each revision move changes the emotional effect on the reader.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use story sketches, oral rehearsal, and teacher-supported shared writing so students can hold the sequence of the memory.",
+            "Accept labels and short patterned sentences while building fuller scenes through talk.",
+          ],
+          2: [
+            "Provide scene frames and temporal language so students can move from event retell into narrative structure.",
+            "Support short dialogue and feeling language with visible sentence stems.",
+          ],
+          3: [
+            "Prompt students to revise scenes by adding dialogue, reflection, and sensory detail.",
+            "Use paragraph and transition checkups so scenes stay coherent for the reader.",
+          ],
+          4: [
+            "Push students to shape the story intentionally with literary leads, pacing, and endings.",
+            "Conference around voice, tone, and the significance of the event, not just retelling.",
+          ],
+        },
+      },
+      {
+        grade: "4",
+        id: "Boxes and Bullets: Writing Essays and Arguments",
+        title: "Boxes and Bullets: Writing Essays and Arguments",
+        window: "Early Year",
+        focus: "Develop essay and argument writing with clear structure and support.",
+        standards: [],
+        standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart.",
+        scaffoldNotes: [
+          "Teach claim planning with boxes-and-bullets organizers before drafting full essays.",
+          "Model how evidence, examples, and mini-stories strengthen a reason rather than repeat it.",
+          "Conference around paragraph jobs so writers know what each section of an essay is supposed to do.",
+        ],
+        languageDemands: [
+          "State a clear claim and group reasons under a logical structure.",
+          "Use examples, evidence, and explanation to elaborate an argument.",
+          "Write in paragraph and essay form using transitions and persuasive tone.",
+        ],
+        planningNotes: [
+          "Spend time teaching the architecture of the essay before expecting polished drafting.",
+          "Use oral rehearsal and shared planning so students hear how reasons and evidence sound together.",
+          "Keep revision focused on one essay move at a time: stronger reason, better example, or clearer paragraph flow.",
+        ],
+        unitSentenceFrames: {
+          1: ['"I think ___."', '"One reason is ___."', '"It is important because ___."'],
+          2: ['"My opinion is ___ because ___."', '"Another reason is ___."', '"For example, ___."'],
+          3: ['"My claim is ___."', '"One reason is ___ and this matters because ___."', '"This example proves ___."'],
+          4: ['"I argue that ___."', '"A strong reason for this is ___."', '"This evidence is convincing because ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use oral claims, shared reasons, and teacher-supported paragraph frames before full essay drafting.",
+            "Accept lists of reasons and simple examples as preparation for stronger essay language.",
+          ],
+          2: [
+            "Provide boxes-and-bullets planners plus sentence stems for examples and explanation.",
+            "Model how to turn a reason into a full paragraph with one clear supporting detail.",
+          ],
+          3: [
+            "Prompt students to elaborate each reason with mini-stories, facts, or examples.",
+            "Use paragraph checkups for topic sentence, evidence, and explanation.",
+          ],
+          4: [
+            "Push for more nuanced claims, logical sequencing, and persuasive conclusions.",
+            "Conference around the quality of evidence and how clearly each paragraph advances the argument.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use visuals, oral choices, and teacher-shared writing so students can express a claim and one reason.",
+            "Support speech bubbles, labels, and dictated reasons as early essay thinking.",
+          ],
+          2: [
+            "Provide claim-reason-example frames and shared planning charts before paragraph drafting.",
+            "Teach a few key transitions such as because, also, and for example.",
+          ],
+          3: [
+            "Support full paragraphs with organizers that separate claim, reason, and evidence.",
+            "Prompt students to explain why each example supports the claim instead of listing details.",
+          ],
+          4: [
+            "Push for sharper reasoning, stronger audience awareness, and essay cohesion.",
+            "Conference around counterexamples, precision, and the overall logic of the essay.",
+          ],
+        },
+      },
+      {
+        grade: "4",
+        id: "Literary Essay: Writing About Fiction",
+        title: "Literary Essay: Writing About Fiction",
+        window: "Middle of Year",
+        focus: "Teach literary analysis through essay writing about fiction texts.",
+        standards: [],
+        standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart.",
+        scaffoldNotes: [
+          "Separate evidence collection from essay drafting so students can first gather strong moments from the text.",
+          "Model paragraph jobs, quote moves, and explanation language that sounds analytical instead of summary-based.",
+          "Conference around whether evidence truly fits the claim before focusing on polished essay form.",
+        ],
+        languageDemands: [
+          "Make a literary claim and organize evidence under clear reasons or ideas.",
+          "Explain how scenes, dialogue, and character actions support an interpretation.",
+          "Use essay language, textual evidence, and cohesive paragraphs to discuss fiction.",
+        ],
+        planningNotes: [
+          "Teach students to stop and talk through the claim before they draft to avoid collecting mismatched evidence.",
+          "Use mentor paragraphs to show how explanation deepens interpretation rather than retells plot.",
+          "Keep visible anchors for claim, evidence, quote integration, and conclusion language throughout the unit.",
+        ],
+        unitSentenceFrames: {
+          1: ['"I think ___ is ___."', '"In the book, ___."', '"This shows ___."'],
+          2: ['"I think ___ because ___."', '"One part that shows this is ___."', '"This tells me ___."'],
+          3: ['"My idea is that ___."', '"For example, when ___."', '"This matters because it shows ___."'],
+          4: ['"I interpret ___ as ___."', '"The text suggests this when ___."', '"This evidence deepens the idea that ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use oral claims, shared charts, and teacher-modeled evidence selection before drafting paragraphs.",
+            "Allow students to point to scenes or illustrations as evidence during early planning.",
+          ],
+          2: [
+            "Provide claim-evidence-explanation frames and sticky-note routines for collecting proof.",
+            "Model how to move from plot retell into interpretation language.",
+          ],
+          3: [
+            "Support literary paragraphs with boxes for claim, evidence, and analysis.",
+            "Prompt students to explain how each example connects back to the big idea.",
+          ],
+          4: [
+            "Push for stronger quote integration, more precise interpretation, and fuller essay structure.",
+            "Conference around the difference between obvious evidence and evidence that truly advances analysis.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use read-aloud talk, character charts, and oral sentence frames so students can name a trait or lesson before writing.",
+            "Allow shared writing and teacher-supported evidence retell as part of essay rehearsal.",
+          ],
+          2: [
+            "Provide claim and evidence starters with icons or sticky-note labels for important scenes.",
+            "Support short analytical sentences before expecting longer paragraphs.",
+          ],
+          3: [
+            "Use paragraph planners that clearly separate claim, evidence, and explanation.",
+            "Prompt students to explain what the evidence proves, not just what happened.",
+          ],
+          4: [
+            "Push for interpretive language, quote integration, and coherence across paragraphs.",
+            "Conference around whether the essay is analyzing fiction or slipping back into retell.",
+          ],
+        },
+      },
+      {
+        grade: "4",
+        id: "Discipline-Based Writing",
+        title: "Discipline-Based Writing",
+        window: "End of Year",
+        focus: "Apply writing skills across subject areas and content-rich tasks.",
+        standards: [],
+        standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart.",
+        scaffoldNotes: [
+          "Make the discipline-specific task visible by showing mentor examples from science, social studies, or inquiry work.",
+          "Model how research notes become organized explanations or arguments within a content area.",
+          "Conference around both content accuracy and the writing moves needed to teach or persuade in that subject.",
+        ],
+        languageDemands: [
+          "Use subject-specific vocabulary and text structures to communicate learning.",
+          "Organize information, explanation, or argument in ways that fit the discipline.",
+          "Synthesize notes, examples, and evidence into a polished content-based piece.",
+        ],
+        planningNotes: [
+          "Clarify the disciplinary purpose early so students know whether they are explaining, comparing, arguing, or reporting.",
+          "Build oral understanding of content before expecting strong academic writing about it.",
+          "Keep note-taking, section planning, and vocabulary supports closely tied to the content unit.",
+        ],
+        unitSentenceFrames: {
+          1: ['"This is about ___."', '"It has ___."', '"I learned ___."'],
+          2: ['"This section explains ___."', '"One fact is ___."', '"This is important because ___."'],
+          3: ['"My topic is ___."', '"The evidence shows ___."', '"This helps explain ___."'],
+          4: ['"A key idea in this topic is ___."', '"This evidence is important because ___."', '"My conclusion is that ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use shared notes, visuals, and labeled diagrams before expecting extended writing.",
+            "Support oral rehearsal of content vocabulary before drafting.",
+          ],
+          2: [
+            "Provide section frames and topic-specific word banks aligned to the subject area.",
+            "Model how to turn notes into teaching sentences one section at a time.",
+          ],
+          3: [
+            "Support paragraphing with topic sentence, evidence, and explanation structures.",
+            "Prompt students to connect content vocabulary to clear explanation, not just include the word.",
+          ],
+          4: [
+            "Push for stronger synthesis, more precise academic vocabulary, and clearer discipline-based organization.",
+            "Conference around whether the writing sounds like someone teaching or arguing within the subject.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use visuals, shared charts, and oral rehearsal so students can contribute content ideas before writing.",
+            "Accept labeled diagrams and shared sentences as legitimate disciplinary writing entry points.",
+          ],
+          2: [
+            "Provide content-specific sentence frames and section starters for each part of the piece.",
+            "Use chunked sources and partner talk to keep the language load manageable.",
+          ],
+          3: [
+            "Support organization with notes-to-paragraph planners and content vocabulary charts.",
+            "Prompt students to explain how the evidence supports the content idea in their own words.",
+          ],
+          4: [
+            "Push for stronger synthesis, academic tone, and independence in note expansion.",
+            "Conference around both disciplinary accuracy and clarity for the intended audience.",
+          ],
+        },
+      },
     ],
     "5": [
-      { grade: "5", id: "Turning Life into Literature", title: "Turning Life into Literature", window: "Start of Year", focus: "Launch narrative writing with literary craft and reflective storytelling.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "5", id: "Literary Essay: Opening Texts and Seeing More", title: "Literary Essay: Opening Texts and Seeing More", window: "Early Year", focus: "Develop interpretive literary essay writing with richer analysis.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "5", id: "Research-Based Argument", title: "Research-Based Argument", window: "Middle of Year", focus: "Support argument writing grounded in research, sources, and evidence.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "5", id: "Graphic Novels", title: "Graphic Novels", window: "Later Year", focus: "Use graphic storytelling to develop sequence, dialogue, visual meaning, and scene construction.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
-      { grade: "5", id: "Journalism: Researching and Writing Articles", title: "Journalism: Researching and Writing Articles", window: "End of Year", focus: "Guide students in researching, drafting, and publishing journalistic articles.", standards: [], standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart." },
+      {
+        grade: "5",
+        id: "Turning Life into Literature",
+        title: "Turning Life into Literature",
+        window: "Start of Year",
+        focus: "Launch narrative writing with literary craft and reflective storytelling.",
+        standards: [],
+        standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart.",
+        scaffoldNotes: [
+          "Use scene planning and reflective rehearsal so students craft stories that feel literary, not just chronological.",
+          "Model how writers select a meaningful life event and shape it with pacing, dialogue, and reflection.",
+          "Conference around revision for significance: what the story means, not only what happened.",
+        ],
+        languageDemands: [
+          "Craft a narrative with scenes, pacing, and purposeful reflection.",
+          "Use literary language, dialogue, and detail to shape meaning for the reader.",
+          "Revise for voice, significance, and cohesion across a longer narrative.",
+        ],
+        planningNotes: [
+          "Teach story selection carefully so students choose experiences with emotional or thematic depth.",
+          "Use mentor examples to show how reflection and scene work create a literary feel.",
+          "Conference around significance and structure so writers avoid simply listing events from real life.",
+        ],
+        unitSentenceFrames: {
+          1: ['"One day ___."', '"Then I ___."', '"I felt ___."'],
+          2: ['"At first ___."', '"One important moment was ___."', '"I knew ___ when ___."'],
+          3: ['"This moment mattered because ___."', '"I wanted the reader to notice ___."', '"At the end, I realized ___."'],
+          4: ['"I shaped this scene to show ___."', '"The reflection helps the reader understand ___."', '"This story becomes literary when ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use oral storytelling, sketches, and shared scenes before expecting full literary narrative drafting.",
+            "Support one powerful moment at a time rather than an entire life story.",
+          ],
+          2: [
+            "Provide scene planners and reflection stems so students can connect event and meaning.",
+            "Model how to add dialogue and sensory detail without losing the thread of the story.",
+          ],
+          3: [
+            "Use revision checkups for pacing, scene selection, and reflective lines that deepen significance.",
+            "Prompt students to reread for voice and what the reader should understand about the narrator.",
+          ],
+          4: [
+            "Push for intentional scene construction, layered reflection, and more literary word choice.",
+            "Conference around how the narrative conveys meaning, not just memory.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use oral retell, sketching, and teacher-supported shared writing so students can hold the arc of one key memory.",
+            "Accept labels and simple scene sentences while building richer narrative talk.",
+          ],
+          2: [
+            "Provide scene and reflection stems to connect actions, feelings, and meaning.",
+            "Support short connected scene writing before longer literary drafting.",
+          ],
+          3: [
+            "Prompt students to revise for reflection, voice, and scene clarity across multiple paragraphs.",
+            "Use paragraph and transition checkups to help the story flow for the reader.",
+          ],
+          4: [
+            "Push students toward layered reflection, literary pacing, and precise craft moves.",
+            "Conference around how each scene contributes to the larger meaning of the story.",
+          ],
+        },
+      },
+      {
+        grade: "5",
+        id: "Literary Essay: Opening Texts and Seeing More",
+        title: "Literary Essay: Opening Texts and Seeing More",
+        window: "Early Year",
+        focus: "Develop interpretive literary essay writing with richer analysis.",
+        standards: [],
+        standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart.",
+        scaffoldNotes: [
+          "Model how to move beyond obvious claims by revisiting the text through different lenses.",
+          "Teach quote integration, paragraph structure, and explanation as separate essay moves students can practice repeatedly.",
+          "Conference around depth of interpretation so evidence is used to say something meaningful, not just correct.",
+        ],
+        languageDemands: [
+          "Generate interpretive claims and sustain them across multiple paragraphs.",
+          "Integrate textual evidence and explain how it supports a nuanced reading.",
+          "Use academic essay language for interpretation, comparison, and conclusion.",
+        ],
+        planningNotes: [
+          "Spend time in rehearsal and discussion so students hear interpretation before they write it.",
+          "Keep visible examples of how evidence can support different but defensible claims.",
+          "Teach students that literary essays are about making meaning, not filling in an essay formula.",
+        ],
+        unitSentenceFrames: {
+          1: ['"I think ___ is ___."', '"In the story, ___."', '"This shows ___."'],
+          2: ['"I believe ___ because ___."', '"One important part is ___."', '"This helps me think ___."'],
+          3: ['"My interpretation is ___."', '"For example, when ___."', '"This suggests that ___."'],
+          4: ['"A deeper reading is ___."', '"This evidence reveals ___ because ___."', '"Overall, the text invites readers to see ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use oral claims, read-aloud discussion, and shared evidence charts before independent essays.",
+            "Allow students to identify and talk through one key moment before drafting about it.",
+          ],
+          2: [
+            "Provide claim-evidence-explanation frames plus sticky-note systems for collecting proof.",
+            "Model how to move from describing a scene to analyzing what it reveals.",
+          ],
+          3: [
+            "Support paragraphs with boxes for claim, quote or event, and interpretation.",
+            "Prompt students to explain how each example supports the essay's big idea.",
+          ],
+          4: [
+            "Push for more nuanced claims, stronger quote integration, and fuller analytic paragraphs.",
+            "Conference around whether the essay says something insightful rather than simply familiar.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use discussion, visuals, and shared claim language so students can participate in interpretation before writing.",
+            "Allow teacher-supported evidence retell and shared analytical sentences as an entry point.",
+          ],
+          2: [
+            "Provide claim and evidence starters and help students rehearse one interpretation orally before drafting.",
+            "Use short analytical paragraphs before expecting full essay structures.",
+          ],
+          3: [
+            "Support literary essay planning with claim, evidence, and interpretation organizers.",
+            "Prompt students to explain what the evidence suggests rather than stopping at summary.",
+          ],
+          4: [
+            "Push for richer interpretation, stronger cohesion, and more independent essay shaping.",
+            "Conference around nuance, precision, and how to deepen the essay's insight.",
+          ],
+        },
+      },
+      {
+        grade: "5",
+        id: "Research-Based Argument",
+        title: "Research-Based Argument",
+        window: "Middle of Year",
+        focus: "Support argument writing grounded in research, sources, and evidence.",
+        standards: [],
+        standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart.",
+        scaffoldNotes: [
+          "Separate research, note sorting, claim building, and drafting so students can manage the complexity of the task.",
+          "Model how writers evaluate sources and choose evidence that genuinely supports a claim.",
+          "Conference around synthesis, not accumulation, so students learn to make a case rather than copy facts.",
+        ],
+        languageDemands: [
+          "Research across sources and sort information under a defensible claim.",
+          "Use evidence, quotation, paraphrase, and explanation to build an argument.",
+          "Write in a formal argumentative structure with stronger academic transitions and precision.",
+        ],
+        planningNotes: [
+          "Teach source reading and note-taking as language-heavy processes before expecting polished argument writing.",
+          "Use shared inquiry and oral debate so students test claims before locking them into essays.",
+          "Keep the distinction visible between evidence collection and explanation of that evidence.",
+        ],
+        unitSentenceFrames: {
+          1: ['"I think ___."', '"One fact is ___."', '"This is important because ___."'],
+          2: ['"My claim is ___ because ___."', '"One piece of evidence is ___."', '"This helps prove ___."'],
+          3: ['"Based on my research, ___."', '"According to ___, ___."', '"This evidence matters because ___."'],
+          4: ['"The strongest argument is ___ because ___."', '"This source shows ___, which supports ___."', '"A key implication is ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use shared research, oral claims, and teacher-supported evidence charts before full argument drafting.",
+            "Accept labeled notes and simple evidence statements as part of the planning process.",
+          ],
+          2: [
+            "Provide claim-evidence-explanation planners and source-based sentence starters.",
+            "Model how one fact becomes useful only when the writer explains what it proves.",
+          ],
+          3: [
+            "Support argument paragraphs with boxes for claim, evidence, source, and explanation.",
+            "Prompt students to compare pieces of evidence and choose the strongest support.",
+          ],
+          4: [
+            "Push for stronger synthesis, counterpoint awareness, and more formal academic language.",
+            "Conference around whether the writing sounds like an argument shaped by research rather than notes in paragraph form.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use shared inquiry, visuals, and oral discussion so students can contribute ideas before independent writing.",
+            "Accept teacher-supported claim statements and shared evidence sentences during early drafting.",
+          ],
+          2: [
+            "Provide note frames, source starters, and oral rehearsal before students compose argument paragraphs.",
+            "Use chunked texts and carefully selected evidence to reduce overload during research.",
+          ],
+          3: [
+            "Support organization with research planners and paragraph frames that separate claim, evidence, and explanation.",
+            "Prompt students to explain why each fact matters instead of stacking research details.",
+          ],
+          4: [
+            "Push students toward stronger synthesis, source integration, and more independent argument structure.",
+            "Conference around evidence quality, reasoning, and the academic tone of the final piece.",
+          ],
+        },
+      },
+      {
+        grade: "5",
+        id: "Journalism: Researching and Writing Articles",
+        title: "Journalism: Researching and Writing Articles",
+        window: "End of Year",
+        focus: "Guide students in researching, drafting, and publishing journalistic articles.",
+        standards: [],
+        standardsPlaceholder: "TBD from Mossflower curriculum map or standards alignment chart.",
+        scaffoldNotes: [
+          "Model how journalists gather facts, organize leads, and write in a concise, reader-facing style.",
+          "Teach article structure explicitly with headlines, leads, quotations, and grouped information.",
+          "Conference around accuracy, clarity, and audience so articles sound informative and purposeful.",
+        ],
+        languageDemands: [
+          "Research a topic and organize facts into article form.",
+          "Use journalistic structure such as headline, lead, quotations, and grouped information.",
+          "Write concisely while still explaining key facts and significance for the reader.",
+        ],
+        planningNotes: [
+          "Show several article models so students can see how journalists balance fact, quote, and explanation.",
+          "Use oral rehearsal for leads and headlines because students often need to hear the tone before drafting it.",
+          "Teach students to revise for precision and clarity by cutting repetition and sharpening wording.",
+        ],
+        unitSentenceFrames: {
+          1: ['"This article is about ___."', '"One fact is ___."', '"People said ___."'],
+          2: ['"Today I am reporting on ___."', '"A key fact is ___."', '"According to ___, ___."'],
+          3: ['"This article explains ___."', '"One important detail is ___."', '"This matters because ___."'],
+          4: ['"The most important development is ___."', '"A source explained that ___."', '"Readers should understand that ___."'],
+        },
+        unitWritingSupports: {
+          1: [
+            "Use shared research, oral reporting, and labeled notes before expecting full article drafts.",
+            "Support simple headlines and fact statements as early journalism practice.",
+          ],
+          2: [
+            "Provide article planners with headline, lead, facts, and quote sections.",
+            "Model how to turn notes into concise reporting sentences rather than longer narrative sentences.",
+          ],
+          3: [
+            "Support article drafting with boxes for lead, grouped facts, and source quotes.",
+            "Prompt students to revise for clarity and remove repeated information.",
+          ],
+          4: [
+            "Push for sharper leads, stronger quote integration, and more polished journalistic tone.",
+            "Conference around audience, significance, and whether the article teaches the reader efficiently.",
+          ],
+        },
+        widaDifferentiation: {
+          1: [
+            "Use oral reporting, visuals, and shared fact charts so students can contribute to article planning before writing independently.",
+            "Accept labeled notes, copied key facts, and shared headlines as meaningful journalism entry points.",
+          ],
+          2: [
+            "Provide fact and quote frames plus article planners that make each section of the piece visible.",
+            "Use short, chunked source material so students can focus on essential information.",
+          ],
+          3: [
+            "Support concise reporting paragraphs with frames for lead, facts, and explanation.",
+            "Prompt students to check whether each sentence sounds like reporting rather than storytelling.",
+          ],
+          4: [
+            "Push students toward more independent structure, clearer source use, and sharper revision for concision.",
+            "Conference around accuracy, tone, and how well the article serves its readers.",
+          ],
+        },
+      },
     ],
   },
 };
