@@ -15,8 +15,11 @@ import {
 import {
   BookOpenText,
   CheckCircle2,
+  CircleHelp,
   FolderKanban,
   Languages,
+  LibraryBig,
+  FileText,
   MessageSquareQuote,
   NotebookPen,
   Route,
@@ -215,6 +218,28 @@ export default function WritingWorkshopToolkit() {
                 </ul>
               </div>
             ) : null}
+
+            {selectedUnit.mentorTexts?.length ? (
+              <div className="mt-4 rounded-2xl border border-amber-100 bg-amber-50/80 p-4">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                  <LibraryBig className="h-3.5 w-3.5 text-amber-600" />
+                  Suggested Mentor Texts
+                </div>
+                <div className="mt-3 space-y-3">
+                  {selectedUnit.mentorTexts.map((mentor) => (
+                    <div key={`${mentor.title}-${mentor.author}`} className="rounded-2xl border border-white bg-white/80 p-4">
+                      <div className="text-sm font-bold text-blue-950">{mentor.title}</div>
+                      <div className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-slate-500">
+                        {mentor.author}
+                      </div>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                        {mentor.teachingNote}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </CardContent>
         </Card>
       </section>
@@ -295,6 +320,51 @@ export default function WritingWorkshopToolkit() {
                         <li key={move} className="flex gap-3">
                           <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" />
                           <span>{move}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                {selectedUnit.modelSamples?.[selectedLevel as 1 | 2 | 3 | 4] ? (
+                  <div className="mt-5 rounded-2xl border border-emerald-100 bg-emerald-50/80 p-4">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                      <FileText className="h-3.5 w-3.5 text-emerald-600" />
+                      Model Sample
+                    </div>
+                    <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                      Teacher-created exemplar for planning. This is not real student work.
+                    </p>
+                    <div className="mt-3 rounded-2xl border border-white bg-white p-4">
+                      <p className="text-sm leading-relaxed text-slate-800">
+                        {selectedUnit.modelSamples[selectedLevel as 1 | 2 | 3 | 4]?.sample}
+                      </p>
+                    </div>
+                    <div className="mt-3 rounded-2xl border border-white bg-white p-4">
+                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                        What This Shows
+                      </div>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                        {selectedUnit.modelSamples[selectedLevel as 1 | 2 | 3 | 4]?.whatThisShows}
+                      </p>
+                    </div>
+                  </div>
+                ) : null}
+
+                {selectedUnit.conferencePrompts?.[selectedLevel as 1 | 2 | 3 | 4]?.length ? (
+                  <div className="mt-5 rounded-2xl border border-violet-100 bg-violet-50/80 p-4">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                      <CircleHelp className="h-3.5 w-3.5 text-violet-600" />
+                      Conference Prompts
+                    </div>
+                    <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                      Questions and prompts a teacher can use during a quick writing conference.
+                    </p>
+                    <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
+                      {selectedUnit.conferencePrompts[selectedLevel as 1 | 2 | 3 | 4]?.map((prompt) => (
+                        <li key={prompt} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" />
+                          <span>{prompt}</span>
                         </li>
                       ))}
                     </ul>

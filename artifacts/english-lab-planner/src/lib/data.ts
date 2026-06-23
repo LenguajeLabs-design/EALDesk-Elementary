@@ -208,10 +208,24 @@ export type WorkshopUnit = {
   title: string;
 };
 
+export type MentorTextSuggestion = {
+  title: string;
+  author: string;
+  teachingNote: string;
+};
+
+export type ModelSample = {
+  sample: string;
+  whatThisShows: string;
+};
+
 export type YearlyOverviewUnit = WorkshopUnit & {
   grade: GradeId;
   scaffoldNotes?: string[];
   languageDemands?: string[];
+  mentorTexts?: MentorTextSuggestion[];
+  modelSamples?: Partial<Record<1 | 2 | 3 | 4, ModelSample>>;
+  conferencePrompts?: Partial<Record<1 | 2 | 3 | 4, string[]>>;
   planningNotes?: string[];
   unitSentenceFrames?: Partial<Record<1 | 2 | 3 | 4, string[]>>;
   unitWritingSupports?: Partial<Record<1 | 2 | 3 | 4, string[]>>;
@@ -389,6 +403,63 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Expand oral storytelling into detailed sentences on the page.",
           "Name feelings, actions, and dialogue in ways the reader can picture.",
         ],
+        mentorTexts: [
+          {
+            title: "Owl Moon",
+            author: "Jane Yolen",
+            teachingNote: "Use selected pages to show how a tiny event can be stretched with sensory detail, silence, and feeling.",
+          },
+          {
+            title: "Jabari Jumps",
+            author: "Gaia Cornwall",
+            teachingNote: "Highlight inner thinking, pacing, and how one small moment becomes a full, meaningful story.",
+          },
+          {
+            title: "Shortcut",
+            author: "Donald Crews",
+            teachingNote: "Notice how sequence and tension help writers hold one event together from beginning to end.",
+          },
+        ],
+        modelSamples: {
+          1: {
+            sample: "I went to the park. I climb. I was scared. Then I jump.",
+            whatThisShows: "A WIDA 1 writer may name the event with simple present or mixed tense sentences and rely on oral rehearsal to fill in missing details.",
+          },
+          2: {
+            sample: "First I climbed the ladder. Then I looked down and felt scared. At the end I jumped into the water.",
+            whatThisShows: "A WIDA 2 sample shows clear sequence and feeling language, even when the piece stays short and patterned.",
+          },
+          3: {
+            sample: "In this small moment, I climbed higher and higher until I could see the whole pool. My hands were shaking, but I still jumped. When I splashed in, I felt proud.",
+            whatThisShows: "A WIDA 3 writer can stretch the moment with connected sentences, actions, and a simple emotional payoff.",
+          },
+          4: {
+            sample: "I held the railing and looked down at the bright blue water below me. For one second, everything felt still. Then I pushed off, dropped fast, and came up smiling because I had finally been brave enough to jump.",
+            whatThisShows: "A WIDA 4 sample begins to use pacing, imagery, and reflection to make the event feel bigger for the reader.",
+          },
+        },
+        conferencePrompts: {
+          1: [
+            "Show me where the small moment starts.",
+            "Can you tell me what happened first and then next?",
+            "What feeling can we add to this page?",
+          ],
+          2: [
+            "Where can you slow this part down for the reader?",
+            "Can you add one action and one feeling to this moment?",
+            "Which page needs a clearer beginning, middle, or end?",
+          ],
+          3: [
+            "What could your character say or think right here?",
+            "Where can you add a detail that helps me picture the scene?",
+            "Which part matters most, and how can you make it feel bigger?",
+          ],
+          4: [
+            "How do you want the reader to feel in this scene?",
+            "Which sentence could you revise for stronger pacing or imagery?",
+            "What ending best shows why this moment mattered?",
+          ],
+        },
         planningNotes: [
           "Front-load oral rehearsal and shared storytelling before expecting independent drafting.",
           "Keep mentor examples visible that show how a tiny event can be stretched across several pages.",
@@ -455,6 +526,63 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use teaching language, labels, and headings to guide a reader.",
           "Apply content vocabulary accurately in spoken rehearsal and writing.",
         ],
+        mentorTexts: [
+          {
+            title: "From Seed to Plant",
+            author: "Gail Gibbons",
+            teachingNote: "Use headings, labeled diagrams, and clear subtopics to show what makes nonfiction chapters teach well.",
+          },
+          {
+            title: "Bats",
+            author: "Gail Gibbons",
+            teachingNote: "Study how facts are grouped and supported with text features so students can structure chapters around subtopics.",
+          },
+          {
+            title: "Sharks!",
+            author: "Anne Schreiber",
+            teachingNote: "Notice accessible teaching language and how strong nonfiction books mix facts, features, and vivid domain vocabulary.",
+          },
+        ],
+        modelSamples: {
+          1: {
+            sample: "Tigers have stripes. Tigers run. Tigers have babies.",
+            whatThisShows: "A WIDA 1 writer may produce labeled facts or very short teaching sentences around one topic.",
+          },
+          2: {
+            sample: "This chapter is about tiger babies. Tiger babies drink milk. They stay with the mother. They learn to hunt when they grow.",
+            whatThisShows: "A WIDA 2 sample shows a simple chapter focus with grouped facts and repetitive teaching language.",
+          },
+          3: {
+            sample: "This section teaches about how tiger cubs grow. At first, the cubs stay close to their mother. Later, they learn to hunt by watching her. These facts help readers understand how baby tigers survive.",
+            whatThisShows: "A WIDA 3 writer can group facts into a subtopic and add one explanatory sentence for the reader.",
+          },
+          4: {
+            sample: "Tiger cubs depend on their mother in the early months of life. She protects them, feeds them, and slowly teaches them how to hunt. I used this chapter to show that growing up is an important part of a tiger's life.",
+            whatThisShows: "A WIDA 4 sample sounds more like sustained teaching, with clearer organization and explanation across sentences.",
+          },
+        },
+        conferencePrompts: {
+          1: [
+            "What is this page teaching about your topic?",
+            "Can you name one fact and show me where it belongs?",
+            "What picture or label could help your reader here?",
+          ],
+          2: [
+            "What is the chapter about, in one sentence?",
+            "Which fact fits this section best?",
+            "Where could you add a heading or label to help the reader?",
+          ],
+          3: [
+            "How can you turn that fact into a stronger teaching sentence?",
+            "What example would help your reader understand this part better?",
+            "Does this chapter stay on one clear subtopic?",
+          ],
+          4: [
+            "What does this chapter teach that the last one did not?",
+            "Where can you elaborate instead of listing facts?",
+            "Which text feature will help the reader learn most clearly?",
+          ],
+        },
         planningNotes: [
           "Choose high-interest topics students can already talk about before expecting extensive written output.",
           "Teach the structure of a chapter book explicitly with one visible planner that all students reuse.",
@@ -521,6 +649,63 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use linking words to connect claim, reasons, and examples.",
           "Speak and write in a way that sounds convincing to an audience.",
         ],
+        mentorTexts: [
+          {
+            title: "Don't Let the Pigeon Drive the Bus!",
+            author: "Mo Willems",
+            teachingNote: "Use the exaggerated persuasion to notice voice, repeated reasons, and speaking directly to an audience.",
+          },
+          {
+            title: "I Wanna Iguana",
+            author: "Karen Kaufman Orloff",
+            teachingNote: "Study how reasons and counterpoints can build a stronger argument in letters or opinion pieces.",
+          },
+          {
+            title: "The Perfect Pet",
+            author: "Margie Palatini",
+            teachingNote: "Notice how writers support a strong opinion with examples that make the audience picture the choice.",
+          },
+        ],
+        modelSamples: {
+          1: {
+            sample: "I like rainy days. They are fun. You can jump in puddles.",
+            whatThisShows: "A WIDA 1 writer can express a clear opinion with a simple reason and familiar vocabulary.",
+          },
+          2: {
+            sample: "I think rainy days are awesome because I can jump in puddles. Another reason is I can stay inside and read. You should like rainy days too.",
+            whatThisShows: "A WIDA 2 sample uses repeated opinion language and simple reasons to sound persuasive.",
+          },
+          3: {
+            sample: "My opinion is that rainy days are the best kind of day. For example, you can hear the rain on the window while you read or rest. This shows why rainy days feel calm and fun at the same time.",
+            whatThisShows: "A WIDA 3 writer begins to elaborate with an example and explain why the reason matters.",
+          },
+          4: {
+            sample: "I believe rainy days deserve to be celebrated because they make ordinary time feel special. A strong example is when the rain taps on the roof and turns reading at home into something cozy. Readers should agree because rainy days slow us down in the best way.",
+            whatThisShows: "A WIDA 4 sample shows stronger voice, audience awareness, and more precise explanation.",
+          },
+        },
+        conferencePrompts: {
+          1: [
+            "What is your opinion?",
+            "Can you tell me one reason why?",
+            "What word could help you tell the reader to agree with you?",
+          ],
+          2: [
+            "Which reason is strongest, and can you say more about it?",
+            "Where can you add because to connect your idea?",
+            "What example would help your reader picture your reason?",
+          ],
+          3: [
+            "Does each reason connect clearly back to your opinion?",
+            "Where could you add an example or explanation?",
+            "Which sentence sounds the most convincing right now?",
+          ],
+          4: [
+            "How are you speaking directly to your audience?",
+            "Which reason deserves more development to persuade the reader?",
+            "What revision would make your voice sound more convincing?",
+          ],
+        },
         planningNotes: [
           "Give students time to sort and rehearse reasons orally before they draft full pieces.",
           "Model the difference between naming a reason and explaining why it matters to the reader.",
@@ -587,6 +772,63 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Turn notes into informational sentences grouped by topic.",
           "Use comparisons, examples, and domain words to teach new ideas clearly.",
         ],
+        mentorTexts: [
+          {
+            title: "Frogs",
+            author: "Nic Bishop",
+            teachingNote: "Use photo captions and precise facts to show how research writing can teach clearly and vividly.",
+          },
+          {
+            title: "National Geographic Readers: Sea Turtles",
+            author: "Laura Marsh",
+            teachingNote: "Notice short research sections, bold domain words, and how each page teaches one clear idea.",
+          },
+          {
+            title: "From Seed to Plant",
+            author: "Gail Gibbons",
+            teachingNote: "Return to selected pages to study how explanation grows from gathered facts, diagrams, and sequence.",
+          },
+        ],
+        modelSamples: {
+          1: {
+            sample: "Frogs can jump. Frogs eat bugs. Frogs live near water.",
+            whatThisShows: "A WIDA 1 research sample may stay close to collected facts and depend on shared discussion for fuller meaning.",
+          },
+          2: {
+            sample: "I learned that frogs live near water. Another fact is frogs catch bugs with their tongues. Frogs need wet places to live.",
+            whatThisShows: "A WIDA 2 writer can turn notes into short factual sentences with light repetition.",
+          },
+          3: {
+            sample: "This section teaches how frogs survive. Frogs live near water because their bodies need moisture. They also catch insects with their long tongues. These details help readers understand frog habitats and food.",
+            whatThisShows: "A WIDA 3 sample shows grouped notes, causal language, and a clearer teaching purpose.",
+          },
+          4: {
+            sample: "My research shows that frogs are well adapted to wet habitats. Their skin needs moisture, and their strong legs help them move quickly through water and onto land. I included these facts to explain how body parts and habitat work together.",
+            whatThisShows: "A WIDA 4 sample sounds more synthesized, connecting facts instead of listing them one by one.",
+          },
+        },
+        conferencePrompts: {
+          1: [
+            "What did you learn from your research today?",
+            "Can you show me one fact with a picture or label?",
+            "Which note belongs in this section?",
+          ],
+          2: [
+            "Can you turn that note into a full sentence?",
+            "What other fact belongs with this one?",
+            "Where could a picture, label, or comparison help the reader?",
+          ],
+          3: [
+            "How are these facts connected in this section?",
+            "What explanation could you add after this fact?",
+            "What does the reader learn from this part?",
+          ],
+          4: [
+            "Where are you synthesizing instead of listing?",
+            "Which fact still needs clearer explanation?",
+            "How can you make this section sound more like teaching?",
+          ],
+        },
         planningNotes: [
           "Treat research as a shared language event first, then move gradually toward independent note-taking.",
           "Model how to turn a sketch or keyword note into a full teaching sentence.",
@@ -655,6 +897,63 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use domain-specific vocabulary and explanation language to teach the reader.",
           "Elaborate with examples, definitions, and conclusions instead of listing facts.",
         ],
+        mentorTexts: [
+          {
+            title: "Volcanoes",
+            author: "Seymour Simon",
+            teachingNote: "Use short excerpts to study precise domain vocabulary, strong subtopics, and clear explanatory sentences.",
+          },
+          {
+            title: "Sharks!",
+            author: "Anne Schreiber",
+            teachingNote: "Notice how headings, facts, and examples work together to teach one part of a topic at a time.",
+          },
+          {
+            title: "Snakes",
+            author: "Nic Bishop",
+            teachingNote: "Show students how expert word choice and detailed examples make information writing feel vivid, not flat.",
+          },
+        ],
+        modelSamples: {
+          1: {
+            sample: "Sharks are fish. They have fins. They live in the ocean.",
+            whatThisShows: "A WIDA 1 sample may show a topic clearly with short factual statements and limited elaboration.",
+          },
+          2: {
+            sample: "My topic is sharks. One part is their bodies. Sharks have fins and sharp teeth. Another fact is they live in oceans around the world.",
+            whatThisShows: "A WIDA 2 writer can organize facts into a beginning subtopic with simple structure language.",
+          },
+          3: {
+            sample: "This section teaches about shark bodies. Sharks use their fins to steer through the water, and their rows of teeth help them catch food. For example, some sharks lose teeth often and grow new ones. Readers learn how body parts help sharks survive.",
+            whatThisShows: "A WIDA 3 sample adds examples and explanations that make the information feel more teachable.",
+          },
+          4: {
+            sample: "A key idea about sharks is that their bodies are built for survival. Their fins help them move with control, and their teeth are constantly replaced so they can keep hunting. This detail matters because it shows how structure supports function in the animal world.",
+            whatThisShows: "A WIDA 4 sample uses more precise teaching language and clearer explanatory connections.",
+          },
+        },
+        conferencePrompts: {
+          1: [
+            "What is your topic?",
+            "Can you tell me one fact you want to teach?",
+            "Which word or picture will help your reader understand?",
+          ],
+          2: [
+            "What subtopic is this section about?",
+            "Can you add another fact that fits with this one?",
+            "Where could you use a heading or teaching sentence?",
+          ],
+          3: [
+            "How can you explain this fact, not just state it?",
+            "What example or definition would help the reader here?",
+            "Does this section stay focused on one main idea?",
+          ],
+          4: [
+            "Which part sounds most like expert teaching?",
+            "Where can you strengthen your conclusion or transition?",
+            "How are you helping the reader understand why this detail matters?",
+          ],
+        },
         planningNotes: [
           "Teach planning as a language task, not just a writing task, by rehearsing sections aloud before drafting.",
           "Model several ways information writers elaborate so students do not rely on bare fact lists.",
@@ -721,6 +1020,63 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use evidence, examples, and audience language to strengthen an argument.",
           "Shift between oral persuasion, letter writing, and paragraph-level argument structures.",
         ],
+        mentorTexts: [
+          {
+            title: "Click, Clack, Moo: Cows That Type",
+            author: "Doreen Cronin",
+            teachingNote: "Study how the characters make demands, give reasons, and use audience language to push for change.",
+          },
+          {
+            title: "The Day the Crayons Quit",
+            author: "Drew Daywalt",
+            teachingNote: "Use selected letters to notice voice, complaint structure, and how reasons sound different for different audiences.",
+          },
+          {
+            title: "I Dissent: Ruth Bader Ginsburg Makes Her Mark",
+            author: "Debbie Levy",
+            teachingNote: "Model how opinion can be grounded in fairness, examples, and a clear call to action.",
+          },
+        ],
+        modelSamples: {
+          1: {
+            sample: "We should have more recess. It is fun. Kids can run.",
+            whatThisShows: "A WIDA 1 persuasive sample may state a claim and one simple reason with familiar school vocabulary.",
+          },
+          2: {
+            sample: "I think we should have more recess because kids need to move. Another reason is we can play and then learn better. This would help our class.",
+            whatThisShows: "A WIDA 2 sample shows a clear claim with repeated reason language and a simple audience move.",
+          },
+          3: {
+            sample: "My claim is that our school should add more recess time. One reason is that students focus better after movement, and an example is how calm our class feels after a break. This matters because more recess could help students learn.",
+            whatThisShows: "A WIDA 3 writer can connect a claim, a reason, and an example in paragraph-like form.",
+          },
+          4: {
+            sample: "I strongly believe our school should protect more recess time because movement supports both health and learning. A convincing example is how students return from break more settled and ready to focus. Our audience should care because better attention can improve the whole school day.",
+            whatThisShows: "A WIDA 4 sample shows stronger argument structure, audience awareness, and explanation.",
+          },
+        },
+        conferencePrompts: {
+          1: [
+            "What change do you want?",
+            "Can you tell me one reason for that change?",
+            "Who are you trying to convince?",
+          ],
+          2: [
+            "Which reason is easiest for your audience to understand?",
+            "Can you add because and finish the idea?",
+            "What example would help your audience care?",
+          ],
+          3: [
+            "Does your reason connect clearly to your claim?",
+            "Where can you add evidence or an example from class discussion?",
+            "How can you make this sound more persuasive?",
+          ],
+          4: [
+            "How are you adjusting your argument for this audience?",
+            "Which paragraph needs a stronger call to action?",
+            "What evidence makes your case most convincing?",
+          ],
+        },
         planningNotes: [
           "Spend time building background knowledge so students have something meaningful to argue about.",
           "Model how persuasive writing sounds different when speaking to classmates, teachers, or a broader audience.",
@@ -787,6 +1143,63 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use dialogue, actions, and inner thinking to develop character and plot.",
           "Revise for coherence, paragraphing, and voice across several scenes.",
         ],
+        mentorTexts: [
+          {
+            title: "Mercy Watson to the Rescue",
+            author: "Kate DiCamillo",
+            teachingNote: "Notice how a familiar character stays recognizable while each episode has its own problem and payoff.",
+          },
+          {
+            title: "Henry and Mudge",
+            author: "Cynthia Rylant",
+            teachingNote: "Use excerpts to study scene structure, gentle dialogue, and the repeating features of a series friendship.",
+          },
+          {
+            title: "Katie Woo",
+            author: "Fran Manushkin",
+            teachingNote: "Show how short episodes can still include character feeling, dialogue, and a complete story arc.",
+          },
+        ],
+        modelSamples: {
+          1: {
+            sample: "Max lost his dog. He said, \"Oh no!\" Then he ran fast.",
+            whatThisShows: "A WIDA 1 fiction sample may show one episode with short action sentences and a small amount of dialogue.",
+          },
+          2: {
+            sample: "At first Max played in the yard. Then the problem was his dog ran away. \"Come back!\" Max yelled. At the end he found the dog by the gate.",
+            whatThisShows: "A WIDA 2 writer can hold a simple episode with beginning, problem, and ending structure.",
+          },
+          3: {
+            sample: "In this episode, Max chased his dog all the way to the front gate. \"Come back right now!\" he shouted, but the dog only wagged its tail. This part shows that Max felt worried, even though the scene stayed funny.",
+            whatThisShows: "A WIDA 3 sample includes dialogue, feeling, and a more developed scene inside one episode.",
+          },
+          4: {
+            sample: "I wanted this episode to begin with everything feeling normal before the trouble started. When Max saw the open gate, his stomach dropped, and his voice came out louder than he expected: \"Buddy!\" The ending connects to the series because Max is always trying to stay in control, even when life becomes chaotic.",
+            whatThisShows: "A WIDA 4 sample begins to shape voice, scene pacing, and recurring character traits across a series.",
+          },
+        },
+        conferencePrompts: {
+          1: [
+            "What happens in this episode?",
+            "Who is talking here?",
+            "Can you show one feeling with a word or picture?",
+          ],
+          2: [
+            "Where is the problem in this episode?",
+            "Can you add one line of dialogue?",
+            "How will the episode end?",
+          ],
+          3: [
+            "What does this scene show about your character?",
+            "Where can you add inner thinking or a stronger action?",
+            "Does this episode feel complete on its own?",
+          ],
+          4: [
+            "How does this episode connect to the whole series?",
+            "Which part needs stronger pacing or voice?",
+            "What recurring trait makes this character recognizable?",
+          ],
+        },
         planningNotes: [
           "Keep one episode structure visible so students do not jump between too many story ideas at once.",
           "Teach students to talk through a scene before drafting it, especially when adding dialogue or inner thinking.",
@@ -853,6 +1266,63 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Explain how details from the text connect back to the claim.",
           "Use essay language for introductions, body paragraphs, and conclusions.",
         ],
+        mentorTexts: [
+          {
+            title: "Each Kindness",
+            author: "Jacqueline Woodson",
+            teachingNote: "Use it for collecting evidence about theme, regret, and character choices that support a literary claim.",
+          },
+          {
+            title: "Those Shoes",
+            author: "Maribeth Boelts",
+            teachingNote: "Study how repeated moments across a text can support an essay about change, want, or empathy.",
+          },
+          {
+            title: "Because of Winn-Dixie",
+            author: "Kate DiCamillo",
+            teachingNote: "Use short excerpts to practice lifting key scenes and explaining how they support an interpretation.",
+          },
+        ],
+        modelSamples: {
+          1: {
+            sample: "I think Chloe was unkind. In the story, she did not play with Maya. This shows she was not being nice.",
+            whatThisShows: "A WIDA 1 literary response can still make a basic claim and point to one part of the text.",
+          },
+          2: {
+            sample: "I think Chloe changes because she understands her mistake. One part that shows this is when she remembers Maya after the kindness lesson. This tells me Chloe feels regret.",
+            whatThisShows: "A WIDA 2 sample links a claim to a specific event and a simple interpretation.",
+          },
+          3: {
+            sample: "My claim is that the story teaches readers about missed chances for kindness. For example, Chloe keeps turning away from Maya when Maya wants to play. This matters because it helps readers see that unkind choices can stay with a person for a long time.",
+            whatThisShows: "A WIDA 3 writer can move beyond retell and explain how evidence supports a bigger idea.",
+          },
+          4: {
+            sample: "I believe the story suggests that kindness matters most when we have the chance to offer it. The text shows this when Chloe keeps rejecting Maya and later cannot undo those choices. This evidence deepens the idea that regret grows from ordinary moments when people choose not to connect.",
+            whatThisShows: "A WIDA 4 sample sounds more interpretive and thematic, with tighter claim-evidence-analysis language.",
+          },
+        },
+        conferencePrompts: {
+          1: [
+            "What do you think about this character or story?",
+            "Which part of the book shows that?",
+            "Can you finish the sentence: This shows ___?",
+          ],
+          2: [
+            "What is your claim?",
+            "Which event in the text best matches your idea?",
+            "How can you explain what that event proves?",
+          ],
+          3: [
+            "Does your evidence really fit your claim?",
+            "Where can you add explanation instead of retelling?",
+            "What bigger idea is the text teaching the reader?",
+          ],
+          4: [
+            "How can you make this interpretation more precise?",
+            "Which evidence is strongest, and why?",
+            "What sentence best explains the significance of this example?",
+          ],
+        },
         planningNotes: [
           "Treat evidence collection as a separate routine before expecting full essay drafting.",
           "Model how explanation sounds different from summary so students do more than retell the text.",
@@ -921,6 +1391,28 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use dialogue, sensory detail, and reflection to deepen meaning for the reader.",
           "Revise with more precise language, transitions, and paragraphing.",
         ],
+        conferencePrompts: {
+          1: [
+            "Which scene are you writing today?",
+            "Can you tell me what happened in this moment, step by step?",
+            "What feeling belongs in this part of the story?",
+          ],
+          2: [
+            "Where could you stretch this moment instead of rushing through it?",
+            "Can you add one line of dialogue or one sensory detail here?",
+            "What part of the scene needs a clearer ending?",
+          ],
+          3: [
+            "How does this scene show why the memory matters?",
+            "Where could you add reflection instead of only action?",
+            "Which transition or paragraph break would help the reader follow the story?",
+          ],
+          4: [
+            "What revision would make this narrative feel more literary?",
+            "How are you shaping the pacing so the most important moment stands out?",
+            "What does your ending help the reader understand about you or this event?",
+          ],
+        },
         planningNotes: [
           "Teach students to separate story generation from scene revision so drafting does not stall.",
           "Keep mentor examples visible for leads, dialogue, and endings that sound literary without becoming formulaic.",
@@ -987,6 +1479,28 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use examples, evidence, and explanation to elaborate an argument.",
           "Write in paragraph and essay form using transitions and persuasive tone.",
         ],
+        conferencePrompts: {
+          1: [
+            "What is your opinion or claim?",
+            "Can you tell me one reason for it?",
+            "Which sentence shows your big idea most clearly?",
+          ],
+          2: [
+            "Which reason belongs in this paragraph?",
+            "Can you add because or for example to connect your thinking?",
+            "What detail would help this reason sound stronger?",
+          ],
+          3: [
+            "Does this example really support your claim?",
+            "Where can you explain your thinking instead of just naming evidence?",
+            "What is the job of this paragraph in your essay?",
+          ],
+          4: [
+            "Which reason is most convincing, and have you developed it enough?",
+            "How are you sequencing your paragraphs so the argument builds logically?",
+            "What revision would sharpen your conclusion or audience impact?",
+          ],
+        },
         planningNotes: [
           "Spend time teaching the architecture of the essay before expecting polished drafting.",
           "Use oral rehearsal and shared planning so students hear how reasons and evidence sound together.",
@@ -1053,6 +1567,28 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Explain how scenes, dialogue, and character actions support an interpretation.",
           "Use essay language, textual evidence, and cohesive paragraphs to discuss fiction.",
         ],
+        conferencePrompts: {
+          1: [
+            "What do you think about this character or part of the story?",
+            "Which moment in the text makes you think that?",
+            "Can you finish the sentence: This shows ___?",
+          ],
+          2: [
+            "What is your claim for this paragraph?",
+            "Which part of the text fits that claim best?",
+            "How can you explain what the evidence means?",
+          ],
+          3: [
+            "Are you analyzing here, or are you retelling the plot?",
+            "What does this example prove about the character or theme?",
+            "Where could you add a stronger explanation after the evidence?",
+          ],
+          4: [
+            "How can you make this interpretation more precise or insightful?",
+            "Which evidence most strongly advances your analysis?",
+            "What revision would make this paragraph sound more literary and less formulaic?",
+          ],
+        },
         planningNotes: [
           "Teach students to stop and talk through the claim before they draft to avoid collecting mismatched evidence.",
           "Use mentor paragraphs to show how explanation deepens interpretation rather than retells plot.",
@@ -1119,6 +1655,28 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Organize information, explanation, or argument in ways that fit the discipline.",
           "Synthesize notes, examples, and evidence into a polished content-based piece.",
         ],
+        conferencePrompts: {
+          1: [
+            "What is your topic in this subject?",
+            "Can you show me one fact or idea you want to teach?",
+            "What picture, diagram, or label would help here?",
+          ],
+          2: [
+            "What is this section explaining?",
+            "Which vocabulary word belongs in this part of your writing?",
+            "How can you turn that note into a full teaching sentence?",
+          ],
+          3: [
+            "How does this evidence help explain your topic?",
+            "Where can you add more explanation so the reader learns from you?",
+            "Does this piece sound like science, social studies, or inquiry writing yet?",
+          ],
+          4: [
+            "How are you balancing content accuracy with strong writing?",
+            "Which part sounds most like expert teaching or argument?",
+            "What revision would strengthen your synthesis or subject-specific tone?",
+          ],
+        },
         planningNotes: [
           "Clarify the disciplinary purpose early so students know whether they are explaining, comparing, arguing, or reporting.",
           "Build oral understanding of content before expecting strong academic writing about it.",
@@ -1187,6 +1745,28 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use literary language, dialogue, and detail to shape meaning for the reader.",
           "Revise for voice, significance, and cohesion across a longer narrative.",
         ],
+        conferencePrompts: {
+          1: [
+            "What is the one important moment you are telling?",
+            "Can you say what happened and how you felt?",
+            "Which part of the story should we write first?",
+          ],
+          2: [
+            "Where could you slow the story down to show the moment better?",
+            "Can you add one line that shows your feeling or thinking?",
+            "What detail helps the reader picture this scene?",
+          ],
+          3: [
+            "How does this scene connect to the meaning of the story?",
+            "Where can you add reflection so the reader understands why it matters?",
+            "Which paragraph or transition needs to be clearer?",
+          ],
+          4: [
+            "How are you turning this memory into literature, not just retelling it?",
+            "Which scene carries the most significance, and is it developed enough?",
+            "What revision would deepen the voice or reflection in this draft?",
+          ],
+        },
         planningNotes: [
           "Teach story selection carefully so students choose experiences with emotional or thematic depth.",
           "Use mentor examples to show how reflection and scene work create a literary feel.",
@@ -1253,6 +1833,28 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Integrate textual evidence and explain how it supports a nuanced reading.",
           "Use academic essay language for interpretation, comparison, and conclusion.",
         ],
+        conferencePrompts: {
+          1: [
+            "What is one idea you have about the text?",
+            "Which part of the story makes you think that?",
+            "Can you say what this shows about the character or theme?",
+          ],
+          2: [
+            "What is your interpretation in this paragraph?",
+            "Which example from the text fits it best?",
+            "How can you explain your thinking after the evidence?",
+          ],
+          3: [
+            "Does this paragraph move beyond summary into interpretation?",
+            "What does this evidence suggest, not just show?",
+            "Where could you add a sentence that deepens the analysis?",
+          ],
+          4: [
+            "How can you make this claim more nuanced or layered?",
+            "Which piece of evidence opens the text up the most?",
+            "What revision would make this essay sound more interpretive and less predictable?",
+          ],
+        },
         planningNotes: [
           "Spend time in rehearsal and discussion so students hear interpretation before they write it.",
           "Keep visible examples of how evidence can support different but defensible claims.",
@@ -1319,6 +1921,28 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use evidence, quotation, paraphrase, and explanation to build an argument.",
           "Write in a formal argumentative structure with stronger academic transitions and precision.",
         ],
+        conferencePrompts: {
+          1: [
+            "What is your claim?",
+            "Can you show me one fact that helps support it?",
+            "What are you trying to convince the reader of?",
+          ],
+          2: [
+            "Which evidence belongs with this reason?",
+            "Can you say what this fact proves?",
+            "Where can you add a source phrase or transition?",
+          ],
+          3: [
+            "Are you explaining the evidence, or only placing it in the paragraph?",
+            "Which evidence is strongest, and why?",
+            "How can you connect this fact more clearly back to your claim?",
+          ],
+          4: [
+            "How are you synthesizing sources instead of stacking them?",
+            "Which paragraph needs stronger reasoning or academic tone?",
+            "What revision would make your argument feel more research-driven and precise?",
+          ],
+        },
         planningNotes: [
           "Teach source reading and note-taking as language-heavy processes before expecting polished argument writing.",
           "Use shared inquiry and oral debate so students test claims before locking them into essays.",
@@ -1385,6 +2009,28 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use journalistic structure such as headline, lead, quotations, and grouped information.",
           "Write concisely while still explaining key facts and significance for the reader.",
         ],
+        conferencePrompts: {
+          1: [
+            "What is your article about?",
+            "Can you tell me one important fact you want readers to know?",
+            "What headline or label fits this topic?",
+          ],
+          2: [
+            "What should your lead teach the reader first?",
+            "Where can you add a quote or source idea?",
+            "Which sentence sounds too much like a story instead of an article?",
+          ],
+          3: [
+            "How are you grouping facts so the article is easy to follow?",
+            "What detail matters most for the reader to understand?",
+            "Where could you make the language more concise and clear?",
+          ],
+          4: [
+            "Does your lead sound strong and journalistic?",
+            "Which quote or fact adds the most significance to the article?",
+            "What revision would sharpen the article's clarity, tone, or reader impact?",
+          ],
+        },
         planningNotes: [
           "Show several article models so students can see how journalists balance fact, quote, and explanation.",
           "Use oral rehearsal for leads and headlines because students often need to hear the tone before drafting it.",
