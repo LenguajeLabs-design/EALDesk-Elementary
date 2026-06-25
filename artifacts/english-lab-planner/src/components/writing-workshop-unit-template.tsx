@@ -192,6 +192,9 @@ export function WritingWorkshopUnitTemplate({
             <Card key={group.level} className="rounded-xl border-slate-200 bg-white shadow-sm">
               <CardContent className="p-6">
                 <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                    What This Level Can Do
+                  </div>
                   <div className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-bold text-sky-800">
                     {group.level}
                   </div>
@@ -201,7 +204,7 @@ export function WritingWorkshopUnitTemplate({
 
                 <div className="mt-5 grid xl:grid-cols-4 gap-4">
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Writing</div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">What To Use In Writing</div>
                     <ul className="mt-3 space-y-2 text-sm text-slate-700">
                       {group.writing.map((item) => (
                         <li key={item}>• {item}</li>
@@ -209,7 +212,7 @@ export function WritingWorkshopUnitTemplate({
                     </ul>
                   </div>
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Teacher talk</div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">What To Rehearse Out Loud</div>
                     <ul className="mt-3 space-y-2 text-sm text-slate-700">
                       {group.speaking.map((item) => (
                         <li key={item}>• {item}</li>
@@ -217,7 +220,7 @@ export function WritingWorkshopUnitTemplate({
                     </ul>
                   </div>
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Vocabulary support</div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">What Words To Lift</div>
                     <ul className="mt-3 space-y-2 text-sm text-slate-700">
                       {group.vocabulary.map((item) => (
                         <li key={item}>• {item}</li>
@@ -225,7 +228,7 @@ export function WritingWorkshopUnitTemplate({
                     </ul>
                   </div>
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Sentence frames</div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">What To Say</div>
                     <div className="mt-3 space-y-2">
                       {group.frames.map((frame) => (
                         <div key={frame} className="rounded-lg border border-white bg-white px-3 py-2 text-sm font-medium text-slate-800">
