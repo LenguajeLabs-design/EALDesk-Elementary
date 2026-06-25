@@ -9,6 +9,9 @@ import {
   FileSearch,
   Lightbulb,
   ClipboardCheck,
+  Route,
+  FileText,
+  CircleHelp,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -28,6 +31,12 @@ export type WritingWorkshopUnitScaffold = {
     speaking: string[];
     vocabulary: string[];
     frames: string[];
+    model?: string[];
+    sample?: {
+      text: string;
+      notice: string;
+    };
+    prompts?: string[];
   }>;
   conferencePrompts: string[];
   quickAssessment: string[];
@@ -224,6 +233,64 @@ export function WritingWorkshopUnitTemplate({
                         </div>
                       ))}
                     </div>
+                  </div>
+                </div>
+
+                <div className="mt-5 grid gap-4 xl:grid-cols-3">
+                  <div className="rounded-xl border border-sky-100 bg-sky-50/80 p-4">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                      <Route className="h-3.5 w-3.5 text-sky-600" />
+                      What To Model
+                    </div>
+                    <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
+                      {(group.model ?? group.writing.slice(0, 2)).map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="rounded-xl border border-emerald-100 bg-emerald-50/80 p-4">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                      <FileText className="h-3.5 w-3.5 text-emerald-600" />
+                      What It Can Sound Like
+                    </div>
+                    <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                      Teacher-created exemplar for planning. This is not real student work.
+                    </p>
+                    <div className="mt-3 rounded-2xl border border-white bg-white p-4">
+                      <p className="whitespace-pre-line text-sm leading-relaxed text-slate-800">
+                        {group.sample?.text ?? group.frames.slice(0, 2).join(" ")}
+                      </p>
+                    </div>
+                    <div className="mt-3 rounded-2xl border border-white bg-white p-4">
+                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                        What To Notice
+                      </div>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                        {group.sample?.notice ?? group.use}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-violet-100 bg-violet-50/80 p-4">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                      <CircleHelp className="h-3.5 w-3.5 text-violet-600" />
+                      What To Ask
+                    </div>
+                    <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                      Questions and prompts a teacher can use during a quick writing conference.
+                    </p>
+                    <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
+                      {(group.prompts ?? selectedUnit.conferencePrompts.slice(0, 3)).map((prompt) => (
+                        <li key={prompt} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" />
+                          <span>{prompt}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </CardContent>
