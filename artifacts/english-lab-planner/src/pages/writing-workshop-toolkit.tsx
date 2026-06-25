@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -28,6 +29,34 @@ import {
 } from "lucide-react";
 
 const TOOLKIT_GRADES: GradeId[] = ["2", "3", "4", "5"];
+
+const TEACHER_GLOSSARY = [
+  {
+    term: "Claim",
+    meaning: "The main idea, opinion, or position a student is trying to say clearly in the piece.",
+    teacherMove: "Ask, 'What are you really saying here?' and help the student state it in one clear sentence.",
+  },
+  {
+    term: "Elaboration",
+    meaning: "The extra detail that helps the reader understand more, such as examples, reasons, actions, or explanation.",
+    teacherMove: "Prompt with, 'Can you add one more detail, example, or part that helps me see your thinking?'",
+  },
+  {
+    term: "Reflection",
+    meaning: "The part where the writer tells what they learned, felt, realized, or now understands.",
+    teacherMove: "Ask, 'Why did this moment matter to you?' or 'What does this teach the reader about you?'",
+  },
+  {
+    term: "Evidence",
+    meaning: "The words, facts, details, or examples a writer uses to support an idea or opinion.",
+    teacherMove: "Ask, 'What in the text, research, or experience shows this is true?'",
+  },
+  {
+    term: "Conference",
+    meaning: "A short teacher-student conversation during workshop used to notice, teach, and set one next step.",
+    teacherMove: "Keep it simple: notice one strength, teach one move, and name one next step.",
+  },
+];
 
 export default function WritingWorkshopToolkit() {
   const [grade, setGrade] = useState<GradeId>("2");
@@ -130,7 +159,7 @@ export default function WritingWorkshopToolkit() {
         <Card className="rounded-3xl border-slate-200 shadow-sm">
           <CardContent className="p-6">
             <div className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
-              Unit Snapshot
+              Unit At A Glance
             </div>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-blue-950">
               {selectedUnit.title}
@@ -139,109 +168,153 @@ export default function WritingWorkshopToolkit() {
               {selectedUnit.focus}
             </p>
 
-            <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                <BookOpenText className="h-3.5 w-3.5 text-sky-600" />
-                What students are trying to do
-              </div>
-              <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                Keep the same writing goal for the unit, but scale the oral rehearsal, sentence support, vocabulary load,
-                and independence expectations for multilingual learners across WIDA levels.
-              </p>
-            </div>
-
-            {selectedUnit.languageDemands?.length ? (
-              <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <div className="mt-5 grid gap-4">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                  <Languages className="h-3.5 w-3.5 text-sky-600" />
-                  Language Demands
+                  <BookOpenText className="h-3.5 w-3.5 text-sky-600" />
+                  What To Teach
                 </div>
-                <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
-                  {selectedUnit.languageDemands.map((demand) => (
-                    <li key={demand} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" />
-                      <span>{demand}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-
-            <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                <CheckCircle2 className="h-3.5 w-3.5 text-sky-600" />
-                Standards
-              </div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {selectedUnit.standards.length > 0 ? (
-                  selectedUnit.standards.map((standard) => (
-                    <Badge key={standard} className="rounded-full bg-white text-slate-700 shadow-none">
-                      {standard}
-                    </Badge>
-                  ))
-                ) : (
-                  <p className="text-sm text-slate-600">{selectedUnit.standardsPlaceholder}</p>
-                )}
-              </div>
-            </div>
-
-            {selectedUnit.scaffoldNotes?.length ? (
-              <div className="mt-4 rounded-2xl border border-sky-100 bg-sky-50/80 p-4">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                  <Sparkles className="h-3.5 w-3.5 text-sky-600" />
-                  Teacher Scaffold Notes
+                <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                  Keep the same writing goal for the unit, but scale the oral rehearsal, sentence support, vocabulary load,
+                  and independence expectations for multilingual learners across WIDA levels.
+                </p>
+                <div className="mt-4 border-t border-slate-200 pt-4">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-sky-600" />
+                    Standards
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {selectedUnit.standards.length > 0 ? (
+                      selectedUnit.standards.map((standard) => (
+                        <Badge key={standard} className="rounded-full bg-white text-slate-700 shadow-none">
+                          {standard}
+                        </Badge>
+                      ))
+                    ) : (
+                      <p className="text-sm text-slate-600">{selectedUnit.standardsPlaceholder}</p>
+                    )}
+                  </div>
                 </div>
-                <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
-                  {selectedUnit.scaffoldNotes.map((note) => (
-                    <li key={note} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" />
-                      <span>{note}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
-            ) : null}
 
-            {selectedUnit.planningNotes?.length ? (
-              <div className="mt-4 rounded-2xl border border-indigo-100 bg-indigo-50/70 p-4">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                  <Target className="h-3.5 w-3.5 text-indigo-600" />
-                  Teacher Planning Notes
-                </div>
-                <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
-                  {selectedUnit.planningNotes.map((note) => (
-                    <li key={note} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500" />
-                      <span>{note}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-
-            {selectedUnit.mentorTexts?.length ? (
-              <div className="mt-4 rounded-2xl border border-amber-100 bg-amber-50/80 p-4">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                  <LibraryBig className="h-3.5 w-3.5 text-amber-600" />
-                  Suggested Mentor Texts
-                </div>
-                <div className="mt-3 space-y-3">
-                  {selectedUnit.mentorTexts.map((mentor) => (
-                    <div key={`${mentor.title}-${mentor.author}`} className="rounded-2xl border border-white bg-white/80 p-4">
-                      <div className="text-sm font-bold text-blue-950">{mentor.title}</div>
-                      <div className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-slate-500">
-                        {mentor.author}
+              {(selectedUnit.languageDemands?.length || selectedUnit.scaffoldNotes?.length) ? (
+                <div className="rounded-2xl border border-sky-100 bg-sky-50/80 p-4">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                    <Languages className="h-3.5 w-3.5 text-sky-600" />
+                    What Students Need
+                  </div>
+                  {selectedUnit.languageDemands?.length ? (
+                    <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
+                      {selectedUnit.languageDemands.map((demand) => (
+                        <li key={demand} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" />
+                          <span>{demand}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {selectedUnit.scaffoldNotes?.length ? (
+                    <div className="mt-4 border-t border-sky-100 pt-4">
+                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                        <Sparkles className="h-3.5 w-3.5 text-sky-600" />
+                        Scaffold Moves
                       </div>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                        {mentor.teachingNote}
-                      </p>
+                      <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
+                        {selectedUnit.scaffoldNotes.map((note) => (
+                          <li key={note} className="flex gap-3">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" />
+                            <span>{note}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  ))}
+                  ) : null}
                 </div>
-              </div>
-            ) : null}
+              ) : null}
+
+              {selectedUnit.planningNotes?.length ? (
+                <div className="rounded-2xl border border-indigo-100 bg-indigo-50/70 p-4">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                    <Target className="h-3.5 w-3.5 text-indigo-600" />
+                    Planning Moves
+                  </div>
+                  <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
+                    {selectedUnit.planningNotes.map((note) => (
+                      <li key={note} className="flex gap-3">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500" />
+                        <span>{note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+
+              {selectedUnit.mentorTexts?.length ? (
+                <div className="rounded-2xl border border-amber-100 bg-amber-50/80 p-4">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                    <LibraryBig className="h-3.5 w-3.5 text-amber-600" />
+                    What To Use
+                  </div>
+                  <div className="mt-3 space-y-3">
+                    {selectedUnit.mentorTexts.map((mentor) => (
+                      <div key={`${mentor.title}-${mentor.author}`} className="rounded-2xl border border-white bg-white/80 p-4">
+                        <div className="text-sm font-bold text-blue-950">{mentor.title}</div>
+                        <div className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-slate-500">
+                          {mentor.author}
+                        </div>
+                        <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                          {mentor.teachingNote}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </div>
           </CardContent>
         </Card>
+      </section>
+
+      <section className="rounded-3xl border border-slate-200 bg-white shadow-sm">
+        <div className="border-b border-slate-200 px-6 py-5 md:px-8">
+          <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
+            <CircleHelp className="h-4 w-4 text-sky-600" />
+            Teacher Glossary
+          </div>
+          <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-blue-950 md:text-3xl">
+            Quick help with workshop language
+          </h2>
+          <p className="mt-2 max-w-4xl text-sm leading-relaxed text-slate-600">
+            Use these plain-language definitions when planning with colleagues or explaining unit language during team conversations.
+          </p>
+        </div>
+
+        <div className="p-6 md:p-8">
+          <Accordion type="single" collapsible className="grid gap-4 md:grid-cols-2">
+            {TEACHER_GLOSSARY.map((entry) => (
+              <AccordionItem
+                key={entry.term}
+                value={entry.term}
+                className="rounded-2xl border border-slate-200 bg-slate-50 px-4"
+              >
+                <AccordionTrigger className="py-4 text-left text-base font-bold text-blue-950 hover:no-underline">
+                  {entry.term}
+                </AccordionTrigger>
+                <AccordionContent className="pb-4">
+                  <div className="space-y-3 text-sm leading-relaxed text-slate-700">
+                    <p>{entry.meaning}</p>
+                    <div className="rounded-2xl border border-white bg-white p-3">
+                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                        Teacher Tip
+                      </div>
+                      <p className="mt-2">{entry.teacherMove}</p>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </section>
 
       <section className="rounded-3xl border border-slate-200 bg-white shadow-sm">
@@ -286,7 +359,7 @@ export default function WritingWorkshopToolkit() {
             <Card className="rounded-3xl border-slate-200 bg-slate-50/60 shadow-none">
               <CardContent className="p-6">
                 <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                  Current WIDA Focus
+                  What This Level Can Do
                 </div>
                 <h3 className="mt-2 text-2xl font-bold text-blue-950">
                   WIDA {selectedLevel}: {levelData.name}
@@ -298,7 +371,7 @@ export default function WritingWorkshopToolkit() {
                 <div className="mt-5 rounded-2xl border border-white bg-white p-4">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
                     <MessageSquareQuote className="h-3.5 w-3.5 text-sky-600" />
-                    Sentence Frames
+                    What To Say
                   </div>
                   <div className="mt-3 grid gap-2">
                     {unitSentenceFrames.map((frame) => (
@@ -313,7 +386,7 @@ export default function WritingWorkshopToolkit() {
                   <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50/80 p-4">
                     <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
                       <Route className="h-3.5 w-3.5 text-sky-600" />
-                      Unit-Specific WIDA Moves
+                      What To Model
                     </div>
                     <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
                       {selectedUnit.widaDifferentiation[selectedLevel as 1 | 2 | 3 | 4]?.map((move) => (
@@ -330,7 +403,7 @@ export default function WritingWorkshopToolkit() {
                   <div className="mt-5 rounded-2xl border border-emerald-100 bg-emerald-50/80 p-4">
                     <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
                       <FileText className="h-3.5 w-3.5 text-emerald-600" />
-                      Model Sample
+                      What It Can Sound Like
                     </div>
                     <p className="mt-2 text-xs leading-relaxed text-slate-500">
                       Teacher-created exemplar for planning. This is not real student work.
@@ -342,7 +415,7 @@ export default function WritingWorkshopToolkit() {
                     </div>
                     <div className="mt-3 rounded-2xl border border-white bg-white p-4">
                       <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                        What This Shows
+                        What To Notice
                       </div>
                       <p className="mt-2 text-sm leading-relaxed text-slate-700">
                         {selectedUnit.modelSamples[selectedLevel as 1 | 2 | 3 | 4]?.whatThisShows}
@@ -355,7 +428,7 @@ export default function WritingWorkshopToolkit() {
                   <div className="mt-5 rounded-2xl border border-violet-100 bg-violet-50/80 p-4">
                     <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
                       <CircleHelp className="h-3.5 w-3.5 text-violet-600" />
-                      Conference Prompts
+                      What To Ask
                     </div>
                     <p className="mt-2 text-xs leading-relaxed text-slate-500">
                       Questions and prompts a teacher can use during a quick writing conference.
@@ -392,7 +465,7 @@ export default function WritingWorkshopToolkit() {
                     <CardContent className="p-6">
                       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
                         <NotebookPen className="h-3.5 w-3.5 text-sky-600" />
-                        Writing Supports
+                        What To Use In Writing
                       </div>
                       <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
                         {unitWritingSupports.map((strategy) => (
@@ -410,7 +483,7 @@ export default function WritingWorkshopToolkit() {
                   <Card className="rounded-3xl border-slate-200 shadow-none">
                     <CardContent className="p-6">
                       <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                        Speaking Supports
+                        What To Rehearse Out Loud
                       </div>
                       <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
                         {SPEAKING_STRATEGIES[selectedLevel as keyof typeof SPEAKING_STRATEGIES].map((strategy) => (
@@ -428,7 +501,7 @@ export default function WritingWorkshopToolkit() {
                   <Card className="rounded-3xl border-slate-200 shadow-none">
                     <CardContent className="p-6">
                       <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                        Vocabulary Supports
+                        What Words To Lift
                       </div>
                       <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
                         {VOCABULARY_SUPPORT[selectedLevel as keyof typeof VOCABULARY_SUPPORT].map((strategy) => (
