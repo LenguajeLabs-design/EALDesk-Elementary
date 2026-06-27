@@ -3,6 +3,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   YEARLY_OVERVIEWS,
@@ -32,11 +33,35 @@ import {
 
 const TOOLKIT_GRADES: GradeId[] = ["2", "3", "4", "5"];
 
+function SupportHeading({
+  show,
+  english,
+  chinese,
+  className,
+}: {
+  show: boolean;
+  english: string;
+  chinese: string;
+  className: string;
+}) {
+  return (
+    <div className={className}>
+      <div>{english}</div>
+      {show ? (
+        <div className="mt-1 text-[11px] font-medium normal-case tracking-normal text-slate-500">
+          {chinese}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export default function WritingWorkshopToolkit() {
   const [grade, setGrade] = useState<GradeId>("2");
   const [unitId, setUnitId] = useState(YEARLY_OVERVIEWS.writer["2"][0].id);
   const [selectedLevel, setSelectedLevel] = useState(2);
   const [copiedItem, setCopiedItem] = useState<null | "prompt" | "template" | "brief">(null);
+  const [showChineseSupport, setShowChineseSupport] = useState(false);
 
   const units = YEARLY_OVERVIEWS.writer[grade];
   const selectedUnit = units.find((unit) => unit.id === unitId) ?? units[0];
@@ -222,14 +247,39 @@ export default function WritingWorkshopToolkit() {
             </Button>
           ))}
         </div>
+
+        <div className="mt-6 rounded-2xl border border-blue-200 bg-white/80 p-4">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <div className="text-sm font-bold text-blue-950">English + Chinese Support</div>
+              <p className="mt-1 text-sm leading-relaxed text-slate-600">
+                Keep English as the main teaching language and add Chinese helper labels for teacher planning.
+              </p>
+              {showChineseSupport ? (
+                <p className="mt-1 text-xs leading-relaxed text-slate-500">
+                  保留英文教学目标，同时为同事提供中文提示，帮助他们更快理解每个部分要做什么。
+                </p>
+              ) : null}
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                {showChineseSupport ? "On" : "Off"}
+              </span>
+              <Switch checked={showChineseSupport} onCheckedChange={setShowChineseSupport} aria-label="Toggle Chinese support" />
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_420px]">
         <Card className="rounded-3xl border-slate-200 shadow-sm">
           <CardContent className="p-6 md:p-8">
-            <div className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
-              Choose Grade {grade} Unit
-            </div>
+            <SupportHeading
+              show={showChineseSupport}
+              english={`Choose Grade ${grade} Unit`}
+              chinese={`选择 ${grade} 年级单元`}
+              className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500"
+            />
             <div className="grid gap-4 md:grid-cols-2">
               {units.map((unit, index) => {
                 const isSelected = unit.id === selectedUnit.id;
@@ -263,9 +313,12 @@ export default function WritingWorkshopToolkit() {
 
         <Card className="rounded-3xl border-slate-200 shadow-sm">
           <CardContent className="p-6">
-            <div className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
-              Unit At A Glance
-            </div>
+            <SupportHeading
+              show={showChineseSupport}
+              english="Unit At A Glance"
+              chinese="单元概览"
+              className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500"
+            />
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-blue-950">
               {selectedUnit.title}
             </h2>
@@ -275,18 +328,28 @@ export default function WritingWorkshopToolkit() {
 
             <div className="mt-5 grid gap-4">
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                <div className="flex items-center gap-2">
                   <BookOpenText className="h-3.5 w-3.5 text-sky-600" />
-                  What To Teach
+                  <SupportHeading
+                    show={showChineseSupport}
+                    english="What To Teach"
+                    chinese="教学重点"
+                    className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                  />
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-700">
                   Keep the same writing goal for the unit, but scale the oral rehearsal, sentence support, vocabulary load,
                   and independence expectations for multilingual learners across WIDA levels.
                 </p>
                 <div className="mt-4 border-t border-slate-200 pt-4">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                  <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-3.5 w-3.5 text-sky-600" />
-                    Standards
+                    <SupportHeading
+                      show={showChineseSupport}
+                      english="Standards"
+                      chinese="课程标准"
+                      className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                    />
                   </div>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {selectedUnit.standards.length > 0 ? (
@@ -304,9 +367,14 @@ export default function WritingWorkshopToolkit() {
 
               {(selectedUnit.languageDemands?.length || selectedUnit.scaffoldNotes?.length) ? (
                 <div className="rounded-2xl border border-sky-100 bg-sky-50/80 p-4">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                  <div className="flex items-center gap-2">
                     <Languages className="h-3.5 w-3.5 text-sky-600" />
-                    What Students Need
+                    <SupportHeading
+                      show={showChineseSupport}
+                      english="What Students Need"
+                      chinese="学生需要什么支持"
+                      className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                    />
                   </div>
                   {selectedUnit.languageDemands?.length ? (
                     <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
@@ -320,9 +388,14 @@ export default function WritingWorkshopToolkit() {
                   ) : null}
                   {selectedUnit.scaffoldNotes?.length ? (
                     <div className="mt-4 border-t border-sky-100 pt-4">
-                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                      <div className="flex items-center gap-2">
                         <Sparkles className="h-3.5 w-3.5 text-sky-600" />
-                        Scaffold Moves
+                        <SupportHeading
+                          show={showChineseSupport}
+                          english="Scaffold Moves"
+                          chinese="支架做法"
+                          className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                        />
                       </div>
                       <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
                         {selectedUnit.scaffoldNotes.map((note) => (
@@ -339,9 +412,14 @@ export default function WritingWorkshopToolkit() {
 
               {selectedUnit.planningNotes?.length ? (
                 <div className="rounded-2xl border border-indigo-100 bg-indigo-50/70 p-4">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                  <div className="flex items-center gap-2">
                     <Target className="h-3.5 w-3.5 text-indigo-600" />
-                    Planning Moves
+                    <SupportHeading
+                      show={showChineseSupport}
+                      english="Planning Moves"
+                      chinese="备课建议"
+                      className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                    />
                   </div>
                   <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
                     {selectedUnit.planningNotes.map((note) => (
@@ -356,9 +434,14 @@ export default function WritingWorkshopToolkit() {
 
               {selectedUnit.mentorTexts?.length ? (
                 <div className="rounded-2xl border border-amber-100 bg-amber-50/80 p-4">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                  <div className="flex items-center gap-2">
                     <LibraryBig className="h-3.5 w-3.5 text-amber-600" />
-                    What To Use
+                    <SupportHeading
+                      show={showChineseSupport}
+                      english="What To Use"
+                      chinese="可以使用的资源"
+                      className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                    />
                   </div>
                   <div className="mt-3 space-y-3">
                     {selectedUnit.mentorTexts.map((mentor) => (
@@ -382,9 +465,14 @@ export default function WritingWorkshopToolkit() {
 
       <section className="rounded-3xl border border-slate-200 bg-white shadow-sm">
         <div className="border-b border-slate-200 px-6 py-5 md:px-8">
-          <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
+          <div className="flex items-center gap-2">
             <CircleHelp className="h-4 w-4 text-sky-600" />
-            Teacher Glossary
+            <SupportHeading
+              show={showChineseSupport}
+              english="Teacher Glossary"
+              chinese="教师术语表"
+              className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500"
+            />
           </div>
           <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-blue-950 md:text-3xl">
             Quick help with workshop language
@@ -409,9 +497,12 @@ export default function WritingWorkshopToolkit() {
                   <div className="space-y-3 text-sm leading-relaxed text-slate-700">
                     <p>{entry.meaning}</p>
                     <div className="rounded-2xl border border-white bg-white p-3">
-                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                        Teacher Tip
-                      </div>
+                      <SupportHeading
+                        show={showChineseSupport}
+                        english="Teacher Tip"
+                        chinese="教师提示"
+                        className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                      />
                       <p className="mt-2">{entry.teacherMove}</p>
                     </div>
                   </div>
@@ -424,9 +515,12 @@ export default function WritingWorkshopToolkit() {
 
       <section className="rounded-3xl border border-slate-200 bg-white shadow-sm">
         <div className="border-b border-slate-200 px-6 py-5 md:px-8">
-          <div className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
-            Scaffold By WIDA Level
-          </div>
+          <SupportHeading
+            show={showChineseSupport}
+            english="Scaffold By WIDA Level"
+            chinese="按 WIDA 水平查看支架支持"
+            className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500"
+          />
           <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-blue-950">
             Language support ladder for {selectedUnit.title}
           </h2>
@@ -463,9 +557,12 @@ export default function WritingWorkshopToolkit() {
           <div className="mt-6 grid gap-6 xl:grid-cols-[360px_minmax(0,1fr)]">
             <Card className="rounded-3xl border-slate-200 bg-slate-50/60 shadow-none">
               <CardContent className="p-6">
-                <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                  What This Level Can Do
-                </div>
+                <SupportHeading
+                  show={showChineseSupport}
+                  english="What This Level Can Do"
+                  chinese="这个水平的学生通常能做到什么"
+                  className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                />
                 <h3 className="mt-2 text-2xl font-bold text-blue-950">
                   WIDA {selectedLevel}: {levelData.name}
                 </h3>
@@ -474,9 +571,14 @@ export default function WritingWorkshopToolkit() {
                 </p>
 
                 <div className="mt-5 rounded-2xl border border-white bg-white p-4">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                  <div className="flex items-center gap-2">
                     <MessageSquareQuote className="h-3.5 w-3.5 text-sky-600" />
-                    What To Say
+                    <SupportHeading
+                      show={showChineseSupport}
+                      english="What To Say"
+                      chinese="老师可以怎么说"
+                      className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                    />
                   </div>
                   <div className="mt-3 grid gap-2">
                     {unitSentenceFrames.map((frame) => (
@@ -489,9 +591,14 @@ export default function WritingWorkshopToolkit() {
 
                 {selectedUnit.widaDifferentiation?.[selectedLevel as 1 | 2 | 3 | 4]?.length ? (
                   <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50/80 p-4">
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                    <div className="flex items-center gap-2">
                       <Route className="h-3.5 w-3.5 text-sky-600" />
-                      What To Model
+                      <SupportHeading
+                        show={showChineseSupport}
+                        english="What To Model"
+                        chinese="老师要示范什么"
+                        className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                      />
                     </div>
                     <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700">
                       {selectedUnit.widaDifferentiation[selectedLevel as 1 | 2 | 3 | 4]?.map((move) => (
@@ -506,9 +613,14 @@ export default function WritingWorkshopToolkit() {
 
                 {selectedUnit.modelSamples?.[selectedLevel as 1 | 2 | 3 | 4] ? (
                   <div className="mt-5 rounded-2xl border border-emerald-100 bg-emerald-50/80 p-4">
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                    <div className="flex items-center gap-2">
                       <FileText className="h-3.5 w-3.5 text-emerald-600" />
-                      What It Can Sound Like
+                      <SupportHeading
+                        show={showChineseSupport}
+                        english="What It Can Sound Like"
+                        chinese="学生作品可能听起来像什么"
+                        className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                      />
                     </div>
                     <p className="mt-2 text-xs leading-relaxed text-slate-500">
                       Teacher-created exemplar for planning. This is not real student work.
@@ -519,9 +631,12 @@ export default function WritingWorkshopToolkit() {
                       </p>
                     </div>
                     <div className="mt-3 rounded-2xl border border-white bg-white p-4">
-                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                        What To Notice
-                      </div>
+                      <SupportHeading
+                        show={showChineseSupport}
+                        english="What To Notice"
+                        chinese="可以注意什么"
+                        className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                      />
                       <p className="mt-2 text-sm leading-relaxed text-slate-700">
                         {selectedUnit.modelSamples[selectedLevel as 1 | 2 | 3 | 4]?.whatThisShows}
                       </p>
@@ -531,9 +646,14 @@ export default function WritingWorkshopToolkit() {
 
                 {selectedUnit.conferencePrompts?.[selectedLevel as 1 | 2 | 3 | 4]?.length ? (
                   <div className="mt-5 rounded-2xl border border-violet-100 bg-violet-50/80 p-4">
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                    <div className="flex items-center gap-2">
                       <CircleHelp className="h-3.5 w-3.5 text-violet-600" />
-                      What To Ask
+                      <SupportHeading
+                        show={showChineseSupport}
+                        english="What To Ask"
+                        chinese="老师可以问什么"
+                        className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                      />
                     </div>
                     <p className="mt-2 text-xs leading-relaxed text-slate-500">
                       Questions and prompts a teacher can use during a quick writing conference.
@@ -568,9 +688,14 @@ export default function WritingWorkshopToolkit() {
                 <TabsContent value="writing" className="m-0">
                   <Card className="rounded-3xl border-slate-200 shadow-none">
                     <CardContent className="p-6">
-                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                      <div className="flex items-center gap-2">
                         <NotebookPen className="h-3.5 w-3.5 text-sky-600" />
-                        What To Use In Writing
+                        <SupportHeading
+                          show={showChineseSupport}
+                          english="What To Use In Writing"
+                          chinese="写作时可以使用什么"
+                          className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                        />
                       </div>
                       <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
                         {unitWritingSupports.map((strategy) => (
@@ -587,9 +712,12 @@ export default function WritingWorkshopToolkit() {
                 <TabsContent value="speaking" className="m-0">
                   <Card className="rounded-3xl border-slate-200 shadow-none">
                     <CardContent className="p-6">
-                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                        What To Rehearse Out Loud
-                      </div>
+                      <SupportHeading
+                        show={showChineseSupport}
+                        english="What To Rehearse Out Loud"
+                        chinese="口头练习什么"
+                        className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                      />
                       <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
                         {SPEAKING_STRATEGIES[selectedLevel as keyof typeof SPEAKING_STRATEGIES].map((strategy) => (
                           <li key={strategy} className="flex gap-3">
@@ -605,9 +733,12 @@ export default function WritingWorkshopToolkit() {
                 <TabsContent value="vocabulary" className="m-0">
                   <Card className="rounded-3xl border-slate-200 shadow-none">
                     <CardContent className="p-6">
-                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
-                        What Words To Lift
-                      </div>
+                      <SupportHeading
+                        show={showChineseSupport}
+                        english="What Words To Lift"
+                        chinese="重点词汇"
+                        className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500"
+                      />
                       <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
                         {VOCABULARY_SUPPORT[selectedLevel as keyof typeof VOCABULARY_SUPPORT].map((strategy) => (
                           <li key={strategy} className="flex gap-3">
@@ -627,9 +758,14 @@ export default function WritingWorkshopToolkit() {
 
       <section className="rounded-3xl border border-blue-100 bg-gradient-to-br from-white via-blue-50/50 to-sky-50/60 shadow-sm">
         <div className="border-b border-blue-100 px-6 py-5 md:px-8">
-          <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
+          <div className="flex items-center gap-2">
             <Sparkles className="h-4 w-4 text-sky-600" />
-            Plan With AI
+            <SupportHeading
+              show={showChineseSupport}
+              english="Plan With AI"
+              chinese="用 AI 协助备课"
+              className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500"
+            />
           </div>
           <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-blue-950 md:text-3xl">
             Copy this page into ChatGPT or Flint
