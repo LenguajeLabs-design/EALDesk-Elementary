@@ -1,26 +1,124 @@
 import React from "react";
 import { Link } from "wouter";
 import {
-  Rocket, Zap, Lightbulb, CheckCircle2, Users, QrCode, MessageSquare, FileText,
-  Globe2, BookOpen, ExternalLink, Clock, BookMarked, PencilLine, ArrowRight, Mail, Linkedin, FolderKanban,
+  ArrowRight,
+  BarChart3,
+  BookMarked,
+  BookOpen,
+  CheckCircle2,
+  FolderKanban,
+  Globe2,
+  Lightbulb,
+  Linkedin,
+  Mail,
+  PencilLine,
+  Rocket,
+  Sparkles,
+  Target,
+  Users,
+  Zap,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+const startHereCards = [
+  {
+    icon: Zap,
+    title: "I Need Support For A Lesson Happening Now",
+    text: "Go straight to quick tools when you walk into a classroom and need one teaching move, one sentence frame, or one immediate scaffold.",
+    button: "Open Quick Tools",
+    href: "/quick-tools",
+    accent: "text-amber-600",
+  },
+  {
+    icon: BookOpen,
+    title: "I Want Help Choosing A Teaching Move",
+    text: "Use the strategies page to match the language task, WIDA level, and support need to a practical classroom scaffold.",
+    button: "Open Strategies",
+    href: "/strategies",
+    accent: "text-sky-600",
+  },
+  {
+    icon: FolderKanban,
+    title: "I Am Planning Writing Workshop",
+    text: "Use the writing toolkit to see unit goals, language demands, scaffolds, models, and WIDA differentiation in one place.",
+    button: "Open Writing Toolkit",
+    href: "/writing-workshop-toolkit",
+    accent: "text-blue-700",
+  },
+  {
+    icon: BarChart3,
+    title: "I Need WIDA Guidance",
+    text: "Use the WIDA section when you want a clearer picture of what students at each level can do and what support fits best.",
+    button: "Open WIDA Levels",
+    href: "/wida-levels",
+    accent: "text-emerald-600",
+  },
+];
+
+const planningSteps = [
+  {
+    step: "1",
+    title: "Read The Task",
+    text: "What are students being asked to do right now: retell, explain, discuss, write, or respond?",
+  },
+  {
+    step: "2",
+    title: "Name The Language Need",
+    text: "Decide whether the student needs help with vocabulary, sentence structure, organization, oral rehearsal, or confidence.",
+  },
+  {
+    step: "3",
+    title: "Choose One Support",
+    text: "Pick one scaffold, model it clearly, and listen for whether the student can begin transferring it independently.",
+  },
+];
+
 const pathwayCards = [
   {
     icon: BookMarked,
-    title: "Reader's\nWorkshop",
-    text: "Plan supports for retelling, comprehension talk, response to reading, and partner discussion.",
-    accent: "text-emerald-600",
+    title: "Reader's Workshop",
+    text: "Plan supports for comprehension, retelling, response to reading, oral discussion, vocabulary, and text-based thinking.",
     href: "/readers-workshop",
+    accent: "text-emerald-600",
   },
   {
     icon: PencilLine,
-    title: "Writer's\nWorkshop",
-    text: "Plan supports for idea generation, oral rehearsal, drafting, revising, and writing conferences.",
-    accent: "text-sky-600",
+    title: "Writer's Workshop",
+    text: "Plan supports for idea generation, oral rehearsal, drafting, revising, conferences, and genre-specific language.",
     href: "/writers-workshop",
+    accent: "text-sky-600",
+  },
+];
+
+const firstStopPanels = [
+  {
+    icon: Zap,
+    title: "Quick Tools",
+    text: "Best first stop when you need sentence frames, language supports, and fast classroom moves right away.",
+    button: "Start Here",
+    href: "/quick-tools",
+  },
+  {
+    icon: BookOpen,
+    title: "Strategies",
+    text: "Best first stop when you know the lesson demand but want help choosing the right scaffold.",
+    button: "Choose A Move",
+    href: "/strategies",
+  },
+  {
+    icon: FolderKanban,
+    title: "Writing Toolkit",
+    text: "Best first stop when you are planning writer's workshop and want a scaffolded unit view.",
+    button: "Open Toolkit",
+    href: "/writing-workshop-toolkit",
+  },
+  {
+    icon: Globe2,
+    title: "Translations & Tools",
+    text: "Best first stop when you want help using translation support thoughtfully and strategically.",
+    button: "View Guidance",
+    href: "/translations",
   },
 ];
 
@@ -30,287 +128,305 @@ const levels = [
     subtitle: "Beginning to learn English",
     bg: "bg-emerald-50",
     border: "border-emerald-100",
-    items: ["Use visuals and gestures", "Accept drawing, pointing, and labels", "Allow L1 and translation support", "Keep workshop routines predictable"],
+    items: [
+      "Use visuals, gestures, and oral modeling",
+      "Accept drawing, pointing, labels, and shared language",
+      "Keep tasks short and routines predictable",
+    ],
     href: "/wida-levels",
   },
   {
     level: "WIDA 2 – Emerging",
-    subtitle: "Using simple words & phrases",
+    subtitle: "Using simple words and phrases",
     bg: "bg-amber-50",
     border: "border-amber-100",
-    items: ["Use sentence stems", "Accept short oral and written responses", "Repeat and model routines", "Provide word banks and anchor charts"],
+    items: [
+      "Use sentence stems and short patterned responses",
+      "Provide word banks and repeated task language",
+      "Rehearse orally before writing",
+    ],
     href: "/wida-levels",
   },
   {
     level: "WIDA 3 – Developing",
-    subtitle: "Using sentences to communicate",
+    subtitle: "Using connected sentences",
     bg: "bg-violet-50",
     border: "border-violet-100",
-    items: ["Use discussion stems", "Prompt elaboration", "Support text evidence", "Provide structured planning tools"],
+    items: [
+      "Prompt explanation, elaboration, and evidence",
+      "Support paragraph and discussion structure",
+      "Use strategy tools to move from naming to teaching",
+    ],
     href: "/wida-levels",
   },
   {
     level: "WIDA 4 – Expanding",
-    subtitle: "Using academic language",
+    subtitle: "Using more academic language",
     bg: "bg-blue-50",
     border: "border-blue-100",
-    items: ["Use evidence-based responses", "Encourage craft language", "Promote academic discussion", "Support independent revision"],
+    items: [
+      "Push for precision, interpretation, and independence",
+      "Support academic language and stronger revision",
+      "Reduce scaffolds gradually as language transfers",
+    ],
     href: "/wida-levels",
   },
 ];
 
-const quickPanels = [
+const helpAreas = [
   {
-    icon: BookOpen,
-    title: "NEED VOCABULARY?",
-    text: "Find workshop vocabulary, discussion language, and literacy supports.",
-    button: "Go to Vocabulary Bank",
-    href: "/strategies",
-    external: false,
+    icon: Target,
+    title: "What This Site Is For",
+    text: "EALDesk helps teachers support multilingual learners during reading and writing workshop without guessing what to do in the moment.",
   },
   {
-    icon: FolderKanban,
-    title: "WRITING WORKSHOP\nTOOLKIT",
-    text: "Open curricular maps, suggested sequence ideas, checklists, rubrics, and conference tools for Grades 4-5.",
-    button: "Open Toolkit",
-    href: "/writing-workshop-toolkit",
-    external: false,
+    icon: Users,
+    title: "Who It Helps",
+    text: "It is for EAL teachers, co-teachers, homeroom teachers, and anyone who needs practical language support ideas during planning or live instruction.",
   },
   {
-    icon: Globe2,
-    title: "TRANSLATION GUIDELINES",
-    text: "Best practices for using translators and translations in class and assessments.",
-    button: "View Guidelines",
-    href: "/translations",
-    external: false,
-  },
-  {
-    icon: FileText,
-    title: "FULL STRATEGY\nREFERENCE",
-    text: "Browse the complete set of supports and examples in one place.",
-    button: "Open Reference",
-    href: "/strategies",
-    external: false,
+    icon: Lightbulb,
+    title: "How It Helps",
+    text: "It helps you match the task, choose the scaffold, and use language support strategically instead of becoming a general helper.",
   },
 ];
 
 export default function Home() {
   return (
-    <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-10 pb-8">
-        <div className="max-w-3xl">
-          <div className="flex flex-wrap items-start gap-3">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-950 leading-tight">
-              Support Multilingual Learners<br />in Reader's and Writer's Workshop
-            </h2>
-            <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200 px-3 py-1.5 text-blue-800 font-bold text-xs mt-1">
-              <BookMarked className="h-3.5 w-3.5" /> Elementary Literacy
-            </span>
+    <div className="space-y-10 animate-in fade-in duration-500">
+      <section className="relative overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-white via-sky-50/70 to-blue-50 p-8 shadow-sm md:p-10">
+        <div className="max-w-4xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3 py-1 text-xs font-bold text-sky-800">
+            <Sparkles className="h-3.5 w-3.5" />
+            Start Here
           </div>
-          <p className="mt-4 text-base text-blue-950/80">Quick, practical language supports for mini-lessons, conferring, partner talk, and independent work.</p>
-          <div className="mt-5 border border-blue-200 bg-blue-50 rounded-xl p-4 flex gap-4 items-start max-w-2xl">
-            <Clock className="h-7 w-7 text-blue-700 shrink-0 mt-0.5" />
-            <p className="text-sm text-slate-700 leading-relaxed">
-              Use this site while planning reading and writing workshop to quickly match supports to the task and your students' WIDA levels.
-            </p>
+          <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-blue-950 md:text-6xl">
+            EALDesk helps teachers support multilingual learners strategically
+          </h1>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-700 md:text-lg">
+            Use EALDesk when you are planning a workshop lesson, walking into a classroom, or trying to decide how to support one student quickly and purposefully.
+            This site helps you choose the right scaffold for the language demand in front of you.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/quick-tools">
+              <Button className="bg-blue-700 hover:bg-blue-800">
+                Get Help Fast
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="/strategies">
+              <Button variant="outline" className="bg-white">
+                Choose A Teaching Move
+              </Button>
+            </Link>
           </div>
         </div>
-        <div className="absolute right-6 top-8 hidden xl:block opacity-90 pointer-events-none">
-          <div className="relative h-44 w-44">
-            <BookMarked className="h-32 w-32 text-emerald-600 absolute right-3 top-6" strokeWidth={1.2} />
-            <div className="absolute right-16 top-26 h-10 w-10 rounded-full bg-emerald-500/50" />
-            <div className="absolute right-8 top-12 h-8 w-8 rounded-full bg-sky-300/70" />
-            <div className="absolute right-0 top-0 text-4xl">📚</div>
-          </div>
+
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {helpAreas.map(({ icon: Icon, title, text }) => (
+            <div key={title} className="rounded-2xl border border-white/80 bg-white/85 p-4 shadow-sm">
+              <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.16em] text-slate-500">
+                <Icon className="h-4 w-4 text-sky-600" />
+                {title}
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-slate-700">{text}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <div className="grid xl:grid-cols-[1fr_260px] gap-8">
-        <div>
+      <section>
+        <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
+          <Rocket className="h-4 w-4 text-sky-600" />
+          Start Here By Need
+        </div>
+        <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-blue-950 md:text-3xl">
+          Where should a teacher begin today?
+        </h2>
+        <p className="mt-2 max-w-4xl text-sm leading-relaxed text-slate-600">
+          Pick the path that matches your immediate need. The goal is to help you get oriented quickly, not to make you hunt through the whole site.
+        </p>
+        <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {startHereCards.map(({ icon: Icon, title, text, button, href, accent }) => (
+            <Link key={href} href={href}>
+              <Card className="h-full cursor-pointer rounded-2xl border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+                <CardContent className="flex h-full flex-col gap-4 p-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-lg font-extrabold leading-tight text-blue-950">{title}</h3>
+                    <Icon className={`h-8 w-8 shrink-0 ${accent}`} />
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-600">{text}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-blue-700">
+                    {button}
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-          {/* Task Cards */}
-          <section>
-            <div className="flex items-center gap-2 text-blue-950 font-bold mb-4 text-sm">
-              <Rocket className="h-4 w-4" />
-              START HERE: Choose your workshop path.
+      <section className="grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
+        <Card className="rounded-2xl border-amber-200 bg-amber-50/80 shadow-sm">
+          <CardContent className="p-6">
+            <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
+              <Zap className="h-4 w-4 text-amber-500" />
+              How To Use EALDesk
             </div>
-            <div className="grid md:grid-cols-2 gap-5">
-              {pathwayCards.map(({ icon: Icon, title, text, accent, href }) => (
-                <Link key={href} href={href}>
-                  <Card className="rounded-xl shadow-sm border-slate-200 hover:shadow-md transition-shadow bg-white cursor-pointer h-full">
-                    <CardContent className="p-6 flex flex-col justify-between gap-5 min-h-64">
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <h3 className="text-2xl font-extrabold text-blue-950 whitespace-pre-line leading-tight">{title}</h3>
-                          <p className="text-slate-600 text-sm leading-relaxed mt-3 max-w-md">{text}</p>
-                        </div>
-                        <Icon className={`h-14 w-14 ${accent} shrink-0`} strokeWidth={1.8} />
-                      </div>
-                      <span className="font-semibold text-blue-700 text-sm inline-flex items-center gap-2">
-                        Open pathway <ArrowRight className="h-4 w-4" />
-                      </span>
-                    </CardContent>
-                  </Card>
-                </Link>
+            <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-blue-950">
+              A quick planning routine
+            </h2>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              {planningSteps.map((step) => (
+                <div key={step.step} className="rounded-2xl border border-amber-200 bg-white/80 p-4">
+                  <div className="text-3xl font-black text-slate-900">{step.step}</div>
+                  <div className="mt-2 text-sm font-bold text-slate-900">{step.title}</div>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{step.text}</p>
+                </div>
               ))}
             </div>
-          </section>
+          </CardContent>
+        </Card>
 
-          {/* Planning Flow + Remember */}
-          <div className="grid xl:grid-cols-[1fr_220px] gap-5 mt-7">
-            <Card className="rounded-xl border-amber-200 bg-amber-50/80 shadow-sm">
-              <CardContent className="p-5">
-                <div className="font-extrabold text-slate-900 flex items-center gap-2 text-sm mb-4">
-                  <Zap className="h-5 w-5 text-amber-500 fill-amber-500" /> 2-MINUTE PLANNING FLOW
-                </div>
-                <div className="grid grid-cols-4 gap-3 text-center">
-                  {[
-                    { num: 1, title: "What is the workshop task?", desc: "Read, talk, write, retell, or respond?" },
-                    { num: 2, title: "What language is needed?", desc: "Word, phrase, sentence, or paragraph?" },
-                    { num: 3, title: "Choose ONE support", desc: "Pick a strategy from the tool." },
-                    { num: 4, title: "Model & Check", desc: "Teach it, rehearse it, and listen for transfer." },
-                  ].map((step, i) => (
-                    <div key={step.num} className="relative">
-                      <div className="text-3xl font-black text-slate-900">{step.num}</div>
-                      <div className="font-bold text-xs mt-1 text-slate-800 leading-tight">{step.title}</div>
-                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">{step.desc}</p>
-                      {i < 3 && (
-                        <div className="hidden xl:block absolute top-3 -right-2 text-slate-400 font-bold text-sm">→</div>
-                      )}
+        <Card className="rounded-2xl border-emerald-200 bg-emerald-50 shadow-sm">
+          <CardContent className="p-6">
+            <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
+              <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+              What Good Use Looks Like
+            </div>
+            <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-blue-950">
+              Strategic, not just helpful
+            </h2>
+            <ul className="mt-5 space-y-3 text-sm leading-relaxed text-slate-700">
+              {[
+                "Choose one scaffold tied to the lesson demand instead of many random supports.",
+                "Model the language students need before expecting independent reading, writing, or discussion.",
+                "Use oral rehearsal and visuals to make the language accessible.",
+                "Reduce the scaffold gradually so students move toward independent language use.",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section>
+        <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
+          <BookMarked className="h-4 w-4 text-sky-600" />
+          Choose Your Workshop Path
+        </div>
+        <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-blue-950 md:text-3xl">
+          Start from reading or writing workshop
+        </h2>
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
+          {pathwayCards.map(({ icon: Icon, title, text, href, accent }) => (
+            <Link key={href} href={href}>
+              <Card className="h-full cursor-pointer rounded-2xl border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+                <CardContent className="flex h-full flex-col gap-5 p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl font-extrabold text-blue-950">{title}</h3>
+                      <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-600">{text}</p>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                    <Icon className={`h-12 w-12 shrink-0 ${accent}`} strokeWidth={1.8} />
+                  </div>
+                  <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-blue-700">
+                    Open pathway
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-            <Card className="rounded-xl border-emerald-200 bg-emerald-50 shadow-sm">
-              <CardContent className="p-5">
-                <div className="font-extrabold text-emerald-900 flex items-center gap-2 text-sm mb-3">
-                  <Lightbulb className="h-4 w-4" /> REMEMBER
-                </div>
-                <ul className="space-y-2 text-sm text-slate-700">
-                  {["Model the language", "Use visuals and mentor texts", "Rehearse before writing", "Give wait time", "Check for transfer"].map(item => (
-                    <li key={item} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* WIDA Level Grid */}
-          <section className="mt-8">
-            <div className="flex items-center gap-2 text-blue-950 font-bold mb-4 text-sm">
-              <Users className="h-4 w-4" /> SUPPORT BY WIDA LEVEL <span className="font-normal">(At a glance)</span>
-            </div>
-            <div className="grid md:grid-cols-2 xl:grid-cols-4 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-              {levels.map((l, i) => (
-                <div key={l.level} className={`${l.bg} ${l.border} ${i < levels.length - 1 ? "border-r" : ""} p-5`}>
-                  <h3 className="font-extrabold text-blue-950 text-xs leading-tight">{l.level}</h3>
-                  <p className="text-xs text-slate-600 mt-1.5 mb-4">{l.subtitle}</p>
-                  <ul className="space-y-2.5 text-xs text-slate-700">
-                    {l.items.map(item => (
-                      <li key={item}>• {item}</li>
-                    ))}
-                  </ul>
-                  <Link href={l.href} className="mt-5 block text-xs font-semibold text-blue-700 hover:underline">
-                    See more strategies →
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* QR Box */}
-          <Card className="mt-8 rounded-xl bg-blue-50/70 border-blue-100 shadow-sm">
-            <CardContent className="p-6 flex flex-wrap items-center gap-8">
-              <div>
-                <div className="font-extrabold text-blue-950 text-sm">NEED SOMETHING QUICK?</div>
-                <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">Use the quick tools to find<br />reading and writing supports fast.</p>
+      <section className="grid gap-4 xl:grid-cols-4">
+        {firstStopPanels.map(({ icon: Icon, title, text, button, href }) => (
+          <Card key={title} className="rounded-2xl border-blue-200 bg-blue-50/60 shadow-sm">
+            <CardContent className="p-5">
+              <div className="flex items-center gap-2 text-sm font-extrabold text-blue-950">
+                <Icon className="h-4 w-4 shrink-0" />
+                {title}
               </div>
-              <div className="h-20 w-20 bg-white rounded-md border border-slate-200 grid place-items-center flex-shrink-0">
-                <QrCode className="h-16 w-16 text-slate-800" />
-              </div>
-              <div className="flex items-center gap-5 text-center text-xs text-slate-600 flex-wrap">
-                <div>
-                  <MessageSquare className="h-8 w-8 mx-auto text-sky-600" />
-                  <p className="mt-1.5">Choose a workshop task<br />&amp; WIDA level</p>
-                </div>
-                <span className="text-slate-400 font-bold">→</span>
-                <div>
-                  <FileText className="h-8 w-8 mx-auto text-blue-600" />
-                  <p className="mt-1.5">Get sentence frames,<br />vocabulary &amp; supports</p>
-                </div>
-                <span className="text-slate-400 font-bold">→</span>
-                <div>
-                  <CheckCircle2 className="h-8 w-8 mx-auto text-emerald-600" />
-                  <p className="mt-1.5">Use it in your<br />workshop!</p>
-                </div>
-              </div>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{text}</p>
+              <Link href={href}>
+                <Button variant="outline" size="sm" className="mt-4 h-8 border-blue-300 bg-white text-xs text-blue-800 hover:bg-blue-50">
+                  {button}
+                </Button>
+              </Link>
             </CardContent>
           </Card>
+        ))}
+      </section>
 
+      <section>
+        <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
+          <Users className="h-4 w-4 text-sky-600" />
+          WIDA At A Glance
         </div>
-
-        {/* Quick Panel */}
-        <aside className="space-y-4 mt-0">
-          {quickPanels.map(({ icon: Icon, title, text, button, href, external }) => (
-            <Card key={title} className="rounded-xl border-blue-200 bg-blue-50/60 shadow-sm">
-              <CardContent className="p-5">
-                <div className="font-extrabold text-blue-950 flex items-center gap-2 text-xs mb-3">
-                  <Icon className="h-4 w-4 flex-shrink-0" />
-                  <span className="whitespace-pre-line">{title}</span>
-                </div>
-                <p className="text-xs text-slate-600 leading-relaxed">{text}</p>
-                <Link href={href}>
-                  <Button variant="outline" size="sm" className="mt-4 border-blue-300 text-blue-800 bg-white hover:bg-blue-50 text-xs h-8">
-                    {button}
-                    {external && <ExternalLink className="h-3 w-3 ml-1.5" />}
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+        <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-blue-950 md:text-3xl">
+          Fast reminders by proficiency level
+        </h2>
+        <div className="mt-5 grid overflow-hidden rounded-2xl border border-slate-200 shadow-sm md:grid-cols-2 xl:grid-cols-4">
+          {levels.map((level, index) => (
+            <div
+              key={level.level}
+              className={`${level.bg} ${level.border} p-5 ${index < levels.length - 1 ? "border-r" : ""}`}
+            >
+              <h3 className="text-xs font-extrabold leading-tight text-blue-950">{level.level}</h3>
+              <p className="mb-4 mt-1.5 text-xs text-slate-600">{level.subtitle}</p>
+              <ul className="space-y-2.5 text-xs text-slate-700">
+                {level.items.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <Link href={level.href} className="mt-5 block text-xs font-semibold text-blue-700 hover:underline">
+                See more →
+              </Link>
+            </div>
           ))}
-        </aside>
-      </div>
+        </div>
+      </section>
 
-      <section className="mt-12">
-        <Card className="rounded-2xl border-slate-200 bg-white shadow-sm overflow-hidden">
+      <section>
+        <Card className="overflow-hidden rounded-2xl border-slate-200 bg-white shadow-sm">
           <CardContent className="p-0">
             <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
-              <div className="p-8 md:p-10 border-b lg:border-b-0 lg:border-r border-slate-200">
-                <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200 px-3 py-1 text-blue-800 text-xs font-bold">
+              <div className="border-b border-slate-200 p-8 md:p-10 lg:border-b-0 lg:border-r">
+                <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-bold text-blue-800">
                   About Lenguaje Labs
                 </div>
-                <div className="mt-6 flex flex-col md:flex-row gap-6 md:items-center">
-                  <div className="w-28 h-28 rounded-3xl overflow-hidden bg-slate-950 shadow-lg shrink-0 border border-slate-800">
+                <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center">
+                  <div className="h-28 w-28 shrink-0 overflow-hidden rounded-3xl border border-slate-800 bg-slate-950 shadow-lg">
                     <img
                       src={`${import.meta.env.BASE_URL}lenguaje-labs-logo.jpg`}
                       alt="Lenguaje Labs logo"
-                      className="w-full h-full object-cover"
+                      className="h-full w-full object-cover"
                     />
                   </div>
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-extrabold text-blue-950">
+                    <h2 className="text-2xl font-extrabold text-blue-950 md:text-3xl">
                       Building thoughtful language tools for real classrooms
                     </h2>
-                    <p className="text-slate-600 leading-relaxed mt-4 max-w-2xl">
+                    <p className="mt-4 max-w-2xl leading-relaxed text-slate-600">
                       Lenguaje Labs was created at the intersection of language teaching and emerging technology.
-                      We build tools that make learning more accessible and more practical for educators, students,
-                      and families across different contexts and communities.
+                      We build tools that make learning more accessible and more practical for educators, students, and families across different contexts and communities.
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="p-8 md:p-10 bg-slate-50/70">
+              <div className="bg-slate-50/70 p-8 md:p-10">
                 <h3 className="text-lg font-bold text-blue-950">Connect</h3>
                 <div className="mt-5 space-y-3">
                   <a
                     href="mailto:lenguajelabs@proton.me"
-                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 hover:border-blue-200 hover:bg-blue-50/50 transition-colors"
+                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 transition-colors hover:border-blue-200 hover:bg-blue-50/50"
                   >
                     <Mail className="h-4 w-4 text-blue-700" />
                     <span className="text-sm font-medium">lenguajelabs@proton.me</span>
@@ -319,7 +435,7 @@ export default function Home() {
                     href="https://www.linkedin.com/in/federico-orozco-687b5431"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 hover:border-blue-200 hover:bg-blue-50/50 transition-colors"
+                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 transition-colors hover:border-blue-200 hover:bg-blue-50/50"
                   >
                     <Linkedin className="h-4 w-4 text-blue-700" />
                     <span className="text-sm font-medium">LinkedIn profile</span>
@@ -331,7 +447,7 @@ export default function Home() {
         </Card>
       </section>
 
-      <footer className="mt-12 py-8 text-xs text-slate-400 border-t border-slate-200 space-y-1">
+      <footer className="space-y-1 border-t border-slate-200 py-8 text-xs text-slate-400">
         <p>
           Contact:{" "}
           <a className="text-blue-700 hover:underline" href="mailto:lenguajelabs@proton.me">
