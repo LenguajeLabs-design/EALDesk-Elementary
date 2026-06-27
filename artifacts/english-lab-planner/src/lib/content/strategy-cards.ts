@@ -698,14 +698,14 @@ export const UNIT_STRATEGY_CONTEXT: Record<string, UnitStrategyContext> = {
   },
   "Graphic Novels": {
     label: "Grade 5 Unit 4: Graphic Novels",
-    focus: "Graphic storytelling",
+    focus: "Graphic storytelling through panels, captions, dialogue, and scene pacing",
     recommendedGradeBand: "4-5",
     recommendedPurpose: "Narrate",
     recommendedSupport: "Organization",
     notes: [
-      "Help students balance what is shown visually with what is said in captions and dialogue.",
-      "Prioritize sequence, scene clarity, concise dialogue, and visual meaning.",
-      "Use oral rehearsal and sketch planning together so students can map panels before writing.",
+      "Help students decide what belongs in the picture and what belongs in captions, speech bubbles, or short narration.",
+      "Prioritize panel sequence, scene clarity, concise dialogue, and how page turns or layout affect pacing.",
+      "Use oral rehearsal and sketch planning together so students can map panels, captions, and key dialogue before drafting.",
     ],
   },
   "Journalism: Researching and Writing Articles": {

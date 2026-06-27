@@ -568,12 +568,12 @@ const UNIT_WRITING_SCAFFOLDS = {
   },
   "Graphic Novels": {
     label: "Grade 5 Unit 4: Graphic Novels",
-    focus: "Students tell stories through panels, dialogue, captions, and visual sequencing, balancing concise text with clear visual meaning.",
+    focus: "Students tell stories through panels, dialogue, captions, and visual sequencing, deciding what the picture shows and what the words need to add.",
     frames: {
-      1: ['"First, ___."', '"He says, \'___\'."', '"Then ___."'],
-      2: ['"In this panel, ___."', '"The character says, \'___\'."', '"Next, ___."'],
-      3: ['"This panel shows ___."', '"The dialogue reveals ___."', '"The next scene is ___."'],
-      4: ['"The panel sequence shows ___."', '"The image and dialogue together reveal ___."', '"This scene matters because ___."'],
+      1: ['"First, ___."', '"In this panel, ___."', '"He says, \'___\'."'],
+      2: ['"In this panel, ___."', '"The caption says ___."', '"Next, ___."'],
+      3: ['"This panel shows ___."', '"The speech bubble reveals ___."', '"The next scene shows ___."'],
+      4: ['"The panel sequence slows down ___."', '"The image and dialogue together reveal ___."', '"I chose this panel to show ___."'],
     },
     writing: {
       1: [
@@ -584,24 +584,24 @@ const UNIT_WRITING_SCAFFOLDS = {
       2: [
         "Support short captions and dialogue tied to one clear sequence",
         "Use repeated panel frames and simple transition language",
-        "Keep the scene focused so students do not overload each panel",
+        "Keep each panel focused so students do not overload one box with too many actions",
       ],
       3: [
         "Model how writers decide what goes in the image and what goes in words",
-        "Prompt students to use dialogue and captions for clarity",
-        "Support revision by checking panel order and scene meaning",
+        "Prompt students to use dialogue, captions, and white space for clarity and pacing",
+        "Support revision by checking panel order, scene meaning, and smooth movement across panels",
       ],
       4: [
         "Push for stronger scene construction, concise dialogue, and purposeful pacing",
-        "Model how visuals and text work together to build meaning",
+        "Model how visuals, captions, and page turns work together to build meaning",
         "Use peer feedback on clarity, sequence, and visual storytelling",
       ],
     },
     speaking: {
-      1: ["First, ___.", "He says, '___'.", "Then ___."],
-      2: ["In this panel, ___.", "The character says, '___'.", "Next, ___."],
-      3: ["This panel shows ___.", "The dialogue reveals ___.", "The next scene is ___."],
-      4: ["The panel sequence shows ___.", "The image and dialogue together reveal ___.", "This scene matters because ___."],
+      1: ["First, ___.", "In this panel, ___.", "He says, '___'."],
+      2: ["In this panel, ___.", "The caption says ___.", "Next, ___."],
+      3: ["This panel shows ___.", "The dialogue reveals ___.", "The next scene shows ___."],
+      4: ["The panel sequence slows down ___.", "The image and dialogue together reveal ___.", "I chose this panel to show ___."],
     },
     vocabulary: {
       1: [
@@ -609,15 +609,15 @@ const UNIT_WRITING_SCAFFOLDS = {
         "Use action and dialogue word banks during planning",
       ],
       2: [
-        "Repeat comic-text vocabulary during speaking and drafting",
+        "Repeat panel, caption, speech bubble, and sequence language during speaking and drafting",
         "Use transition words for moving across panels",
       ],
       3: [
-        "Teach sequence, reveal, caption, and dialogue explicitly",
+        "Teach sequence, reveal, caption, dialogue, and page turn explicitly",
         "Encourage students to describe how images add meaning",
       ],
       4: [
-        "Teach concise storytelling language and graphic novel craft words",
+        "Teach concise storytelling language and graphic novel craft words such as pacing, close-up, and emphasis",
         "Use mentor texts to notice panel pacing and visual emphasis",
       ],
     },
@@ -1003,12 +1003,12 @@ const UNIT_PARTNER_TALK_SCAFFOLDS = {
   },
   "Graphic Novels": {
     label: "Grade 5 Unit 4: Graphic Novels",
-    focus: "Students rehearse scenes orally so they can decide what belongs in dialogue, captions, and images.",
+    focus: "Students rehearse scenes orally so they can decide what belongs in dialogue, captions, narration, and images.",
     frames: {
-      1: ['"First, ___."', '"He says, \'___\'."', '"Then ___."'],
-      2: ['"In this panel, ___."', '"The character says, \'___\'."', '"Next, ___."'],
-      3: ['"This panel shows ___."', '"The dialogue reveals ___."', '"The next scene is ___."'],
-      4: ['"The panel sequence shows ___."', '"The image and dialogue together reveal ___."', '"This scene matters because ___."'],
+      1: ['"First, ___."', '"In this panel, ___."', '"He says, \'___\'."'],
+      2: ['"In this panel, ___."', '"The caption says ___."', '"Next, ___."'],
+      3: ['"This panel shows ___."', '"The dialogue reveals ___."', '"The next scene shows ___."'],
+      4: ['"The panel sequence slows down ___."', '"The image and dialogue together reveal ___."', '"I chose this panel to show ___."'],
     },
     speaking: {
       1: [
@@ -1024,12 +1024,12 @@ const UNIT_PARTNER_TALK_SCAFFOLDS = {
       3: [
         "Have students explain what the image shows and what the text adds",
         "Prompt students to rehearse dialogue before writing it into bubbles",
-        "Use partner talk to clarify scene order and meaning",
+        "Use partner talk to clarify scene order, pacing, and meaning",
       ],
       4: [
         "Use oral rehearsal to strengthen pacing, emphasis, and visual meaning",
         "Prompt students to explain why a panel matters in the story",
-        "Encourage partner feedback on image-text balance",
+        "Encourage partner feedback on image-text balance and page-turn choices",
       ],
     },
   },
