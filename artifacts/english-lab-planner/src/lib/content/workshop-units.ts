@@ -34,7 +34,7 @@ export const WORKSHOP_UNITS: Record<WorkshopId, Record<GradeId, WorkshopUnit[]>>
       { id: "Close Reading of Fiction: Character and Theme", title: "Close Reading of Fiction: Character and Theme" },
       { id: "Digging into Nonfiction: Rocks and Volcanoes", title: "Digging into Nonfiction: Rocks and Volcanoes" },
       { id: "Drama-Ready Reading: Bringing Characters to Life", title: "Drama-Ready Reading: Bringing Characters to Life" },
-      { id: "Life Stories: Reading Biographies to Inspire and Instruct", title: "Life Stories: Reading Biographies to Inspire and Instruct" },
+      { id: "Deep Reading of Biography", title: "Deep Reading of Biography" },
       { id: "Historical Fiction", title: "Historical Fiction" },
     ],
     "5": [

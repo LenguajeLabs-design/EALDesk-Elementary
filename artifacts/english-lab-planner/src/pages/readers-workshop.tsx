@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "wouter";
-import { BookMarked, LibraryBig, MessagesSquare, ArrowRight, BarChart3, Globe2, ClipboardList, CheckCircle2 } from "lucide-react";
+import { BookMarked, LibraryBig, MessagesSquare, ArrowRight, BarChart3, Globe2, ClipboardList, CheckCircle2, BookOpenText, FileText } from "lucide-react";
 import WorkshopYearlyOverview from "@/components/workshop-yearly-overview";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -31,6 +31,7 @@ const readerTasks = [
 ];
 
 const sharedLinks = [
+  { label: "Strategies by Skill", href: "/strategies?workshop=reader&task=responding", icon: FileText },
   { label: "WIDA Levels", href: "/wida-levels", icon: BarChart3 },
   { label: "Translation Tools", href: "/translations", icon: Globe2 },
   { label: "Assessment Supports", href: "/assessments", icon: ClipboardList },
@@ -55,25 +56,14 @@ export default function ReadersWorkshop() {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
-      <div className="max-w-3xl">
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-emerald-800 text-xs font-bold">
-          <BookMarked className="h-3.5 w-3.5" /> Reader's Workshop Path
-        </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-950 mt-4">
+      <div className="max-w-3xl space-y-3">
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-950">
           Plan language supports for reading workshop
         </h1>
-        <p className="text-slate-600 mt-3 leading-relaxed">
-          Start with the reading task your students are doing, then use the shared WIDA tools underneath to adjust the support for different language levels.
+        <p className="text-slate-600 leading-relaxed">
+          Choose the grade, unit, and task first. The year map and extra references are lower on the page when you need them.
         </p>
       </div>
-
-      <WorkshopYearlyOverview
-        workshop="reader"
-        grade={grade}
-        gradeBand={gradeBand}
-        selectedUnit={unit}
-        onSelectUnit={setUnit}
-      />
 
       <section>
         <div className="mb-5 grid gap-4 xl:grid-cols-[220px_220px_minmax(0,1fr)]">
@@ -151,6 +141,22 @@ export default function ReadersWorkshop() {
         </div>
       </section>
 
+      <section className="space-y-4">
+        <div className="max-w-3xl">
+          <h2 className="text-xl font-bold text-blue-950">Year-at-a-glance reading units</h2>
+          <p className="mt-1 text-sm text-slate-600">
+            Use this map only when you want the bigger year view. Your planning choices stay above for quicker access.
+          </p>
+        </div>
+        <WorkshopYearlyOverview
+          workshop="reader"
+          grade={grade}
+          gradeBand={gradeBand}
+          selectedUnit={unit}
+          onSelectUnit={setUnit}
+        />
+      </section>
+
       <section className="rounded-xl border border-blue-100 bg-blue-50/70 p-6">
         <h2 className="text-lg font-bold text-blue-950">Shared WIDA supports for Reader's Workshop</h2>
         <p className="text-sm text-slate-600 mt-2">
@@ -165,6 +171,35 @@ export default function ReadersWorkshop() {
               </Button>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="rounded-xl border border-slate-200 bg-white p-6">
+        <div className="flex items-start gap-4">
+          <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-3">
+            <BookOpenText className="h-6 w-6 text-emerald-700" />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-lg font-bold text-blue-950">Need reading references and planning tools?</h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              Use the reader workshop path with the strategy bank, WIDA tools, translation guidance, and assessment supports
+              when you want help planning comprehension talk, retelling, response to reading, and partner discussion.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/strategies?workshop=reader&task=responding">
+                <Button variant="outline" className="bg-white">
+                  <FileText className="mr-2 h-4 w-4" />
+                  Open Reading Strategies
+                </Button>
+              </Link>
+              <Link href="/quick-tools?workshop=reader&task=retelling">
+                <Button variant="outline" className="bg-white">
+                  <BookMarked className="mr-2 h-4 w-4" />
+                  Open Reading Quick Tools
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
