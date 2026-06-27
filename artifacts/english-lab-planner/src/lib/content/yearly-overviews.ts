@@ -1793,6 +1793,25 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
       },
       {
         grade: "5",
+        id: "Graphic Novels",
+        title: "Graphic Novels",
+        window: "Later Year",
+        focus: "Tell stories through panels, dialogue, captions, and visual sequencing.",
+        standards: ["W.5.3", "W.5.4", "W.5.5"],
+        standardsPlaceholder: "Core CCSS best-fit for the graphic storytelling unit; the full Mossflower curriculum map is still preferred for exact alignment.",
+        scaffoldNotes: [
+          "Help students decide what the picture shows and what the words need to add so the story does not get overloaded.",
+          "Model how panel order, dialogue, and captions work together to move the story forward clearly.",
+          "Conference around pacing, scene clarity, and how visual choices support the meaning of the narrative.",
+        ],
+        languageDemands: [
+          "Tell a clear story across a sequence of panels.",
+          "Use dialogue and captions to move the story forward.",
+          "Make visual and written choices that work together for the reader.",
+        ],
+      },
+      {
+        grade: "5",
         id: "Journalism: Researching and Writing Articles",
         title: "Journalism: Researching and Writing Articles",
         window: "End of Year",

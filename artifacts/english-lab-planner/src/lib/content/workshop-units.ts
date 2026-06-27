@@ -80,6 +80,7 @@ export const WORKSHOP_UNITS: Record<WorkshopId, Record<GradeId, WorkshopUnit[]>>
       { id: "Turning Life into Literature", title: "Turning Life into Literature" },
       { id: "Literary Essay: Opening Texts and Seeing More", title: "Literary Essay: Opening Texts and Seeing More" },
       { id: "Research-Based Argument", title: "Research-Based Argument" },
+      { id: "Graphic Novels", title: "Graphic Novels" },
       { id: "Journalism: Researching and Writing Articles", title: "Journalism: Researching and Writing Articles" },
     ],
   },
