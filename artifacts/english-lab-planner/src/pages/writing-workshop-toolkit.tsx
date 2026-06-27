@@ -18,6 +18,7 @@ import {
   BookOpenText,
   CheckCircle2,
   CircleHelp,
+  Copy,
   FolderKanban,
   Languages,
   LibraryBig,
@@ -35,6 +36,7 @@ export default function WritingWorkshopToolkit() {
   const [grade, setGrade] = useState<GradeId>("2");
   const [unitId, setUnitId] = useState(YEARLY_OVERVIEWS.writer["2"][0].id);
   const [selectedLevel, setSelectedLevel] = useState(2);
+  const [copiedItem, setCopiedItem] = useState<null | "prompt" | "template" | "brief">(null);
 
   const units = YEARLY_OVERVIEWS.writer[grade];
   const selectedUnit = units.find((unit) => unit.id === unitId) ?? units[0];
@@ -47,10 +49,140 @@ export default function WritingWorkshopToolkit() {
   const unitWritingSupports =
     selectedUnit.unitWritingSupports?.[selectedLevel as 1 | 2 | 3 | 4] ??
     WRITING_STRATEGIES[selectedLevel as keyof typeof WRITING_STRATEGIES];
+  const unitConferencePrompts = selectedUnit.conferencePrompts?.[selectedLevel as 1 | 2 | 3 | 4] ?? [];
+  const unitModelMoves = selectedUnit.widaDifferentiation?.[selectedLevel as 1 | 2 | 3 | 4] ?? [];
+  const unitModelSample = selectedUnit.modelSamples?.[selectedLevel as 1 | 2 | 3 | 4];
+  const speakingMoves = SPEAKING_STRATEGIES[selectedLevel as keyof typeof SPEAKING_STRATEGIES];
+  const vocabularyMoves = VOCABULARY_SUPPORT[selectedLevel as keyof typeof VOCABULARY_SUPPORT];
+
+  const standardsText = selectedUnit.standards.length > 0
+    ? selectedUnit.standards.join(", ")
+    : selectedUnit.standardsPlaceholder;
+
+  const unitBrief = [
+    `Grade: ${grade}`,
+    `Unit: ${selectedUnit.title}`,
+    `Window: ${selectedUnit.window}`,
+    `Unit goal: ${selectedUnit.focus}`,
+    `Standards: ${standardsText}`,
+    `Student WIDA level: ${selectedLevel} (${levelData.name})`,
+    "",
+    "What to teach:",
+    "Keep the same writing goal for the unit, but scale the oral rehearsal, sentence support, vocabulary load, and independence expectations for multilingual learners across WIDA levels.",
+    "",
+    "What students need:",
+    ...(selectedUnit.languageDemands ?? []).map((item) => `- ${item}`),
+    "",
+    "What to say:",
+    ...unitSentenceFrames.map((item) => `- ${item}`),
+    "",
+    "What to model:",
+    ...unitModelMoves.map((item) => `- ${item}`),
+    "",
+    "What it can sound like:",
+    unitModelSample?.sample ?? "Add a short teacher-created sample here.",
+    "",
+    "What to ask:",
+    ...unitConferencePrompts.map((item) => `- ${item}`),
+    "",
+    "What to use in writing:",
+    ...unitWritingSupports.map((item) => `- ${item}`),
+    "",
+    "What to rehearse out loud:",
+    ...speakingMoves.map((item) => `- ${item}`),
+    "",
+    "What words to lift:",
+    ...vocabularyMoves.map((item) => `- ${item}`),
+  ].join("\n");
+
+  const planningPrompt = [
+    "Help me plan a writing workshop lesson for multilingual learners.",
+    "",
+    "Context:",
+    `- Grade: ${grade}`,
+    `- Unit: ${selectedUnit.title}`,
+    "- Lesson focus / teaching point:",
+    `- Standards: ${standardsText}`,
+    `- Student WIDA level(s): ${selectedLevel} (${levelData.name})`,
+    "- Time available:",
+    "- Whole class, small group, or push-in support:",
+    "",
+    "Toolkit notes:",
+    "- What to teach: Keep the same writing goal for the unit, but scale the oral rehearsal, sentence support, vocabulary load, and independence expectations for multilingual learners across WIDA levels.",
+    `- What students need: ${(selectedUnit.languageDemands ?? []).join(" ")}`,
+    `- What to say: ${unitSentenceFrames.join(" ")}`,
+    `- What to model: ${unitModelMoves.join(" ")}`,
+    `- What it can sound like: ${unitModelSample?.sample ?? "Add a short teacher-created sample here."}`,
+    `- What to ask: ${unitConferencePrompts.join(" ")}`,
+    `- What to use in writing: ${unitWritingSupports.join(" ")}`,
+    `- What to rehearse out loud: ${speakingMoves.join(" ")}`,
+    `- What words to lift: ${vocabularyMoves.join(" ")}`,
+    "",
+    "Please create:",
+    "1. A clear teaching point in teacher-friendly language",
+    "2. A 10-15 minute mini-lesson",
+    "3. What I should actually say out loud",
+    "4. A scaffold for my target WIDA level",
+    "5. One quick partner rehearsal",
+    "6. One independent writing task",
+    "7. Two conference prompts",
+    "8. One quick check-for-understanding",
+    "Keep it practical and easy to use in a real classroom.",
+  ].join("\n");
+
+  const planningTemplate = [
+    "Writing Workshop Planning Template",
+    "",
+    "Grade:",
+    "Unit:",
+    "Lesson focus / teaching point:",
+    "Standards:",
+    "Student WIDA level(s):",
+    "Time available:",
+    "Whole class, small group, or push-in support:",
+    "",
+    "What to teach:",
+    "",
+    "What students need:",
+    "",
+    "What to say:",
+    "",
+    "What to model:",
+    "",
+    "What it can sound like:",
+    "",
+    "What to ask:",
+    "",
+    "What to use in writing:",
+    "",
+    "What to rehearse out loud:",
+    "",
+    "What words to lift:",
+    "",
+    "Ask the AI to create:",
+    "1. A clear teaching point",
+    "2. A short mini-lesson",
+    "3. Exact teacher language",
+    "4. WIDA-level scaffolds",
+    "5. Partner rehearsal",
+    "6. Independent writing task",
+    "7. Conference prompts",
+    "8. Quick check-for-understanding",
+  ].join("\n");
 
   const chooseGrade = (nextGrade: GradeId) => {
     setGrade(nextGrade);
     setUnitId(YEARLY_OVERVIEWS.writer[nextGrade][0].id);
+  };
+
+  const copyText = async (value: string, key: "prompt" | "template" | "brief") => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopiedItem(key);
+      window.setTimeout(() => setCopiedItem((current) => (current === key ? null : current)), 1800);
+    } catch {
+      setCopiedItem(null);
+    }
   };
 
   return (
@@ -490,6 +622,71 @@ export default function WritingWorkshopToolkit() {
               </div>
             </Tabs>
           </div>
+        </div>
+      </section>
+
+      <section className="rounded-3xl border border-blue-100 bg-gradient-to-br from-white via-blue-50/50 to-sky-50/60 shadow-sm">
+        <div className="border-b border-blue-100 px-6 py-5 md:px-8">
+          <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
+            <Sparkles className="h-4 w-4 text-sky-600" />
+            Plan With AI
+          </div>
+          <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-blue-950 md:text-3xl">
+            Copy this page into ChatGPT or Flint
+          </h2>
+          <p className="mt-2 max-w-4xl text-sm leading-relaxed text-slate-600">
+            Use the selected grade, unit, and WIDA level to generate a lesson plan faster. Copy the ready-made prompt,
+            the reusable template, or the unit brief that summarizes this page.
+          </p>
+        </div>
+
+        <div className="grid gap-6 p-6 md:p-8 xl:grid-cols-3">
+          {[
+            {
+              key: "prompt" as const,
+              title: "1. One-Paragraph Super Prompt",
+              text: "Best when you want the AI to build a lesson plan right away from this selected unit and WIDA level.",
+              value: planningPrompt,
+            },
+            {
+              key: "template" as const,
+              title: "2. Reusable Planning Template",
+              text: "Best when you want a blank planning frame you can keep in Notes and reuse for any lesson.",
+              value: planningTemplate,
+            },
+            {
+              key: "brief" as const,
+              title: "3. Unit Brief From This Page",
+              text: "Best when you want to bring the page content itself into another LLM before asking for help.",
+              value: unitBrief,
+            },
+          ].map((item) => (
+            <Card key={item.key} className="rounded-3xl border-slate-200 bg-white shadow-none">
+              <CardContent className="p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-lg font-extrabold leading-tight text-blue-950">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.text}</p>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="shrink-0 rounded-xl"
+                    onClick={() => copyText(item.value, item.key)}
+                  >
+                    <Copy className="mr-2 h-3.5 w-3.5" />
+                    {copiedItem === item.key ? "Copied" : "Copy"}
+                  </Button>
+                </div>
+                <textarea
+                  readOnly
+                  value={item.value}
+                  className="mt-4 min-h-[320px] w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-700"
+                />
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
     </div>
