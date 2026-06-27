@@ -15,43 +15,10 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-export type WritingWorkshopUnitScaffold = {
-  id: string;
-  buttonLabel: string;
-  title: string;
-  blurb: string;
-  planningNote: string;
-  languageDemands: string[];
-  levelScaffolds: Array<{
-    level: string;
-    title: string;
-    use: string;
-    writing: string[];
-    speaking: string[];
-    vocabulary: string[];
-    frames: string[];
-    model?: string[];
-    sample?: {
-      text: string;
-      notice: string;
-    };
-    prompts?: string[];
-  }>;
-  conferencePrompts: string[];
-  quickAssessment: string[];
-  relatedDocuments: Array<{
-    title: string;
-    purpose: string;
-    file: string;
-  }>;
-};
-
-export type WritingWorkshopTemplateTab = {
-  label: string;
-  href?: string;
-  active?: boolean;
-};
+import type {
+  WritingWorkshopTemplateTab,
+  WritingWorkshopUnitScaffold,
+} from "@/lib/content/writing-workshop-toolkit";
 
 type WritingWorkshopUnitTemplateProps = {
   badgeLabel: string;

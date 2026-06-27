@@ -1065,6 +1065,24 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use dialogue, sensory detail, and reflection to deepen meaning for the reader.",
           "Revise with more precise language, transitions, and paragraphing.",
         ],
+        modelSamples: {
+          1: {
+            sample: "One time I fell off my bike. Then my dad came. I cried. After that I got up.",
+            whatThisShows: "A WIDA 1 sample names the event clearly and holds the sequence with short, high-support sentences.",
+          },
+          2: {
+            sample: "At first I was riding fast down the street. Then I hit a rock and fell. My knees hurt and I felt scared, but my dad helped me stand up again.",
+            whatThisShows: "A WIDA 2 writer can stretch the memory with sequence, feeling language, and one clear turning point.",
+          },
+          3: {
+            sample: "One important moment was when my bike slipped and I crashed onto the sidewalk. For a second I wanted to quit, but I looked at my dad and tried again. That was the moment I started to feel braver.",
+            whatThisShows: "A WIDA 3 sample begins connecting action to significance, not only retelling what happened.",
+          },
+          4: {
+            sample: "The scrape on my knee stung, but what I remember most is the silence before I stood up again. My dad did not rush to rescue me. He just looked at me as if he already knew I could do it. That small pause changed the story from a fall into a lesson about courage.",
+            whatThisShows: "A WIDA 4 sample uses pacing, reflection, and literary phrasing to shape the memory into something meaningful.",
+          },
+        },
         conferencePrompts: {
           1: [
             "Which scene are you writing today?",
@@ -1153,6 +1171,24 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use examples, evidence, and explanation to elaborate an argument.",
           "Write in paragraph and essay form using transitions and persuasive tone.",
         ],
+        modelSamples: {
+          1: {
+            sample: "I think recess should be longer. We need to play. It helps kids feel good.",
+            whatThisShows: "A WIDA 1 sample expresses a claim and a simple reason with direct, accessible language.",
+          },
+          2: {
+            sample: "My opinion is that recess should be longer because kids need time to move. When we run and play, we come back ready to learn. That is one important reason.",
+            whatThisShows: "A WIDA 2 writer can state a claim, add a reason, and connect it to a familiar school experience.",
+          },
+          3: {
+            sample: "I believe recess should be longer because students learn better after they move their bodies. For example, when children have time to play outside, they often return to class calmer and more focused. This supports my claim that recess helps learning, not just fun.",
+            whatThisShows: "A WIDA 3 sample shows paragraph structure with claim, example, and explanation that points back to the argument.",
+          },
+          4: {
+            sample: "Recess should be extended because it supports both student health and academic focus. A short break may let children move, but a longer one gives them enough time to reset socially and physically. As a result, students return to class more prepared to concentrate, which makes a stronger school day for everyone.",
+            whatThisShows: "A WIDA 4 sample sounds more essay-like, with clearer reasoning, expanded explanation, and persuasive tone.",
+          },
+        },
         conferencePrompts: {
           1: [
             "What is your opinion or claim?",
@@ -1241,6 +1277,24 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Explain how scenes, dialogue, and character actions support an interpretation.",
           "Use essay language, textual evidence, and cohesive paragraphs to discuss fiction.",
         ],
+        modelSamples: {
+          1: {
+            sample: "I think Wilbur is a good friend. In the story, he cares about Charlotte. This shows he is kind.",
+            whatThisShows: "A WIDA 1 sample can make a simple literary claim and connect it to one recognizable story detail.",
+          },
+          2: {
+            sample: "I think Wilbur is a loyal friend because he never forgets Charlotte's help. One part that shows this is when he stays close to her and worries about her. This tells me friendship is important to him.",
+            whatThisShows: "A WIDA 2 writer can connect a claim to one scene and begin explaining what it reveals.",
+          },
+          3: {
+            sample: "My idea is that Wilbur changes because Charlotte teaches him how friendship can make someone brave. For example, when Charlotte works to save him, Wilbur begins to trust that he is worth saving. This matters because it shows that friendship changes how he sees himself.",
+            whatThisShows: "A WIDA 3 sample moves from character description toward interpretation and meaning.",
+          },
+          4: {
+            sample: "I interpret Wilbur's growth as a result of being truly known by Charlotte. The text suggests this when his fear slowly shifts into trust, especially in the moments when Charlotte speaks to him with certainty and care. Her friendship does more than comfort him; it helps him imagine a different version of himself.",
+            whatThisShows: "A WIDA 4 sample uses literary language and interpretation to say something deeper than plot summary.",
+          },
+        },
         conferencePrompts: {
           1: [
             "What do you think about this character or part of the story?",
@@ -1329,6 +1383,24 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Organize information, explanation, or argument in ways that fit the discipline.",
           "Synthesize notes, examples, and evidence into a polished content-based piece.",
         ],
+        modelSamples: {
+          1: {
+            sample: "This is about volcanoes. Volcanoes have lava. Lava is hot. I learned volcanoes can erupt.",
+            whatThisShows: "A WIDA 1 sample teaches with short factual statements and high-frequency vocabulary tied to the content topic.",
+          },
+          2: {
+            sample: "This section explains how a volcano erupts. First, hot rock pushes up from under the ground. Then the lava comes out of the volcano. This is important because it changes the land.",
+            whatThisShows: "A WIDA 2 sample groups facts into a clear subtopic and uses simple explanation language.",
+          },
+          3: {
+            sample: "My topic is how volcanoes erupt. The evidence shows that pressure builds under the earth until magma rises through an opening. This helps explain why eruptions can be sudden and powerful.",
+            whatThisShows: "A WIDA 3 sample sounds more like disciplinary teaching, using evidence and explanation together.",
+          },
+          4: {
+            sample: "A key idea in this science topic is that eruptions happen when pressure beneath the earth forces magma upward. This evidence is important because it helps readers understand that a volcano is part of a larger system inside the planet, not just a mountain that explodes. My conclusion is that studying eruptions helps explain how the earth changes over time.",
+            whatThisShows: "A WIDA 4 sample synthesizes facts into a more formal content explanation with academic tone.",
+          },
+        },
         conferencePrompts: {
           1: [
             "What is your topic in this subject?",
@@ -1419,6 +1491,24 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use literary language, dialogue, and detail to shape meaning for the reader.",
           "Revise for voice, significance, and cohesion across a longer narrative.",
         ],
+        modelSamples: {
+          1: {
+            sample: "One day I went on the stage. I was scared. Then I sang. My mom smiled at me.",
+            whatThisShows: "A WIDA 1 sample holds onto one important memory with simple scene sentences and feeling language.",
+          },
+          2: {
+            sample: "At first my hands were shaking when I walked to the stage. Then the music started and I remembered the song. When I saw my mom smile, I knew I could keep going.",
+            whatThisShows: "A WIDA 2 writer can connect event and feeling so the story begins to sound more purposeful.",
+          },
+          3: {
+            sample: "This moment mattered because I almost let my fear decide for me. When the music began, I took one breath and sang the first line anyway. At the end, I realized I was stronger than the nervous voice in my head.",
+            whatThisShows: "A WIDA 3 sample blends scene and reflection, helping the reader understand why the memory is meaningful.",
+          },
+          4: {
+            sample: "The stage lights were so bright that I could barely see the crowd, but I could feel my fear standing beside me like another performer. Then the first note came, and the room that had felt enormous suddenly narrowed to one clear task: sing. By the time I finished, the story was no longer about being afraid to perform. It was about discovering the part of me that would step forward anyway.",
+            whatThisShows: "A WIDA 4 sample uses imagery, pacing, and reflection to turn a life event into literary narrative.",
+          },
+        },
         conferencePrompts: {
           1: [
             "What is the one important moment you are telling?",
@@ -1507,6 +1597,24 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Integrate textual evidence and explain how it supports a nuanced reading.",
           "Use academic essay language for interpretation, comparison, and conclusion.",
         ],
+        modelSamples: {
+          1: {
+            sample: "I think the character is lonely. In the story, she sits by herself. This shows she feels apart from others.",
+            whatThisShows: "A WIDA 1 sample makes a basic interpretation and ties it to one visible text detail.",
+          },
+          2: {
+            sample: "I believe the character feels lonely because she keeps watching other people instead of joining them. One important part is when she stands quietly at the edge of the group. This helps me think she wants connection but does not know how to begin.",
+            whatThisShows: "A WIDA 2 writer can connect evidence to an interpretation and add a short explanation of meaning.",
+          },
+          3: {
+            sample: "My interpretation is that the character's loneliness shapes the way she sees the world around her. For example, when she notices every small movement in the room, the reader can see how separate she feels from everyone else. This suggests that her silence is not emptiness, but a sign of how carefully she is observing.",
+            whatThisShows: "A WIDA 3 sample moves beyond naming a trait and begins analyzing what the evidence suggests.",
+          },
+          4: {
+            sample: "A deeper reading is that the character's loneliness is also a form of awareness. The evidence reveals this because the text gives her the sharpest observations, even when she says very little aloud. Overall, the story invites readers to see isolation not only as sadness, but also as a position from which the character understands more than others do.",
+            whatThisShows: "A WIDA 4 sample offers layered interpretation and more mature analytic language.",
+          },
+        },
         conferencePrompts: {
           1: [
             "What is one idea you have about the text?",
@@ -1595,6 +1703,24 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use evidence, quotation, paraphrase, and explanation to build an argument.",
           "Write in a formal argumentative structure with stronger academic transitions and precision.",
         ],
+        modelSamples: {
+          1: {
+            sample: "I think school should have a garden. One fact is plants help air. This is important because kids can learn outside.",
+            whatThisShows: "A WIDA 1 sample states a claim and uses one simple research fact to support it.",
+          },
+          2: {
+            sample: "My claim is that our school should build a garden because students can learn science in a real place. One piece of evidence is that gardens help students watch how plants grow. This helps prove that a garden can be part of learning, not only decoration.",
+            whatThisShows: "A WIDA 2 writer can connect claim, evidence, and explanation in a clear research-based paragraph.",
+          },
+          3: {
+            sample: "Based on my research, a school garden would support both learning and student responsibility. According to one source, children understand science concepts more deeply when they observe living systems directly. This evidence matters because it shows that a garden would give students hands-on experience, not just extra outdoor space.",
+            whatThisShows: "A WIDA 3 sample uses source language and explanation to build a more academic argument.",
+          },
+          4: {
+            sample: "The strongest argument for a school garden is that it combines academic learning with real responsibility. This source shows that students remember science concepts more effectively when they care for living things, which supports the claim that a garden is an instructional tool. A key implication is that the project would strengthen the curriculum while also building student ownership.",
+            whatThisShows: "A WIDA 4 sample synthesizes evidence into a more formal, research-driven argument.",
+          },
+        },
         conferencePrompts: {
           1: [
             "What is your claim?",
@@ -1683,6 +1809,24 @@ export const YEARLY_OVERVIEWS: Record<WorkshopId, Record<GradeId, YearlyOverview
           "Use journalistic structure such as headline, lead, quotations, and grouped information.",
           "Write concisely while still explaining key facts and significance for the reader.",
         ],
+        modelSamples: {
+          1: {
+            sample: "This article is about the new playground. One fact is many kids use it every day. People said it is fun and safe.",
+            whatThisShows: "A WIDA 1 sample sounds like early reporting, using short factual sentences and a simple quote idea.",
+          },
+          2: {
+            sample: "Today I am reporting on the new playground at our school. A key fact is that students now have more space to climb and play. According to one teacher, the new area gives children a safer place for recess.",
+            whatThisShows: "A WIDA 2 writer can produce a clear lead plus one sourced fact in article-like language.",
+          },
+          3: {
+            sample: "This article explains why the new playground matters to our school community. One important detail is that more students can now play at the same time without crowding. This matters because it changes recess from a rushed experience into a safer and more enjoyable one.",
+            whatThisShows: "A WIDA 3 sample groups facts under a clear focus and explains significance for the reader.",
+          },
+          4: {
+            sample: "The most important development is the opening of a playground designed for both safety and student access. A staff member explained that the new layout allows more children to play comfortably at one time while reducing congestion in older areas. Readers should understand that this change is not only about equipment. It also affects how students experience recess each day.",
+            whatThisShows: "A WIDA 4 sample sounds more journalistic, with a stronger lead, source use, and reader-facing significance.",
+          },
+        },
         conferencePrompts: {
           1: [
             "What is your article about?",

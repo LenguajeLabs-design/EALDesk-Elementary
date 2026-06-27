@@ -13,6 +13,7 @@ import {
   VOCABULARY_SUPPORT,
   type GradeId,
 } from "@/lib/data";
+import { TEACHER_GLOSSARY } from "@/lib/content/writing-workshop-toolkit";
 import {
   BookOpenText,
   CheckCircle2,
@@ -29,34 +30,6 @@ import {
 } from "lucide-react";
 
 const TOOLKIT_GRADES: GradeId[] = ["2", "3", "4", "5"];
-
-const TEACHER_GLOSSARY = [
-  {
-    term: "Claim",
-    meaning: "The main idea, opinion, or position a student is trying to say clearly in the piece.",
-    teacherMove: "Ask, 'What are you really saying here?' and help the student state it in one clear sentence.",
-  },
-  {
-    term: "Elaboration",
-    meaning: "The extra detail that helps the reader understand more, such as examples, reasons, actions, or explanation.",
-    teacherMove: "Prompt with, 'Can you add one more detail, example, or part that helps me see your thinking?'",
-  },
-  {
-    term: "Reflection",
-    meaning: "The part where the writer tells what they learned, felt, realized, or now understands.",
-    teacherMove: "Ask, 'Why did this moment matter to you?' or 'What does this teach the reader about you?'",
-  },
-  {
-    term: "Evidence",
-    meaning: "The words, facts, details, or examples a writer uses to support an idea or opinion.",
-    teacherMove: "Ask, 'What in the text, research, or experience shows this is true?'",
-  },
-  {
-    term: "Conference",
-    meaning: "A short teacher-student conversation during workshop used to notice, teach, and set one next step.",
-    teacherMove: "Keep it simple: notice one strength, teach one move, and name one next step.",
-  },
-];
 
 export default function WritingWorkshopToolkit() {
   const [grade, setGrade] = useState<GradeId>("2");
