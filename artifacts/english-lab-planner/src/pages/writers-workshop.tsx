@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "wouter";
-import { PencilLine, MessagesSquare, FileText, ArrowRight, BarChart3, Globe2, ClipboardList, CheckCircle2, FolderKanban } from "lucide-react";
+import { PencilLine, MessagesSquare, FileText, ArrowRight, BarChart3, Globe2, ClipboardList, CheckCircle2, FolderKanban, Orbit } from "lucide-react";
 import WorkshopYearlyOverview from "@/components/workshop-yearly-overview";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -31,6 +31,7 @@ const writerTasks = [
 ];
 
 const sharedLinks = [
+  { label: "Teaching Cycle", href: "/teaching-learning-cycle", icon: Orbit },
   { label: "Writing Toolkit", href: "/writing-workshop-toolkit", icon: FolderKanban },
   { label: "WIDA Levels", href: "/wida-levels", icon: BarChart3 },
   { label: "Translation Tools", href: "/translations", icon: Globe2 },
@@ -177,13 +178,19 @@ export default function WritersWorkshop() {
             <FolderKanban className="h-6 w-6 text-sky-700" />
           </div>
           <div className="flex-1">
-            <h2 className="text-lg font-bold text-blue-950">Need planning documents and writing tools?</h2>
+            <h2 className="text-lg font-bold text-blue-950">Need planning documents, writing tools, and a stronger teaching cycle?</h2>
             <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-              Open the Writing Workshop Toolkit for the most useful support files to add next:
-              suggested sequences, curricular maps, checklists, rubrics, annotated student samples,
-              and conference tools for Grades 4-5.
+              Open the Teaching Cycle page for the planning framework behind strong content writing instruction,
+              then use the Writing Workshop Toolkit for support files, suggested sequences, curricular maps,
+              checklists, rubrics, annotated student samples, and conference tools.
             </p>
-            <div className="mt-4">
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/teaching-learning-cycle">
+                <Button className="bg-sky-700 hover:bg-sky-800">
+                  <Orbit className="h-4 w-4 mr-2" />
+                  Open Teaching Cycle
+                </Button>
+              </Link>
               <Link href="/writing-workshop-toolkit">
                 <Button variant="outline" className="bg-white">
                   <FolderKanban className="h-4 w-4 mr-2" />

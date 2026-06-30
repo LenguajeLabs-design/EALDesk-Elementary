@@ -9,6 +9,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import ReadersWorkshop from "@/pages/readers-workshop";
 import WritersWorkshop from "@/pages/writers-workshop";
+import TeachingLearningCycle from "@/pages/teaching-learning-cycle";
 import WritingWorkshopToolkit from "@/pages/writing-workshop-toolkit";
 import WritingWorkshopGrade2Unit1 from "@/pages/writing-workshop-grade2-unit1";
 import WritingWorkshopGrade3Unit1 from "@/pages/writing-workshop-grade3-unit1";
@@ -28,6 +29,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/readers-workshop" component={ReadersWorkshop} />
         <Route path="/writers-workshop" component={WritersWorkshop} />
+        <Route path="/teaching-learning-cycle" component={TeachingLearningCycle} />
         <Route path="/writing-workshop-grade4" component={WritingWorkshopToolkit} />
         <Route path="/writing-workshop-toolkit" component={WritingWorkshopToolkit} />
         <Route path="/writing-workshop-grade2-unit1" component={WritingWorkshopGrade2Unit1} />

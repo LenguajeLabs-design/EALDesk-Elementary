@@ -9,6 +9,7 @@ import {
   FolderKanban,
   Globe2,
   Lightbulb,
+  Orbit,
   Linkedin,
   Mail,
   PencilLine,
@@ -45,6 +46,14 @@ const startHereCards = [
     button: "Open Writing Toolkit",
     href: "/writing-workshop-toolkit",
     accent: "text-blue-700",
+  },
+  {
+    icon: Orbit,
+    title: "I Want A Writing Teaching Framework",
+    text: "Use the teaching and learning cycle page when you want a bigger planning structure for building knowledge, joint construction, and transfer.",
+    button: "Open Teaching Cycle",
+    href: "/teaching-learning-cycle",
+    accent: "text-fuchsia-600",
   },
   {
     icon: BarChart3,
@@ -112,6 +121,13 @@ const firstStopPanels = [
     text: "Best first stop when you are planning writer's workshop and want a scaffolded unit view.",
     button: "Open Toolkit",
     href: "/writing-workshop-toolkit",
+  },
+  {
+    icon: Orbit,
+    title: "Teaching Cycle",
+    text: "Best first stop when you want the full teaching and learning cycle for content writing and workshop planning.",
+    button: "Open Cycle",
+    href: "/teaching-learning-cycle",
   },
   {
     icon: Globe2,
