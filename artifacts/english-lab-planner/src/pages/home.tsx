@@ -6,6 +6,7 @@ import {
   BookMarked,
   BookOpen,
   CheckCircle2,
+  ClipboardList,
   FolderKanban,
   Globe2,
   Lightbulb,
@@ -26,7 +27,7 @@ const startHereCards = [
   {
     icon: Zap,
     title: "I Need Support For A Lesson Happening Now",
-    text: "Go straight to quick tools when you walk into a classroom and need one teaching move, one sentence frame, or one immediate scaffold.",
+    text: "Go straight to Quick Tools when you walk into a classroom and need one teaching move, one sentence frame, or one immediate scaffold.",
     button: "Open Quick Tools",
     href: "/quick-tools",
     accent: "text-amber-600",
@@ -46,22 +47,6 @@ const startHereCards = [
     button: "Open Writing Toolkit",
     href: "/writing-workshop-toolkit",
     accent: "text-blue-700",
-  },
-  {
-    icon: Orbit,
-    title: "I Want A Writing Teaching Framework",
-    text: "Use the teaching and learning cycle page when you want a bigger planning structure for building knowledge, joint construction, and transfer.",
-    button: "Open Teaching Cycle",
-    href: "/teaching-learning-cycle",
-    accent: "text-fuchsia-600",
-  },
-  {
-    icon: BarChart3,
-    title: "I Need WIDA Guidance",
-    text: "Use the WIDA section when you want a clearer picture of what students at each level can do and what support fits best.",
-    button: "Open WIDA Levels",
-    href: "/wida-levels",
-    accent: "text-emerald-600",
   },
 ];
 
@@ -100,41 +85,34 @@ const pathwayCards = [
   },
 ];
 
-const firstStopPanels = [
-  {
-    icon: Zap,
-    title: "Quick Tools",
-    text: "Best first stop when you need sentence frames, language supports, and fast classroom moves right away.",
-    button: "Start Here",
-    href: "/quick-tools",
-  },
-  {
-    icon: BookOpen,
-    title: "Strategies",
-    text: "Best first stop when you know the lesson demand but want help choosing the right scaffold.",
-    button: "Choose A Move",
-    href: "/strategies",
-  },
-  {
-    icon: FolderKanban,
-    title: "Writing Toolkit",
-    text: "Best first stop when you are planning writer's workshop and want a scaffolded unit view.",
-    button: "Open Toolkit",
-    href: "/writing-workshop-toolkit",
-  },
+const supportLibraryLinks = [
   {
     icon: Orbit,
     title: "Teaching Cycle",
-    text: "Best first stop when you want the full teaching and learning cycle for content writing and workshop planning.",
-    button: "Open Cycle",
+    text: "Use the bigger planning framework for knowledge building, joint construction, and transfer.",
+    button: "Open Teaching Cycle",
     href: "/teaching-learning-cycle",
+  },
+  {
+    icon: BarChart3,
+    title: "WIDA Levels",
+    text: "Use level-specific reminders when you need quick differentiation guidance.",
+    button: "Open WIDA Levels",
+    href: "/wida-levels",
   },
   {
     icon: Globe2,
     title: "Translations & Tools",
-    text: "Best first stop when you want help using translation support thoughtfully and strategically.",
+    text: "Use translation guidance when you want multilingual support to stay strategic and temporary.",
     button: "View Guidance",
     href: "/translations",
+  },
+  {
+    icon: ClipboardList,
+    title: "Assessments",
+    text: "Open accommodations and response options when you need to adjust language demand without lowering the goal.",
+    button: "Open Assessments",
+    href: "/assessments",
   },
 ];
 
@@ -257,12 +235,12 @@ export default function Home() {
           Start Here By Need
         </div>
         <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-blue-950 md:text-3xl">
-          Where should a teacher begin today?
+          Most teachers should begin with one of these three paths
         </h2>
         <p className="mt-2 max-w-4xl text-sm leading-relaxed text-slate-600">
-          Pick the path that matches your immediate need. The goal is to help you get oriented quickly, not to make you hunt through the whole site.
+          Pick the path that matches your immediate need. These are the fastest and clearest entry points for day-to-day planning.
         </p>
-        <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {startHereCards.map(({ icon: Icon, title, text, button, href, accent }) => (
             <Link key={href} href={href}>
               <Card className="h-full cursor-pointer rounded-2xl border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md">
@@ -280,6 +258,25 @@ export default function Home() {
               </Card>
             </Link>
           ))}
+        </div>
+        <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 className="text-lg font-bold text-blue-950">Need a supporting reference after that?</h3>
+              <p className="mt-1 text-sm leading-relaxed text-slate-600">
+                Use the teaching framework, WIDA reminders, assessment guidance, and translation tools once you already know your main planning path.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {supportLibraryLinks.map(({ href, title }) => (
+                <Link key={href} href={href}>
+                  <Button variant="outline" className="bg-white">
+                    {title}
+                  </Button>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -362,25 +359,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid gap-4 xl:grid-cols-4">
-        {firstStopPanels.map(({ icon: Icon, title, text, button, href }) => (
-          <Card key={title} className="rounded-2xl border-blue-200 bg-blue-50/60 shadow-sm">
-            <CardContent className="p-5">
-              <div className="flex items-center gap-2 text-sm font-extrabold text-blue-950">
-                <Icon className="h-4 w-4 shrink-0" />
-                {title}
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">{text}</p>
-              <Link href={href}>
-                <Button variant="outline" size="sm" className="mt-4 h-8 border-blue-300 bg-white text-xs text-blue-800 hover:bg-blue-50">
-                  {button}
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-        ))}
-      </section>
-
       <section>
         <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
           <Users className="h-4 w-4 text-sky-600" />
@@ -441,11 +419,11 @@ export default function Home() {
                 <h3 className="text-lg font-bold text-blue-950">Connect</h3>
                 <div className="mt-5 space-y-3">
                   <a
-                    href="mailto:lenguajelabs@proton.me"
+                    href="mailto:forozc1@gmail.com"
                     className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 transition-colors hover:border-blue-200 hover:bg-blue-50/50"
                   >
                     <Mail className="h-4 w-4 text-blue-700" />
-                    <span className="text-sm font-medium">lenguajelabs@proton.me</span>
+                    <span className="text-sm font-medium">forozc1@gmail.com</span>
                   </a>
                   <a
                     href="https://www.linkedin.com/in/federico-orozco-687b5431"
@@ -466,8 +444,8 @@ export default function Home() {
       <footer className="space-y-1 border-t border-slate-200 py-8 text-xs text-slate-400">
         <p>
           Contact:{" "}
-          <a className="text-blue-700 hover:underline" href="mailto:lenguajelabs@proton.me">
-            lenguajelabs@proton.me
+          <a className="text-blue-700 hover:underline" href="mailto:forozc1@gmail.com">
+            forozc1@gmail.com
           </a>
         </p>
         <p>

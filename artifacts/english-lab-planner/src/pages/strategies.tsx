@@ -24,6 +24,7 @@ import {
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   BookA,
@@ -507,16 +508,34 @@ export default function Strategies() {
           </div>
         )}
 
-        <div className="grid gap-5 xl:grid-cols-2">
-          {recommendedCards.map(({ card, score }) => (
-            <StrategyCardView
-              key={card.id}
-              card={card}
-              matchScore={score}
-              selectedGradeBand={selectedGradeBand === "Any" ? "4-5" : selectedGradeBand}
-            />
-          ))}
-        </div>
+        {recommendedCards.length > 0 ? (
+          <div className="grid gap-5 xl:grid-cols-2">
+            {recommendedCards.map(({ card, score }) => (
+              <StrategyCardView
+                key={card.id}
+                card={card}
+                matchScore={score}
+                selectedGradeBand={selectedGradeBand === "Any" ? "4-5" : selectedGradeBand}
+              />
+            ))}
+          </div>
+        ) : (
+          <Card className="rounded-3xl border-slate-200 shadow-sm">
+            <CardContent className="p-6">
+              <Empty className="rounded-3xl border border-dashed border-slate-200 bg-slate-50">
+                <EmptyMedia variant="icon">
+                  <Target className="size-5" />
+                </EmptyMedia>
+                <EmptyHeader>
+                  <EmptyTitle>No strategy cards matched yet.</EmptyTitle>
+                  <EmptyDescription>
+                    Reset one or two filters and start with the biggest language bottleneck you see in the room.
+                  </EmptyDescription>
+                </EmptyHeader>
+              </Empty>
+            </CardContent>
+          </Card>
+        )}
       </section>
 
       <section className="rounded-3xl border border-slate-200 bg-white shadow-sm">

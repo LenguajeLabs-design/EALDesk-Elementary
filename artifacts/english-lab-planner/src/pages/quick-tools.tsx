@@ -3,7 +3,10 @@ import { QUICK_TOOLS, WIDA_LEVELS, WRITING_STRATEGIES, SPEAKING_STRATEGIES, VOCA
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty";
 import { CheckCircle2, MessageSquare, Edit3, BookA } from "lucide-react";
+import { Link } from "wouter";
 
 const UNIT_WRITING_SCAFFOLDS = {
   "Making Small Moments Big": {
@@ -1070,19 +1073,21 @@ const UNIT_PARTNER_TALK_SCAFFOLDS = {
 export default function QuickTools() {
   const searchParams = new URLSearchParams(window.location.search);
   const workshop = searchParams.get("workshop");
+  const requestedTask = searchParams.get("task");
   const selectedUnit = searchParams.get("unit") || "";
   const availableTools = workshop
     ? QUICK_TOOLS.filter(
         (tool) => tool.workshop === workshop || tool.workshop === "shared",
       )
     : QUICK_TOOLS;
-  const initialTask = searchParams.get("task") || availableTools[0]?.id || QUICK_TOOLS[0].id;
+  const initialTask = requestedTask || availableTools[0]?.id || QUICK_TOOLS[0].id;
   
   const [selectedTask, setSelectedTask] = useState(initialTask);
   const [selectedLevel, setSelectedLevel] = useState<number>(1);
   const quickToolLevels = WIDA_LEVELS.filter(level => level.level <= 4);
 
   const task = availableTools.find(t => t.id === selectedTask) || availableTools[0] || QUICK_TOOLS[0];
+  const requestedTaskWasInvalid = Boolean(requestedTask) && !availableTools.some((tool) => tool.id === requestedTask);
   const levelData = WIDA_LEVELS.find(l => l.level === selectedLevel) || WIDA_LEVELS[0];
   const unitWritingScaffold = selectedTask === "writing"
     ? UNIT_WRITING_SCAFFOLDS[selectedUnit as keyof typeof UNIT_WRITING_SCAFFOLDS]
@@ -1112,7 +1117,42 @@ export default function QuickTools() {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-6">
+      {availableTools.length === 0 ? (
+        <Card className="rounded-3xl border-slate-200 shadow-sm">
+          <CardContent className="p-6">
+            <Empty className="rounded-3xl border border-dashed border-slate-200 bg-slate-50">
+              <EmptyMedia variant="icon">
+                <MessageSquare className="size-5" />
+              </EmptyMedia>
+              <EmptyHeader>
+                <EmptyTitle>No quick tools are connected to this page yet.</EmptyTitle>
+                <EmptyDescription>
+                  Open a workshop pathway first so this page knows which set of classroom supports to show.
+                </EmptyDescription>
+              </EmptyHeader>
+              <EmptyContent className="sm:max-w-md">
+                <div className="flex flex-wrap justify-center gap-3">
+                  <Link href="/writers-workshop">
+                    <Button>Open Writer&apos;s Workshop</Button>
+                  </Link>
+                  <Link href="/readers-workshop">
+                    <Button variant="outline">Open Reader&apos;s Workshop</Button>
+                  </Link>
+                </div>
+              </EmptyContent>
+            </Empty>
+          </CardContent>
+        </Card>
+      ) : null}
+
+      {requestedTaskWasInvalid ? (
+        <div className="rounded-2xl border border-amber-200 bg-amber-50/70 p-4 text-sm leading-relaxed text-slate-700">
+          That task link did not match a saved quick tool, so the page opened the closest available option instead.
+        </div>
+      ) : null}
+
+      {availableTools.length > 0 ? (
+      <div className="flex flex-col gap-6 md:flex-row">
         
         {/* Filters Sidebar */}
         <div className="w-full md:w-64 space-y-6 flex-shrink-0">
@@ -1261,6 +1301,7 @@ export default function QuickTools() {
 
         </div>
       </div>
+      ) : null}
     </div>
   );
 }

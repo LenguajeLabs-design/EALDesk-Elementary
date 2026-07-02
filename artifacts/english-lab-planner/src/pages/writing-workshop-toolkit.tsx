@@ -15,6 +15,7 @@ import {
   type GradeId,
 } from "@/lib/data";
 import { TEACHER_GLOSSARY } from "@/lib/content/writing-workshop-toolkit";
+import { toast } from "@/hooks/use-toast";
 import {
   BookOpenText,
   CheckCircle2,
@@ -205,8 +206,17 @@ export default function WritingWorkshopToolkit() {
       await navigator.clipboard.writeText(value);
       setCopiedItem(key);
       window.setTimeout(() => setCopiedItem((current) => (current === key ? null : current)), 1800);
+      toast({
+        title: "Copied to clipboard",
+        description: "You can paste this directly into ChatGPT, Flint, or your planning notes.",
+      });
     } catch {
       setCopiedItem(null);
+      toast({
+        variant: "destructive",
+        title: "Copy did not work",
+        description: "Try selecting the text manually and copying it again.",
+      });
     }
   };
 
@@ -268,6 +278,26 @@ export default function WritingWorkshopToolkit() {
               <Switch checked={showChineseSupport} onCheckedChange={setShowChineseSupport} aria-label="Toggle Chinese support" />
             </div>
           </div>
+        </div>
+
+        <div className="mt-4 rounded-2xl border border-slate-200 bg-white/90 p-4">
+          <div className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+            Current Selection
+          </div>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Badge variant="outline" className="rounded-full border-blue-200 bg-blue-50 text-blue-900">
+              Grade {grade}
+            </Badge>
+            <Badge variant="outline" className="rounded-full border-blue-200 bg-blue-50 text-blue-900">
+              {selectedUnit.title}
+            </Badge>
+            <Badge variant="outline" className="rounded-full border-blue-200 bg-blue-50 text-blue-900">
+              WIDA {selectedLevel}
+            </Badge>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">
+            Use this combination as your planning anchor before moving into the glossary, WIDA ladder, or AI planning helpers below.
+          </p>
         </div>
       </section>
 
@@ -818,7 +848,7 @@ export default function WritingWorkshopToolkit() {
                 <textarea
                   readOnly
                   value={item.value}
-                  className="mt-4 min-h-[320px] w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-700"
+                  className="mt-4 min-h-[240px] w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-700 md:min-h-[320px]"
                 />
               </CardContent>
             </Card>

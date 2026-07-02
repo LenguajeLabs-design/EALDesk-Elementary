@@ -42,6 +42,9 @@ export default function WritersWorkshop() {
   const [gradeBand, setGradeBand] = useState<GradeBandId>("K-2");
   const [grade, setGrade] = useState<GradeId>("K");
   const [unit, setUnit] = useState(WORKSHOP_UNITS.writer.K[0].id);
+  const selectedUnitTitle =
+    WORKSHOP_UNITS.writer[grade].find((unitOption) => unitOption.id === unit)?.title ??
+    WORKSHOP_UNITS.writer[grade][0].title;
 
   const chooseGradeBand = (nextGradeBand: GradeBandId) => {
     setGradeBand(nextGradeBand);
@@ -65,6 +68,18 @@ export default function WritersWorkshop() {
           Choose the grade, unit, and task first. The year map and extra references are lower on the page when you need them.
         </p>
       </div>
+
+      <section className="rounded-2xl border border-sky-100 bg-sky-50/80 p-4 shadow-sm">
+        <div className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+          <span>Current plan</span>
+          <span className="rounded-full border border-white bg-white px-3 py-1 text-slate-700">Grades {gradeBand}</span>
+          <span className="rounded-full border border-white bg-white px-3 py-1 text-slate-700">Grade {grade}</span>
+          <span className="rounded-full border border-white bg-white px-3 py-1 text-slate-700">{selectedUnitTitle}</span>
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">
+          Stay in this flow until you know the exact unit and task. The shared tools below are supporting references, not the first step.
+        </p>
+      </section>
 
       <section>
         <div className="mb-5 grid gap-4 xl:grid-cols-[220px_220px_minmax(0,1fr)]">
@@ -123,14 +138,17 @@ export default function WritersWorkshop() {
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           {writerTasks.map(({ title, text, href, icon: Icon, accent }) => (
-            <Link key={href} href={`${href}${href.includes("?") ? "&" : "?"}grade=${encodeURIComponent(gradeBand)}&unit=${encodeURIComponent(unit)}`}>
+            <Link
+              key={href}
+              href={`${href}${href.includes("?") ? "&" : "?"}gradeBand=${encodeURIComponent(gradeBand)}&grade=${encodeURIComponent(grade)}&unit=${encodeURIComponent(unit)}`}
+            >
               <Card className="rounded-xl shadow-sm border-slate-200 hover:shadow-md transition-shadow bg-white cursor-pointer h-full">
                 <CardContent className="p-5 flex flex-col gap-4 h-full">
                   <Icon className={`h-10 w-10 ${accent}`} strokeWidth={1.8} />
                   <h2 className="text-lg font-bold text-blue-950">{title}</h2>
                   <p className="text-sm text-slate-600 leading-relaxed flex-1">{text}</p>
                   <span className="font-semibold text-blue-700 text-sm inline-flex items-center gap-2">
-                    Open support <ArrowRight className="h-4 w-4" />
+                    Open planner support <ArrowRight className="h-4 w-4" />
                   </span>
                 </CardContent>
               </Card>

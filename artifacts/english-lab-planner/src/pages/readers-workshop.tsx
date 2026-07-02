@@ -41,6 +41,9 @@ export default function ReadersWorkshop() {
   const [gradeBand, setGradeBand] = useState<GradeBandId>("K-2");
   const [grade, setGrade] = useState<GradeId>("K");
   const [unit, setUnit] = useState(WORKSHOP_UNITS.reader.K[0].id);
+  const selectedUnitTitle =
+    WORKSHOP_UNITS.reader[grade].find((unitOption) => unitOption.id === unit)?.title ??
+    WORKSHOP_UNITS.reader[grade][0].title;
 
   const chooseGradeBand = (nextGradeBand: GradeBandId) => {
     setGradeBand(nextGradeBand);
@@ -64,6 +67,18 @@ export default function ReadersWorkshop() {
           Choose the grade, unit, and task first. The year map and extra references are lower on the page when you need them.
         </p>
       </div>
+
+      <section className="rounded-2xl border border-emerald-100 bg-emerald-50/80 p-4 shadow-sm">
+        <div className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+          <span>Current plan</span>
+          <span className="rounded-full border border-white bg-white px-3 py-1 text-slate-700">Grades {gradeBand}</span>
+          <span className="rounded-full border border-white bg-white px-3 py-1 text-slate-700">Grade {grade}</span>
+          <span className="rounded-full border border-white bg-white px-3 py-1 text-slate-700">{selectedUnitTitle}</span>
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">
+          Stay in this flow until you know the unit and task. The shared WIDA references below are there when you need backup, not before.
+        </p>
+      </section>
 
       <section>
         <div className="mb-5 grid gap-4 xl:grid-cols-[220px_220px_minmax(0,1fr)]">
@@ -132,7 +147,7 @@ export default function ReadersWorkshop() {
                   <h2 className="text-lg font-bold text-blue-950">{title}</h2>
                   <p className="text-sm text-slate-600 leading-relaxed flex-1">{text}</p>
                   <span className="font-semibold text-blue-700 text-sm inline-flex items-center gap-2">
-                    Open quick tool <ArrowRight className="h-4 w-4" />
+                    Open planner support <ArrowRight className="h-4 w-4" />
                   </span>
                 </CardContent>
               </Card>
